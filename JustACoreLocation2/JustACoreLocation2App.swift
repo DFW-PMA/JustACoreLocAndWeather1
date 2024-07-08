@@ -1,6 +1,6 @@
 //
-//  JustACoreLocation2App.swift
-//  JustACoreLocation2
+//  JustACoreLocation1App.swift
+//  JustACoreLocation1
 //
 //  Created by Daryl Cox on 7/7/24.
 //
@@ -8,10 +8,22 @@
 import SwiftUI
 
 @main
-struct JustACoreLocation2App: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
+struct JustACoreLocation1App: App 
+{
+    
+    var coreLocationModelObservable:CoreLocationModelObservable = CoreLocationModelObservable()
+    
+    var body: some Scene
+    {
+        
+        WindowGroup 
+        {
+            
+            ContentView(coreLocationModelObservable:coreLocationModelObservable)
+            
         }
+        
     }
+    
 }
+
