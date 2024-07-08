@@ -26,17 +26,39 @@ struct ContentView: View
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             
-            Spacer(minLength: 20)
+            Spacer(minLength: 10)
             
             Text("Welcome to 'CoreLocation'!")
+                .bold()
             
-            Spacer(minLength: 20)
+            Spacer(minLength: 1)
             
             Text("Current 'location':")
+                .bold()
+                .underline(true, color:.black)
+            
+        //  Spacer(minLength: 1)
+            Text("")
             
             Text("  Latitude: \(String(describing: coreLocationModelObservable.locationManager?.location?.coordinate.latitude))")
             
             Text("  Longitude: \(String(describing: coreLocationModelObservable.locationManager?.location?.coordinate.longitude))")
+            
+        //  Spacer(minLength: 1)
+            Text("")
+            
+            Text("Current 'heading':")
+                .bold()
+                .underline(true, color:.black)
+            
+        //  Spacer(minLength: 1)
+            Text("")
+            
+            Text("  Heading (True): \(String(describing:coreLocationModelObservable.locationManager?.heading?.trueHeading))")
+            
+            Text("  Heading (Magnetic): \(String(describing:coreLocationModelObservable.locationManager?.heading?.magneticHeading))")
+            
+            Text("  Heading (TimeStamp): \(String(describing:coreLocationModelObservable.locationManager?.heading?.timestamp))")
             
             Spacer(minLength: 20)
             
