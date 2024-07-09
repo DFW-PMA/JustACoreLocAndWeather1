@@ -45,11 +45,20 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F07940162C3B67C100917B3B"
+            BuildableName = "JustACoreLocAndWeather1.app"
+            BlueprintName = "JustACoreLocAndWeather1"
+            ReferencedContainer = "container:JustACoreLocAndWeather1.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "F07940162C3B67C100917B3B"
             BuildableName = "JustACoreLocation2.app"
             BlueprintName = "JustACoreLocation2"
             ReferencedContainer = "container:JustACoreLocation2.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "IDEPreferLogStreaming"
@@ -74,6 +83,15 @@
             ReferencedContainer = "container:JustACoreLocation2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "F07940162C3B67C100917B3B"
+            BuildableName = "JustACoreLocation2.app"
+            BlueprintName = "JustACoreLocation2"
+            ReferencedContainer = "container:JustACoreLocation2.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

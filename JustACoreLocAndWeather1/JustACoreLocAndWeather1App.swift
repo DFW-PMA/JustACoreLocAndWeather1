@@ -1,14 +1,15 @@
 //
-//  JustACoreLocation1App.swift
-//  JustACoreLocation1
+//  JustACoreLocAndWeather1App.swift
+//  JustACoreLocAndWeather1
 //
-//  Created by Daryl Cox on 7/7/24.
+//  Created by Daryl Cox on 07/08/2024.
+//  Copyright © JustMacApps 2023-2024. All rights reserved.
 //
 
 import SwiftUI
 
 @main
-struct JustACoreLocation1App: App 
+struct JustACoreLocAndWeather1App: App 
 {
     
     var coreLocationModelObservable:CoreLocationModelObservable = CoreLocationModelObservable()

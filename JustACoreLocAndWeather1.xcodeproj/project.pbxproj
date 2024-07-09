@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F079401B2C3B67C100917B3B /* JustACoreLocation2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079401A2C3B67C100917B3B /* JustACoreLocation2App.swift */; };
+		F079401B2C3B67C100917B3B /* JustACoreLocAndWeather1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079401A2C3B67C100917B3B /* JustACoreLocAndWeather1App.swift */; };
 		F079401F2C3B67C200917B3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F079401E2C3B67C200917B3B /* Assets.xcassets */; };
 		F07940222C3B67C200917B3B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F07940212C3B67C200917B3B /* Preview Assets.xcassets */; };
 		F08597AC2C3B6B17009013C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08597AB2C3B6B17009013C7 /* ContentView.swift */; };
@@ -15,8 +15,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F07940172C3B67C100917B3B /* JustACoreLocation2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustACoreLocation2.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F079401A2C3B67C100917B3B /* JustACoreLocation2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustACoreLocation2App.swift; sourceTree = "<group>"; };
+		F07940172C3B67C100917B3B /* JustACoreLocAndWeather1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustACoreLocAndWeather1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F079401A2C3B67C100917B3B /* JustACoreLocAndWeather1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustACoreLocAndWeather1App.swift; sourceTree = "<group>"; };
 		F079401E2C3B67C200917B3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F07940212C3B67C200917B3B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F08597AB2C3B6B17009013C7 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -37,7 +37,7 @@
 		F079400E2C3B67C100917B3B = {
 			isa = PBXGroup;
 			children = (
-				F07940192C3B67C100917B3B /* JustACoreLocation2 */,
+				F07940192C3B67C100917B3B /* JustACoreLocAndWeather1 */,
 				F07940182C3B67C100917B3B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,21 +45,21 @@
 		F07940182C3B67C100917B3B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F07940172C3B67C100917B3B /* JustACoreLocation2.app */,
+				F07940172C3B67C100917B3B /* JustACoreLocAndWeather1.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F07940192C3B67C100917B3B /* JustACoreLocation2 */ = {
+		F07940192C3B67C100917B3B /* JustACoreLocAndWeather1 */ = {
 			isa = PBXGroup;
 			children = (
-				F079401A2C3B67C100917B3B /* JustACoreLocation2App.swift */,
+				F079401A2C3B67C100917B3B /* JustACoreLocAndWeather1App.swift */,
 				F07940292C3B67D800917B3B /* Models */,
 				F07940282C3B67CD00917B3B /* Views */,
 				F079401E2C3B67C200917B3B /* Assets.xcassets */,
 				F07940202C3B67C200917B3B /* Preview Content */,
 			);
-			path = JustACoreLocation2;
+			path = JustACoreLocAndWeather1;
 			sourceTree = "<group>";
 		};
 		F07940202C3B67C200917B3B /* Preview Content */ = {
@@ -89,9 +89,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F07940162C3B67C100917B3B /* JustACoreLocation2 */ = {
+		F07940162C3B67C100917B3B /* JustACoreLocAndWeather1 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F07940252C3B67C200917B3B /* Build configuration list for PBXNativeTarget "JustACoreLocation2" */;
+			buildConfigurationList = F07940252C3B67C200917B3B /* Build configuration list for PBXNativeTarget "JustACoreLocAndWeather1" */;
 			buildPhases = (
 				F07940132C3B67C100917B3B /* Sources */,
 				F07940142C3B67C100917B3B /* Frameworks */,
@@ -101,9 +101,9 @@
 			);
 			dependencies = (
 			);
-			name = JustACoreLocation2;
-			productName = JustACoreLocation2;
-			productReference = F07940172C3B67C100917B3B /* JustACoreLocation2.app */;
+			name = JustACoreLocAndWeather1;
+			productName = JustACoreLocAndWeather1;
+			productReference = F07940172C3B67C100917B3B /* JustACoreLocAndWeather1.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -121,7 +121,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F07940122C3B67C100917B3B /* Build configuration list for PBXProject "JustACoreLocation2" */;
+			buildConfigurationList = F07940122C3B67C100917B3B /* Build configuration list for PBXProject "JustACoreLocAndWeather1" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -134,7 +134,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F07940162C3B67C100917B3B /* JustACoreLocation2 */,
+				F07940162C3B67C100917B3B /* JustACoreLocAndWeather1 */,
 			);
 		};
 /* End PBXProject section */
@@ -158,7 +158,7 @@
 			files = (
 				F08597AC2C3B6B17009013C7 /* ContentView.swift in Sources */,
 				F08597AE2C3B6B24009013C7 /* CoreLocationModelObservable.swift in Sources */,
-				F079401B2C3B67C100917B3B /* JustACoreLocation2App.swift in Sources */,
+				F079401B2C3B67C100917B3B /* JustACoreLocAndWeather1App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,14 +290,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 02.01.24C190;
-				DEVELOPMENT_ASSET_PATHS = "\"JustACoreLocation2/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 01.01.24C190;
+				DEVELOPMENT_ASSET_PATHS = "\"JustACoreLocAndWeather1/Preview Content\"";
 				DEVELOPMENT_TEAM = J434W9VGHF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023-2024 JustMacApps. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © JustMacApps 2023-2024. All rights reserved.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This App uses your Location to provice City and Weather information";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This App uses your Location to provice City and Weather information";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This App uses your Location to provice City and Weather information";
@@ -311,7 +311,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.01;
-				PRODUCT_BUNDLE_IDENTIFIER = net.justmacapps.JustACoreLocation2;
+				PRODUCT_BUNDLE_IDENTIFIER = net.justmacapps.JustACoreLocAndWeather1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -325,14 +325,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 02.01.24C190;
-				DEVELOPMENT_ASSET_PATHS = "\"JustACoreLocation2/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 01.01.24C190;
+				DEVELOPMENT_ASSET_PATHS = "\"JustACoreLocAndWeather1/Preview Content\"";
 				DEVELOPMENT_TEAM = J434W9VGHF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023-2024 JustMacApps. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © JustMacApps 2023-2024. All rights reserved.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This App uses your Location to provice City and Weather information";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This App uses your Location to provice City and Weather information";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This App uses your Location to provice City and Weather information";
@@ -346,7 +346,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.01;
-				PRODUCT_BUNDLE_IDENTIFIER = net.justmacapps.JustACoreLocation2;
+				PRODUCT_BUNDLE_IDENTIFIER = net.justmacapps.JustACoreLocAndWeather1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -357,7 +357,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F07940122C3B67C100917B3B /* Build configuration list for PBXProject "JustACoreLocation2" */ = {
+		F07940122C3B67C100917B3B /* Build configuration list for PBXProject "JustACoreLocAndWeather1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F07940232C3B67C200917B3B /* Debug */,
@@ -366,7 +366,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F07940252C3B67C200917B3B /* Build configuration list for PBXNativeTarget "JustACoreLocation2" */ = {
+		F07940252C3B67C200917B3B /* Build configuration list for PBXNativeTarget "JustACoreLocAndWeather1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F07940262C3B67C200917B3B /* Debug */,

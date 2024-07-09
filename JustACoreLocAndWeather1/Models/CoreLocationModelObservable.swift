@@ -1,8 +1,9 @@
 //
 //  CoreLocationModelObservable.swift
-//  JustACoreLocation1
+//  JustACoreLocAndWeather1
 //
-//  Created by Daryl Cox on 7/7/24.
+//  Created by Daryl Cox on 07/08/2024.
+//  Copyright © JustMacApps 2023-2024. All rights reserved.
 //
 
 import Foundation
