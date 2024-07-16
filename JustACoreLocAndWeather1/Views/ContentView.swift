@@ -29,7 +29,7 @@ struct ContentView: View
             
             Spacer(minLength: 10)
             
-            Text("Welcome to 'CoreLocation'!")
+            Text("Welcome to the 'JustACoreLocAndWeather1' App!")
                 .bold()
             
             Spacer(minLength: 1)

@@ -137,3 +137,12 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
     
 }
 
+// --------------------------------------------------------------------------------------------------------------------
+//  Examples:
+//  *) Points (Lat,Long): https://api.weather.gov/points/39.7456,-97.0892
+//  *) Forecast (from 'Points'->"properties"->"forecast": https://api.weather.gov/gridpoints/TOP/32,81/forecast
+//  N.Richland Hills, Tx:
+//  *) Points: https://api.weather.gov/points/32.8601,-97.2289
+//  *) Forecast: https://api.weather.gov/gridpoints/FWD/73,108/forecast
+// --------------------------------------------------------------------------------------------------------------------
+
