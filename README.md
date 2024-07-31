@@ -22,7 +22,7 @@ This project is still in BETA and has not been officially released.
 
 ## Installation instructions
 
---- Steps to install ---
+--- Steps to install (various OS's) ---
 
 1) ...
 
