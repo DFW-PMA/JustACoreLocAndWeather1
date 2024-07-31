@@ -15,6 +15,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F004D61C2C59C88F00F847EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F004D61D2C59D3B800F847EE /* JustACoreLocAndWeather1.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = JustACoreLocAndWeather1.gpx; path = JustACoreLocAndWeather1/JustACoreLocAndWeather1.gpx; sourceTree = "<group>"; };
 		F07940172C3B67C100917B3B /* JustACoreLocAndWeather1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustACoreLocAndWeather1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F079401A2C3B67C100917B3B /* JustACoreLocAndWeather1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustACoreLocAndWeather1App.swift; sourceTree = "<group>"; };
 		F079401E2C3B67C200917B3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -37,6 +39,7 @@
 		F079400E2C3B67C100917B3B = {
 			isa = PBXGroup;
 			children = (
+				F004D61D2C59D3B800F847EE /* JustACoreLocAndWeather1.gpx */,
 				F07940192C3B67C100917B3B /* JustACoreLocAndWeather1 */,
 				F07940182C3B67C100917B3B /* Products */,
 			);
@@ -53,6 +56,7 @@
 		F07940192C3B67C100917B3B /* JustACoreLocAndWeather1 */ = {
 			isa = PBXGroup;
 			children = (
+				F004D61C2C59C88F00F847EE /* Info.plist */,
 				F079401A2C3B67C100917B3B /* JustACoreLocAndWeather1App.swift */,
 				F07940292C3B67D800917B3B /* Models */,
 				F07940282C3B67CD00917B3B /* Views */,
@@ -290,16 +294,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 01.04.24C197;
+				CURRENT_PROJECT_VERSION = 02.08.24C212;
 				DEVELOPMENT_ASSET_PATHS = "\"JustACoreLocAndWeather1/Preview Content\"";
 				DEVELOPMENT_TEAM = J434W9VGHF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JustACoreLocAndWeather1/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = JustACoreLocAndWeather1;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © JustMacApps 2023-2024. All rights reserved.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This App uses your Location to provice City and Weather information";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This App uses your Location to provice City and Weather information";
+				INFOPLIST_KEY_NSLocationUsageDescription = "This App uses your Location to provice City and Weather information";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This App uses your Location to provice City and Weather information";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -325,16 +331,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 01.04.24C197;
+				CURRENT_PROJECT_VERSION = 02.08.24C212;
 				DEVELOPMENT_ASSET_PATHS = "\"JustACoreLocAndWeather1/Preview Content\"";
 				DEVELOPMENT_TEAM = J434W9VGHF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JustACoreLocAndWeather1/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = JustACoreLocAndWeather1;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © JustMacApps 2023-2024. All rights reserved.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This App uses your Location to provice City and Weather information";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This App uses your Location to provice City and Weather information";
+				INFOPLIST_KEY_NSLocationUsageDescription = "This App uses your Location to provice City and Weather information";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This App uses your Location to provice City and Weather information";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

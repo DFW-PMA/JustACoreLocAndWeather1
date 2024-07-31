@@ -13,12 +13,31 @@ import CoreLocation
 class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, ObservableObject
 {
     
+    struct ClassInfo
+    {
+        
+        static let sClsId        = "CoreLocationModelObservable"
+        static let sClsVers      = "v1.0203"
+        static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
+        static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
+        static let bClsTrace     = true
+        static let bClsFileLog   = true
+        
+    }
+
+    // App Data field(s):
+    
     var locationManager:CLLocationManager?
     
     override init()
     {
         
+        let sCurrMethod:String = #function
+        let sCurrMethodDisp    = "'"+sCurrMethod+"'"
+
         super.init()
+
+        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
         
         self.locationManager = CLLocationManager()
         
@@ -28,36 +47,64 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
         
         self.requestLocationUpdate()
         
-    }
+        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
+        
+    }   // End of override init().
     
-    private func requestLocationUpdate()
+    public func requestLocationUpdate()
     {
+        
+        let sCurrMethod:String = #function
+        let sCurrMethodDisp    = "'"+sCurrMethod+"'"
+
+        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
         
         self.locationManager?.requestLocation()
         
     //  self.locationManager?.startUpdatingLocation()
         
-    }
+        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
+        
+    }   // End of public func requestLocationUpdate().
     
-    private func stopLocationUpdate()
+    public func stopLocationUpdate()
     {
+        
+        let sCurrMethod:String = #function
+        let sCurrMethodDisp    = "'"+sCurrMethod+"'"
+
+        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
         
         self.locationManager?.stopUpdatingLocation()
         
-    }
+        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
+        
+    }   // End of public func stopLocationUpdate().
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
+        
+        let sCurrMethod:String = #function
+        let sCurrMethodDisp    = "'"+sCurrMethod+"'"
+
+        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
         
         guard let location = locations.last
         else { return }
         
         print("Latitude: \(location.coordinate.latitude), Longitude: \(location.coordinate.longitude)")
         
-    }
+        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
+        
+    }   // End of func locationManager().
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
     {
+        
+        let sCurrMethod:String = #function
+        let sCurrMethodDisp    = "'"+sCurrMethod+"'"
+
+        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
         
         self.locationManager?.stopUpdatingLocation()
         
@@ -97,10 +144,17 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
             
         }
         
-    }
+        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
+        
+    }   // End of func locationManager().
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager)
     {
+        
+        let sCurrMethod:String = #function
+        let sCurrMethodDisp    = "'"+sCurrMethod+"'"
+
+        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
         
         switch manager.authorizationStatus
         {
@@ -133,9 +187,11 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
             
         }
         
-    }
+        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
+        
+    }   // End of func locationManagerDidChangeAuthorization().
     
-}
+}   // End of class CoreLocationModelObservable(NSObject, CLLocationManagerDelegate, ObservableObject).
 
 // --------------------------------------------------------------------------------------------------------------------
 //  Examples:

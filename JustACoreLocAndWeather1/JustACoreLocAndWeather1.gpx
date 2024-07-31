@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xmlns="http://www.topografix.com/GPX/1/1" 
+     xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" 
+     version="1.1" 
+     creator="Open GPX Tracker for iOS">  
+  <wpt lat="32.8631591796865" lon="-97.1930572081912"> 
+    <time>2024-07-30T14:19:25Z</time>
+    <name>North Richland Hills</name>
+    <desc>North Richland Hills, Texas 76182</desc>
+  </wpt>
+</gpx>
