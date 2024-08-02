@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F02D4EAB2C5DA1B900D5106E /* JmStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D4EA92C5DA1B900D5106E /* JmStringExtensions.swift */; };
+		F02D4EAC2C5DA1B900D5106E /* JmFileIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D4EAA2C5DA1B900D5106E /* JmFileIO.swift */; };
+		F02D4EAF2C5DA1C600D5106E /* HelpBasicLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D4EAD2C5DA1C600D5106E /* HelpBasicLoader.swift */; };
+		F02D4EB02C5DA1C600D5106E /* HelpBasicMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D4EAE2C5DA1C600D5106E /* HelpBasicMode.swift */; };
+		F02D4EB32C5DA1D100D5106E /* HelpBasic.html in Resources */ = {isa = PBXBuildFile; fileRef = F02D4EB12C5DA1D100D5106E /* HelpBasic.html */; };
+		F02D4EB42C5DA1D100D5106E /* HelpBasic.md in Resources */ = {isa = PBXBuildFile; fileRef = F02D4EB22C5DA1D100D5106E /* HelpBasic.md */; };
+		F02D4EB72C5DA1DE00D5106E /* HelpBasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D4EB52C5DA1DE00D5106E /* HelpBasicView.swift */; };
+		F02D4EB82C5DA1DE00D5106E /* LogFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D4EB62C5DA1DE00D5106E /* LogFileView.swift */; };
+		F02D4EBC2C5DA1FB00D5106E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F02D4EB92C5DA1FB00D5106E /* README.md */; };
+		F02D4EBD2C5DA1FB00D5106E /* JustACoreLocAndWeather1AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D4EBA2C5DA1FB00D5106E /* JustACoreLocAndWeather1AppDelegate.swift */; };
+		F02D4EBE2C5DA1FB00D5106E /* JustACoreLocAndWeather1AppGlobalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D4EBB2C5DA1FB00D5106E /* JustACoreLocAndWeather1AppGlobalInfo.swift */; };
 		F079401B2C3B67C100917B3B /* JustACoreLocAndWeather1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079401A2C3B67C100917B3B /* JustACoreLocAndWeather1App.swift */; };
 		F079401F2C3B67C200917B3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F079401E2C3B67C200917B3B /* Assets.xcassets */; };
 		F07940222C3B67C200917B3B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F07940212C3B67C200917B3B /* Preview Assets.xcassets */; };
@@ -18,6 +29,17 @@
 /* Begin PBXFileReference section */
 		F004D61C2C59C88F00F847EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F004D61D2C59D3B800F847EE /* JustACoreLocAndWeather1.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = JustACoreLocAndWeather1.gpx; path = JustACoreLocAndWeather1/JustACoreLocAndWeather1.gpx; sourceTree = "<group>"; };
+		F02D4EA92C5DA1B900D5106E /* JmStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JmStringExtensions.swift; sourceTree = "<group>"; };
+		F02D4EAA2C5DA1B900D5106E /* JmFileIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JmFileIO.swift; sourceTree = "<group>"; };
+		F02D4EAD2C5DA1C600D5106E /* HelpBasicLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpBasicLoader.swift; sourceTree = "<group>"; };
+		F02D4EAE2C5DA1C600D5106E /* HelpBasicMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpBasicMode.swift; sourceTree = "<group>"; };
+		F02D4EB12C5DA1D100D5106E /* HelpBasic.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = HelpBasic.html; sourceTree = "<group>"; };
+		F02D4EB22C5DA1D100D5106E /* HelpBasic.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = HelpBasic.md; sourceTree = "<group>"; };
+		F02D4EB52C5DA1DE00D5106E /* HelpBasicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpBasicView.swift; sourceTree = "<group>"; };
+		F02D4EB62C5DA1DE00D5106E /* LogFileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFileView.swift; sourceTree = "<group>"; };
+		F02D4EB92C5DA1FB00D5106E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F02D4EBA2C5DA1FB00D5106E /* JustACoreLocAndWeather1AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JustACoreLocAndWeather1AppDelegate.swift; sourceTree = "<group>"; };
+		F02D4EBB2C5DA1FB00D5106E /* JustACoreLocAndWeather1AppGlobalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JustACoreLocAndWeather1AppGlobalInfo.swift; sourceTree = "<group>"; };
 		F07940172C3B67C100917B3B /* JustACoreLocAndWeather1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustACoreLocAndWeather1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F079401A2C3B67C100917B3B /* JustACoreLocAndWeather1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustACoreLocAndWeather1App.swift; sourceTree = "<group>"; };
 		F079401E2C3B67C200917B3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -41,6 +63,8 @@
 		F02D4EA72C5DA0EA00D5106E /* JmUtils */ = {
 			isa = PBXGroup;
 			children = (
+				F02D4EAA2C5DA1B900D5106E /* JmFileIO.swift */,
+				F02D4EA92C5DA1B900D5106E /* JmStringExtensions.swift */,
 			);
 			path = JmUtils;
 			sourceTree = "<group>";
@@ -48,6 +72,8 @@
 		F02D4EA82C5DA10000D5106E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F02D4EB12C5DA1D100D5106E /* HelpBasic.html */,
+				F02D4EB22C5DA1D100D5106E /* HelpBasic.md */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -72,8 +98,11 @@
 		F07940192C3B67C100917B3B /* JustACoreLocAndWeather1 */ = {
 			isa = PBXGroup;
 			children = (
-				F004D61C2C59C88F00F847EE /* Info.plist */,
+				F02D4EBB2C5DA1FB00D5106E /* JustACoreLocAndWeather1AppGlobalInfo.swift */,
 				F079401A2C3B67C100917B3B /* JustACoreLocAndWeather1App.swift */,
+				F02D4EBA2C5DA1FB00D5106E /* JustACoreLocAndWeather1AppDelegate.swift */,
+				F02D4EB92C5DA1FB00D5106E /* README.md */,
+				F004D61C2C59C88F00F847EE /* Info.plist */,
 				F02D4EA72C5DA0EA00D5106E /* JmUtils */,
 				F07940292C3B67D800917B3B /* Models */,
 				F02D4EA82C5DA10000D5106E /* Resources */,
@@ -95,6 +124,8 @@
 		F07940282C3B67CD00917B3B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F02D4EB52C5DA1DE00D5106E /* HelpBasicView.swift */,
+				F02D4EB62C5DA1DE00D5106E /* LogFileView.swift */,
 				F0B1D9EE2C5D58DD00469598 /* SettingsSingleView.swift */,
 				F08597AB2C3B6B17009013C7 /* ContentView.swift */,
 			);
@@ -104,6 +135,8 @@
 		F07940292C3B67D800917B3B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F02D4EAD2C5DA1C600D5106E /* HelpBasicLoader.swift */,
+				F02D4EAE2C5DA1C600D5106E /* HelpBasicMode.swift */,
 				F08597AD2C3B6B24009013C7 /* CoreLocationModelObservable.swift */,
 			);
 			path = Models;
@@ -168,6 +201,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F07940222C3B67C200917B3B /* Preview Assets.xcassets in Resources */,
+				F02D4EB32C5DA1D100D5106E /* HelpBasic.html in Resources */,
+				F02D4EBC2C5DA1FB00D5106E /* README.md in Resources */,
+				F02D4EB42C5DA1D100D5106E /* HelpBasic.md in Resources */,
 				F079401F2C3B67C200917B3B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,9 +215,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F02D4EAC2C5DA1B900D5106E /* JmFileIO.swift in Sources */,
+				F02D4EBE2C5DA1FB00D5106E /* JustACoreLocAndWeather1AppGlobalInfo.swift in Sources */,
 				F08597AC2C3B6B17009013C7 /* ContentView.swift in Sources */,
+				F02D4EAB2C5DA1B900D5106E /* JmStringExtensions.swift in Sources */,
+				F02D4EB82C5DA1DE00D5106E /* LogFileView.swift in Sources */,
+				F02D4EBD2C5DA1FB00D5106E /* JustACoreLocAndWeather1AppDelegate.swift in Sources */,
 				F0B1D9EF2C5D58DE00469598 /* SettingsSingleView.swift in Sources */,
 				F08597AE2C3B6B24009013C7 /* CoreLocationModelObservable.swift in Sources */,
+				F02D4EAF2C5DA1C600D5106E /* HelpBasicLoader.swift in Sources */,
+				F02D4EB02C5DA1C600D5106E /* HelpBasicMode.swift in Sources */,
+				F02D4EB72C5DA1DE00D5106E /* HelpBasicView.swift in Sources */,
 				F079401B2C3B67C100917B3B /* JustACoreLocAndWeather1App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
