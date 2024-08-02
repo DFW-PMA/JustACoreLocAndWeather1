@@ -17,7 +17,7 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
     {
         
         static let sClsId        = "CoreLocationModelObservable"
-        static let sClsVers      = "v1.0203"
+        static let sClsVers      = "v1.0301"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -43,7 +43,10 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
         
         self.locationManager?.delegate = self
         
-        self.locationManager?.requestWhenInUseAuthorization()
+        self.locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+        
+    //  self.locationManager?.requestWhenInUseAuthorization()
+        self.locationManager?.requestAlwaysAuthorization()
         
         self.requestLocationUpdate()
         
