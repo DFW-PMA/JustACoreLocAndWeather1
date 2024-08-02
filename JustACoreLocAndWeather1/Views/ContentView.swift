@@ -39,7 +39,8 @@ struct ContentView: View
         VStack
         {
             
-            Image(systemName: "globe.desk.fill")
+        //  Image(systemName: "globe.desk.fill")
+            Image(systemName: "gearshape")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             
