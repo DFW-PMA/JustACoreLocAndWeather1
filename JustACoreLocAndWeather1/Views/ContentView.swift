@@ -15,7 +15,7 @@ struct ContentView: View
     {
         
         static let sClsId        = "ContentView"
-        static let sClsVers      = "v1.0305"
+        static let sClsVers      = "v1.0306"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -62,8 +62,10 @@ struct ContentView: View
 
                     Label("", systemImage: "gearshape")
                         .padding()
-                        .foregroundStyle(.black)
-                        .background(.white)
+                        .imageScale(.large)
+                        .foregroundStyle(.tint)
+                    //  .foregroundStyle(.black)
+                    //  .background(.white)
 
                 }
                 .sheet(isPresented:$isAppSettingsModal, content:
