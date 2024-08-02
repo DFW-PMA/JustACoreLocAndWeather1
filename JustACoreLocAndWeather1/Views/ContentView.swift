@@ -15,7 +15,7 @@ struct ContentView: View
     {
         
         static let sClsId        = "ContentView"
-        static let sClsVers      = "v1.0202"
+        static let sClsVers      = "v1.0305"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -27,7 +27,9 @@ struct ContentView: View
     
     @StateObject   var coreLocationModelObservable:CoreLocationModelObservable
     
-    @State private var cContentViewRefreshButtonPresses:Int = 0
+    @State private var cContentViewRefreshButtonPresses:Int  = 0
+    @State private var cContentViewSettingsButtonPresses:Int = 0
+    @State private var isAppSettingsModal:Bool               = false
     
     var body: some View
     {
@@ -38,17 +40,86 @@ struct ContentView: View
         
         VStack
         {
+
+            HStack
+            {
+
+                Spacer()
+
+            //  Button("Settings...")
+                Button
+                {
+
+                    self.cContentViewSettingsButtonPresses += 1
+
+                    let _ = print("...\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Settings'.#(\(self.cContentViewSettingsButtonPresses))...")
+
+                    self.isAppSettingsModal.toggle()
+
+                }
+                label: 
+                {
+
+                    Label("", systemImage: "gearshape")
+                        .padding()
+                        .foregroundStyle(.black)
+                        .background(.white)
+
+                }
+                .sheet(isPresented:$isAppSettingsModal, content:
+                {
+
+                    SettingsSingleView()
+
+                })
+
+            //  Button
+            //  {
+            //
+            //      self.cContentViewSettingsButtonPresses += 1
+            //
+            //      self.refreshCoreLocation()
+            //
+            //      let _ = print("...\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Settings'.#(\(self.cContentViewSettingsButtonPresses))...")
+            //
+            //  }  
+            //  label: 
+            //  {
+            //
+            //  //  Label("Settings - #(\(self.cContentViewSettingsButtonPresses))...", systemImage: "gearshape")
+            //      Label("", systemImage: "gearshape")
+            //          .padding()
+            //          .foregroundStyle(.black)
+            //          .background(.white)
+            //
+            //  }
+
+            }
             
-        //  Image(systemName: "globe.desk.fill")
-            Image(systemName: "gearshape")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
+            Spacer()
+            
+            HStack
+            {
+
+                Spacer()
+
+                Image(systemName: "globe.desk.fill")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+
+            //  Image(systemName: "gearshape")
+            //      .imageScale(.large)
+            //      .foregroundStyle(.tint)
+
+                Spacer()
+
+            }
             
             Spacer(minLength: 10)
             
             Text("Welcome to the 'JustACoreLocAndWeather1' App!")
                 .bold()
-            
+
             Spacer(minLength: 1)
             
             Text("Current 'location':")
@@ -91,8 +162,50 @@ struct ContentView: View
             .background(Color(red: 0, green: 0.5, blue: 0.5))
             .foregroundStyle(.white)
             .buttonStyle(.borderedProminent)
-            
+
             Spacer()
+            
+            HStack(alignment:.center)
+            {
+                
+                Spacer()
+                
+                VStack(alignment:.center)
+                {
+                    
+                    Text("'JustACoreLocAndWeather1' App information:")
+                        .bold()
+                        .controlSize(.regular)
+
+                    Text("\(ClassInfo.sClsDisp):body(some View)")
+                        .italic()
+                        .controlSize(.mini)
+
+                    Text("\(ClassInfo.sClsCopyRight)")
+                        .italic()
+                        .controlSize(.mini)
+                    
+                }
+                
+                Spacer()
+                
+            }
+
+            Spacer()
+            
+        //  Spacer()
+        //
+        //  Text("'JustACoreLocAndWeather1' App information:")
+        //      .bold()
+        //      .controlSize(.mini)
+        //
+        //  Text("\(ClassInfo.sClsDisp):body(some View)")
+        //      .controlSize(.small)
+        //
+        //  Text("\(ClassInfo.sClsCopyRight)")
+        //      .controlSize(.mini)
+        //  
+        //  Spacer()
             
         }
         .padding()
@@ -108,7 +221,7 @@ struct ContentView: View
 
         return
 
-    }   // End of func xcgLoggerMsg().
+    }   // End of func refreshCoreLocation().
 
 }
 
