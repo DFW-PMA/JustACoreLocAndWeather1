@@ -17,7 +17,7 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
     {
         
         static let sClsId        = "CoreLocationModelObservable"
-        static let sClsVers      = "v1.0301"
+        static let sClsVers      = "v1.0401"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -28,6 +28,19 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
     // App Data field(s):
     
     var locationManager:CLLocationManager?
+    
+    @Published var sCurrentLocation:CLLocation?         = nil
+    @Published var sCurrentLocationName:String          = "-N/A-"
+    @Published var sCurrentCity:String                  = "-N/A-"
+    @Published var sCurrentCountry:String               = "-N/A-"
+    @Published var sCurrentPostalCode:String            = "-N/A-"
+    @Published var tzCurrentTimeZone:TimeZone?          = nil
+    @Published var clCurrentRegion:CLRegion?            = nil
+    @Published var sCurrentSubLocality:String           = "-N/A-"
+    @Published var sCurrentThoroughfare:String          = "-N/A-"
+    @Published var sCurrentSubThoroughfare:String       = "-N/A-"
+    @Published var sCurrentAdministrativeArea:String    = "-N/A-"
+    @Published var sCurrentSubAdministrativeArea:String = "-N/A-"
     
     override init()
     {
@@ -83,6 +96,67 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
         print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
         
     }   // End of public func stopLocationUpdate().
+    
+    public func updateGeocoderLocation(latitude: Double, longitude: Double) -> Bool
+//                                     completion: @escaping (String?, String?) -> Void)
+//        {
+//            CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude)) { placemarks, _ in
+//            guard let placemark = placemarks?.first else { completion(nil, nil); return }
+//            self.cityName = placemark.locality ?? ""
+//            self.countryName = placemark.country ?? ""
+//            completion(self.cityName, self.countryName)
+//        }
+    {
+        
+        let sCurrMethod:String = #function
+        let sCurrMethodDisp    = "'"+sCurrMethod+"'"
+        
+        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
+        
+        let clGeocoder:CLGeocoder      = CLGeocoder()
+        let currentLocation:CLLocation = CLLocation(latitude: latitude, longitude: longitude)
+        
+        clGeocoder.reverseGeocodeLocation(currentLocation, completionHandler: 
+                                             { (placemarks, error) in
+                                                 if error == nil 
+                                                 {
+
+                                                     let firstLocation                  = placemarks?[0]
+
+                                                     self.sCurrentLocation              = firstLocation?.location
+                                                     self.sCurrentLocationName          = firstLocation?.name                  ?? "-N/A-"
+                                                     self.sCurrentCity                  = firstLocation?.locality              ?? "-N/A-"
+                                                     self.sCurrentCountry               = firstLocation?.country               ?? "-N/A-"
+                                                     self.sCurrentPostalCode            = firstLocation?.postalCode            ?? "-N/A-"
+                                                     self.tzCurrentTimeZone             = firstLocation?.timeZone
+                                                     self.clCurrentRegion               = firstLocation?.region
+                                                     self.sCurrentSubLocality           = firstLocation?.subLocality           ?? "-N/A-"
+                                                     self.sCurrentThoroughfare          = firstLocation?.thoroughfare          ?? "-N/A-"
+                                                     self.sCurrentSubThoroughfare       = firstLocation?.subThoroughfare       ?? "-N/A-"
+                                                     self.sCurrentAdministrativeArea    = firstLocation?.administrativeArea    ?? "-N/A-"
+                                                     self.sCurrentSubAdministrativeArea = firstLocation?.subAdministrativeArea ?? "-N/A-"
+
+                                                 //  completion(firstLocation)
+
+                                                     return
+
+                                                 }
+                                                 else 
+                                                 {
+
+                                                     // An error occurred during geocoding.
+                                                     //     completionHandler(nil)
+
+                                                     return
+                                                 }
+                                             }
+                                         )
+        
+        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
+        
+        return true
+        
+    }   // End of public func updateGeocoderLocations().
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {

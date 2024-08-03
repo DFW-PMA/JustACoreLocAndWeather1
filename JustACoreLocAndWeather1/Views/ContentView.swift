@@ -15,7 +15,7 @@ struct ContentView: View
     {
         
         static let sClsId        = "ContentView"
-        static let sClsVers      = "v1.0306"
+        static let sClsVers      = "v1.0401"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -36,7 +36,7 @@ struct ContentView: View
         
         let _ = print("\(ClassInfo.sClsDisp):body(some View) \(ClassInfo.sClsCopyRight)...")
         
-        Spacer(minLength: 100)
+        Spacer(minLength: 50)
         
         VStack
         {
@@ -109,29 +109,24 @@ struct ContentView: View
                     .imageScale(.large)
                     .foregroundStyle(.tint)
 
-            //  Image(systemName: "gearshape")
-            //      .imageScale(.large)
-            //      .foregroundStyle(.tint)
-
                 Spacer()
 
             }
             
-            Spacer(minLength: 10)
+            Spacer(minLength: 2)
             
             Text("Welcome to the 'JustACoreLocAndWeather1' App!")
                 .bold()
 
-            Spacer(minLength: 1)
+            Spacer(minLength: 2)
             
-            Text("Current 'location':")
+            Text("Current 'location (Latitude/Longitude)':")
                 .bold()
                 .underline(true, color:.black)
             
             Text("")
             
-            Text("  Latitude: \(String(describing: coreLocationModelObservable.locationManager?.location?.coordinate.latitude))")
-            
+            Text("  Latitude : \(String(describing: coreLocationModelObservable.locationManager?.location?.coordinate.latitude))")
             Text("  Longitude: \(String(describing: coreLocationModelObservable.locationManager?.location?.coordinate.longitude))")
             
             Text("")
@@ -142,13 +137,32 @@ struct ContentView: View
             
             Text("")
             
-            Text("  Heading (True): \(String(describing:coreLocationModelObservable.locationManager?.heading?.trueHeading))")
-            
-            Text("  Heading (Magnetic): \(String(describing:coreLocationModelObservable.locationManager?.heading?.magneticHeading))")
-            
+            Text("  Heading (True)     : \(String(describing:coreLocationModelObservable.locationManager?.heading?.trueHeading))")
+            Text("  Heading (Magnetic) : \(String(describing:coreLocationModelObservable.locationManager?.heading?.magneticHeading))")
             Text("  Heading (TimeStamp): \(String(describing:coreLocationModelObservable.locationManager?.heading?.timestamp))")
+
+            Text("")
             
-            Spacer(minLength: 20)
+            Text("Current 'site' (City,Country,TimeZone, etc.):")
+                .bold()
+                .underline(true, color:.black)
+            
+            Text("")
+            
+            Text("  Location (Lat/Long)    : \(String(describing:coreLocationModelObservable.sCurrentLocation))")
+            Text("  Location 'Name'        : \(String(describing:coreLocationModelObservable.sCurrentLocationName))")
+            Text("  City                   : \(String(describing:coreLocationModelObservable.sCurrentCity))")
+            Text("  Country                : \(String(describing:coreLocationModelObservable.sCurrentCountry))")
+            Text("  Postal Code            : \(String(describing:coreLocationModelObservable.sCurrentPostalCode))")
+            Text("  TimeZone               : \(String(describing:coreLocationModelObservable.tzCurrentTimeZone))")
+            Text("  Region                 : \(String(describing:coreLocationModelObservable.clCurrentRegion))")
+            Text("  SUB Locality           : \(String(describing:coreLocationModelObservable.sCurrentSubLocality))")
+            Text("  Thorough Fare          : \(String(describing:coreLocationModelObservable.sCurrentThoroughfare))")
+            Text("  SUB Thorough Fare      : \(String(describing:coreLocationModelObservable.sCurrentSubThoroughfare))")
+            Text("  Administrative Area    : \(String(describing:coreLocationModelObservable.sCurrentAdministrativeArea))")
+            Text("  SUB Administrative Area: \(String(describing:coreLocationModelObservable.sCurrentSubAdministrativeArea))")
+            
+            Spacer(minLength: 5)
 
             Button("Refresh - #(\(self.cContentViewRefreshButtonPresses))...")
             {
@@ -195,20 +209,6 @@ struct ContentView: View
 
             Spacer()
             
-        //  Spacer()
-        //
-        //  Text("'JustACoreLocAndWeather1' App information:")
-        //      .bold()
-        //      .controlSize(.mini)
-        //
-        //  Text("\(ClassInfo.sClsDisp):body(some View)")
-        //      .controlSize(.small)
-        //
-        //  Text("\(ClassInfo.sClsCopyRight)")
-        //      .controlSize(.mini)
-        //  
-        //  Spacer()
-            
         }
         .padding()
         
@@ -220,6 +220,12 @@ struct ContentView: View
     {
 
         coreLocationModelObservable.requestLocationUpdate()
+        
+        let currLatitude:Double = coreLocationModelObservable.locationManager?.location?.coordinate.latitude ?? 0.0
+        let currLongitude:Double = coreLocationModelObservable.locationManager?.location?.coordinate.longitude ?? 0.0
+
+        let _ = coreLocationModelObservable.updateGeocoderLocation(latitude:  currLatitude,
+                                                                   longitude: currLongitude)
 
         return
 
