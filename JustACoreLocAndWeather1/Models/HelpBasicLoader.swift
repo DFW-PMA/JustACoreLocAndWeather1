@@ -1,12 +1,12 @@
 //
 //  HelpBasicLoader.swift
-//  JustAXCGLoggerWithLogonTest2
+//  JustACoreLocAndWeather1
 //
 //  Created by JustMacApps.net on 06/11/2024.
 //  Copyright © 2023-2024 JustMacApps. All rights reserved.
 //
 
-import Cocoa
+// import Cocoa
 import Foundation
 import SwiftUI
 
@@ -68,8 +68,8 @@ class HelpBasicLoader: NSObject
 
         let sCurrMethod:String = #function
         let sCurrMethodDisp    = "'"+sCurrMethod+"'"
-        let appDelegate:JustAXCGLoggerWithLogonTest2AppDelegate
-                               = JustAXCGLoggerWithLogonTest2AppDelegate.ClassSingleton.appDelegate!
+        let appDelegate:JustACoreLocAndWeather1AppDelegate
+                               = JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!
 
         appDelegate.xcgLogger?.info("\(ClassInfo.sClsDisp) \(sCurrMethodDisp) - Invoked...")
 

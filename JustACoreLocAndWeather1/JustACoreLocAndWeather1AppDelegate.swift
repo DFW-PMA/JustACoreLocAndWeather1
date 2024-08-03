@@ -1,36 +1,36 @@
 //
-//  JustAXCGLoggerWithLogonTest2AppDelegate.swift
-//  JustAXCGLoggerWithLogonTest2
+//  JustACoreLocAndWeather1AppDelegate.swift
+//  JustACoreLocAndWeather1
 //
-//  Created by JustMacApps.net on 07/19/2024.
+//  Created by JustMacApps.net on 08/02/2024.
 //  Copyright © 2023-2024 JustMacApps. All rights reserved.
 //
 
-import Cocoa
+// import Cocoa
 import Foundation
 import SwiftUI
 import XCGLogger
 
-class JustAXCGLoggerWithLogonTest2AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
+class JustACoreLocAndWeather1AppDelegate: NSObject, UIApplicationDelegate, ObservableObject
 {
 
     struct ClassInfo
     {
         
-        static let sClsId          = "JustAXCGLoggerWithLogonTest2AppDelegate"
-        static let sClsVers        = "v1.0507"
+        static let sClsId          = "JustACoreLocAndWeather1AppDelegate"
+        static let sClsVers        = "v1.0601"
         static let sClsDisp        = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight   = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace       = true
         static let bClsFileLog     = true
-        static let sClsLogFilespec = "JustAXCGLoggerWithLogonTest2.log"
+        static let sClsLogFilespec = "JustACoreLocAndWeather1.log"
         
     }
 
     struct ClassSingleton
     {
 
-        static var appDelegate:JustAXCGLoggerWithLogonTest2AppDelegate? = nil
+        static var appDelegate:JustACoreLocAndWeather1AppDelegate? = nil
 
     }
 
@@ -43,9 +43,9 @@ class JustAXCGLoggerWithLogonTest2AppDelegate: NSObject, NSApplicationDelegate, 
     var cAppDelegateInitCalls:Int             = 0
 
     var bAppTitleSetupRequired:Bool           = true
-    let bUseApplicationShortTitle:Bool        = false
+    let bUseApplicationShortTitle:Bool        = true
     var sApplicationTitle:String              = "-N/A-"
-    let sApplicationShortTitle:String         = "JAXCGLWLT1"
+    let sApplicationShortTitle:String         = "JACLAW1"
 
     let sHelpBasicFileExt:String              = "html"     // 'help' File extension: "md", "html", or "txt"
     var sHelpBasicContents:String             = "-N/A-"
@@ -69,7 +69,7 @@ class JustAXCGLoggerWithLogonTest2AppDelegate: NSObject, NSApplicationDelegate, 
     
     // Swift/ObjC Bridge:
 
-    @objc var jmObjCSwiftEnvBridge:JmObjCSwiftEnvBridge? = nil
+//  @objc var jmObjCSwiftEnvBridge:JmObjCSwiftEnvBridge? = nil
 
     open func toString()->String
     {
@@ -112,9 +112,9 @@ class JustAXCGLoggerWithLogonTest2AppDelegate: NSObject, NSApplicationDelegate, 
         asToString.append("'sAppDelegateLogFilespec': [\(String(describing: self.sAppDelegateLogFilespec))],")
         asToString.append("'sAppDelegateLogFilepath': [\(String(describing: self.sAppDelegateLogFilepath))],")
         asToString.append("'xcgLogger': [\(String(describing: self.xcgLogger))],")
-        asToString.append("],")
-        asToString.append("[")
-        asToString.append("'jmObjCSwiftEnvBridge': [\(String(describing: self.jmObjCSwiftEnvBridge))],")
+    //  asToString.append("],")
+    //  asToString.append("[")
+    //  asToString.append("'jmObjCSwiftEnvBridge': [\(String(describing: self.jmObjCSwiftEnvBridge))],")
         asToString.append("],")
         asToString.append("]")
 
@@ -308,7 +308,7 @@ class JustAXCGLoggerWithLogonTest2AppDelegate: NSObject, NSApplicationDelegate, 
             else
             {
 
-                self.sApplicationTitle = self.sApplicationShortTitle
+                self.sApplicationTitle = self.sApplicationName
 
             }
 
@@ -344,13 +344,13 @@ class JustAXCGLoggerWithLogonTest2AppDelegate: NSObject, NSApplicationDelegate, 
 
     }   // End of func getAppDelegateHelpBasicContents().
 
-    func applicationWillFinishLaunching(_ aNotification: Notification) 
+    func applicationWillFinishLaunchingWithOptions(_ uiApplication:UIApplication, willFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey:Any?]) -> Bool
     {
 
         let sCurrMethod:String = #function
         let sCurrMethodDisp    = "\(ClassInfo.sClsDisp)'"+sCurrMethod+"':"
 
-        self.xcgLogger?.info("\(sCurrMethodDisp) Invoked - 'aNotification' is [\(aNotification)] - 'sApplicationName' is [\(self.sApplicationName)] - 'self' is [\(self)]...")
+        self.xcgLogger?.info("\(sCurrMethodDisp) Invoked - 'uiApplication' is [\(uiApplication)] - 'willFinishLaunchingWithOptions' is [\(willFinishLaunchingWithOptions)] - 'sApplicationName' is [\(self.sApplicationName)] - 'self' is [\(self)]...")
 
         // Help:
 
@@ -361,44 +361,48 @@ class JustAXCGLoggerWithLogonTest2AppDelegate: NSObject, NSApplicationDelegate, 
 
         }
 
-        // Setup the Objective-C/Swift Bridge:
-
-        self.jmObjCSwiftEnvBridge = JmObjCSwiftEnvBridge(xcgLogger:self.xcgLogger!)
-
-        // Objective-C call(s):
-
-        let calledObjCModule = CalledObjCModule()
-
-        self.xcgLogger?.info("\(sCurrMethodDisp) Objective-C call #1 - invoking 'setObjCSwiftEnvBridge()' with a parameter 'self.jmObjCSwiftEnvBridge' of [\(String(describing: self.jmObjCSwiftEnvBridge))]...")
-
-        let _ = #selector(setter: calledObjCModule.setObjCSwiftEnvBridge(_ :self.jmObjCSwiftEnvBridge!))
-
-        self.xcgLogger?.info("\(sCurrMethodDisp) Objective-C call #1 - invoked 'setObjCSwiftEnvBridge()' with a parameter 'self.jmObjCSwiftEnvBridge' of [\(String(describing: self.jmObjCSwiftEnvBridge))]...")
-
-        let sInternalVariable:String? = calledObjCModule.getInternalVariable()
-
-        self.xcgLogger?.info("\(sCurrMethodDisp) Objective-C call #2 - 'sInternalVariable' (via 'getCalledObjCModuleVariable()') is [\(String(describing: sInternalVariable))]...")
-
-        let sHelloMessage:String = "Message from 'JustAXCGLoggerWithLogonTest2AppDelegate'..."
-        
-        calledObjCModule.sayHello(sHelloMessage)
-        
-        self.xcgLogger?.info("\(sCurrMethodDisp) Objective-C call #3 - 'sayHello()' with a parameter of [\(String(describing: sHelloMessage))]...")
+    //  // Setup the Objective-C/Swift Bridge:
+    //
+    //  self.jmObjCSwiftEnvBridge = JmObjCSwiftEnvBridge(xcgLogger:self.xcgLogger!)
+    //
+    //  // Objective-C call(s):
+    //
+    //  let calledObjCModule = CalledObjCModule()
+    //
+    //  self.xcgLogger?.info("\(sCurrMethodDisp) Objective-C call #1 - invoking 'setObjCSwiftEnvBridge()' with a parameter 'self.jmObjCSwiftEnvBridge' of [\(String(describing: self.jmObjCSwiftEnvBridge))]...")
+    //
+    //  let _ = #selector(setter: calledObjCModule.setObjCSwiftEnvBridge(_ :self.jmObjCSwiftEnvBridge!))
+    //
+    //  self.xcgLogger?.info("\(sCurrMethodDisp) Objective-C call #1 - invoked 'setObjCSwiftEnvBridge()' with a parameter 'self.jmObjCSwiftEnvBridge' of [\(String(describing: self.jmObjCSwiftEnvBridge))]...")
+    //
+    //  let sInternalVariable:String? = calledObjCModule.getInternalVariable()
+    //
+    //  self.xcgLogger?.info("\(sCurrMethodDisp) Objective-C call #2 - 'sInternalVariable' (via 'getCalledObjCModuleVariable()') is [\(String(describing: sInternalVariable))]...")
+    //
+    //  let sHelloMessage:String = "Message from 'JustACoreLocAndWeather1AppDelegate'..."
+    //  
+    //  calledObjCModule.sayHello(sHelloMessage)
+    //  
+    //  self.xcgLogger?.info("\(sCurrMethodDisp) Objective-C call #3 - 'sayHello()' with a parameter of [\(String(describing: sHelloMessage))]...")
         
         // Exit:
 
         self.xcgLogger?.info("\(sCurrMethodDisp) Method Exiting...")
+        
+        return true
 
     }   // End of func applicationWillFinishLaunching().
 
-    func applicationDidFinishLaunching(_ aNotification: Notification) 
+//  private func applicationDidFinishLaunching(_ aNotification: Notification)
+    func applicationDidFinishLaunchingWithOptions(_ uiApplication:UIApplication, didFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey:Any?]) -> Bool
     {
 
         let sCurrMethod:String = #function
         let sCurrMethodDisp    = "\(ClassInfo.sClsDisp)'"+sCurrMethod+"':"
         let cArgs              = Int(CommandLine.argc)
+        
+        self.xcgLogger?.info("\(sCurrMethodDisp) Invoked - 'uiApplication' is [\(uiApplication)] - 'didFinishLaunchingWithOptions' is [\(didFinishLaunchingWithOptions)] - 'sApplicationName' is [\(self.sApplicationName)] - 'self' is [\(self)]...")
 
-        self.xcgLogger?.info("\(sCurrMethodDisp) Invoked - 'aNotification' is [\(aNotification)] - 'sApplicationName' is [\(self.sApplicationName)] - 'self' is [\(self)]...")
         self.xcgLogger?.info("\(sCurrMethodDisp) The Command line input #(\(cArgs)) parameters...")
         
         for i in 0..<cArgs
@@ -414,16 +418,19 @@ class JustAXCGLoggerWithLogonTest2AppDelegate: NSObject, NSApplicationDelegate, 
         // Exit:
 
         self.xcgLogger?.info("\(sCurrMethodDisp) Method Exiting...")
+        
+        return true
 
     }   // End of func applicationDidFinishLaunching().
 
-    func applicationWillTerminate(_ aNotification: Notification) 
+    func applicationWillTerminate(_ uiApplication:UIApplication)
     {
 
         let sCurrMethod:String = #function
         let sCurrMethodDisp    = "\(ClassInfo.sClsDisp)'"+sCurrMethod+"':"
+        
+        self.xcgLogger?.info("\(sCurrMethodDisp) Invoked - 'uiApplication' is [\(uiApplication)] - 'sApplicationName' is [\(self.sApplicationName)] - 'self' is [\(self)]...")
 
-        self.xcgLogger?.info("\(sCurrMethodDisp) Invoked - 'aNotification' is [\(aNotification)] - 'sApplicationName' is [\(self.sApplicationName)] - 'self' is [\(self)]...")
         self.xcgLogger?.info("\(sCurrMethodDisp) Current '\(ClassInfo.sClsId)' is [\(self.toString())]...")
 
         self.xcgLogger?.info("\(sCurrMethodDisp) AppDelegate is stopping...")
@@ -436,7 +443,7 @@ class JustAXCGLoggerWithLogonTest2AppDelegate: NSObject, NSApplicationDelegate, 
 
     }   // End of func applicationWillTerminate().
 
-    func application(_ application: NSApplication, open urls: [URL])
+    func application(_ application: UIApplication, open urls: [URL])
     {
 
         let sCurrMethod:String = #function
@@ -555,5 +562,5 @@ class JustAXCGLoggerWithLogonTest2AppDelegate: NSObject, NSApplicationDelegate, 
 
     }   // End of open func clearAppDelegateTraceLogFile().
 
-}   // End of class JustAXCGLoggerWithLogonTest2AppDelegate(NSObject, NSApplicationDelegate, ObservableObject).
+}   // End of class JustACoreLocAndWeather1AppDelegate(NSObject, NSApplicationDelegate, ObservableObject).
 

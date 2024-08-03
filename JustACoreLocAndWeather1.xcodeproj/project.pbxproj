@@ -18,6 +18,8 @@
 		F02D4EBC2C5DA1FB00D5106E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F02D4EB92C5DA1FB00D5106E /* README.md */; };
 		F02D4EBD2C5DA1FB00D5106E /* JustACoreLocAndWeather1AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D4EBA2C5DA1FB00D5106E /* JustACoreLocAndWeather1AppDelegate.swift */; };
 		F02D4EBE2C5DA1FB00D5106E /* JustACoreLocAndWeather1AppGlobalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D4EBB2C5DA1FB00D5106E /* JustACoreLocAndWeather1AppGlobalInfo.swift */; };
+		F03D76402C5DB452005DFB91 /* ObjcExceptionBridging in Frameworks */ = {isa = PBXBuildFile; productRef = F03D763F2C5DB452005DFB91 /* ObjcExceptionBridging */; };
+		F03D76422C5DB452005DFB91 /* XCGLogger in Frameworks */ = {isa = PBXBuildFile; productRef = F03D76412C5DB452005DFB91 /* XCGLogger */; };
 		F079401B2C3B67C100917B3B /* JustACoreLocAndWeather1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079401A2C3B67C100917B3B /* JustACoreLocAndWeather1App.swift */; };
 		F079401F2C3B67C200917B3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F079401E2C3B67C200917B3B /* Assets.xcassets */; };
 		F07940222C3B67C200917B3B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F07940212C3B67C200917B3B /* Preview Assets.xcassets */; };
@@ -54,6 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F03D76402C5DB452005DFB91 /* ObjcExceptionBridging in Frameworks */,
+				F03D76422C5DB452005DFB91 /* XCGLogger in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +162,10 @@
 			dependencies = (
 			);
 			name = JustACoreLocAndWeather1;
+			packageProductDependencies = (
+				F03D763F2C5DB452005DFB91 /* ObjcExceptionBridging */,
+				F03D76412C5DB452005DFB91 /* XCGLogger */,
+			);
 			productName = JustACoreLocAndWeather1;
 			productReference = F07940172C3B67C100917B3B /* JustACoreLocAndWeather1.app */;
 			productType = "com.apple.product-type.application";
@@ -186,6 +194,9 @@
 				Base,
 			);
 			mainGroup = F079400E2C3B67C100917B3B;
+			packageReferences = (
+				F03D763E2C5DB452005DFB91 /* XCRemoteSwiftPackageReference "XCGLogger" */,
+			);
 			productRefGroup = F07940182C3B67C100917B3B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -358,7 +369,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 03.14.24C215;
+				CURRENT_PROJECT_VERSION = 03.16.24C215;
 				DEVELOPMENT_ASSET_PATHS = "\"JustACoreLocAndWeather1/Preview Content\"";
 				DEVELOPMENT_TEAM = J434W9VGHF;
 				ENABLE_PREVIEWS = YES;
@@ -395,7 +406,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 03.14.24C215;
+				CURRENT_PROJECT_VERSION = 03.16.24C215;
 				DEVELOPMENT_ASSET_PATHS = "\"JustACoreLocAndWeather1/Preview Content\"";
 				DEVELOPMENT_TEAM = J434W9VGHF;
 				ENABLE_PREVIEWS = YES;
@@ -448,6 +459,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F03D763E2C5DB452005DFB91 /* XCRemoteSwiftPackageReference "XCGLogger" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DaveWoodCom/XCGLogger.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F03D763F2C5DB452005DFB91 /* ObjcExceptionBridging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F03D763E2C5DB452005DFB91 /* XCRemoteSwiftPackageReference "XCGLogger" */;
+			productName = ObjcExceptionBridging;
+		};
+		F03D76412C5DB452005DFB91 /* XCGLogger */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F03D763E2C5DB452005DFB91 /* XCRemoteSwiftPackageReference "XCGLogger" */;
+			productName = XCGLogger;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F079400F2C3B67C100917B3B /* Project object */;
 }

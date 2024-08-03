@@ -1,6 +1,6 @@
 //
 //  HelpBasicView.swift
-//  JustAXCGLoggerWithLogonTest2
+//  JustACoreLocAndWeather1
 //
 //  Created by JustMacApps.net on 05/07/2024.
 //  Copyright © 2023-2024 JustMacApps. All rights reserved.
@@ -16,7 +16,7 @@ struct HelpBasicView: View
     {
         
         static let sClsId          = "HelpBasicView"
-        static let sClsVers        = "v1.0402"
+        static let sClsVers        = "v1.0502"
         static let sClsDisp        = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight   = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace       = true
@@ -26,7 +26,7 @@ struct HelpBasicView: View
 
     // AppDelegate (via @EnvironmentObject - automatic via the App's @NSApplicationDelegateAdaptor property wrapper
 
-    @EnvironmentObject private   var appDelegate:JustAXCGLoggerWithLogonTest2AppDelegate
+    @EnvironmentObject private   var appDelegate:JustACoreLocAndWeather1AppDelegate
 
     // App Data field(s):
 
@@ -36,7 +36,7 @@ struct HelpBasicView: View
     private var sLogFileText:String
     {
         
-    //  JmFileIO.readFile(sFilespec: JustAXCGLoggerWithLogonTest2AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec!) ?? "--- empty LOG file ---"
+    //  JmFileIO.readFile(sFilespec: JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec!) ?? "--- empty LOG file ---"
         JmFileIO.readFile(sFilespec: self.appDelegate.sAppDelegateLogFilespec!) ?? "--- empty LOG file ---"
         
     }
@@ -82,22 +82,24 @@ struct HelpBasicView: View
             do 
             {
                 
-                if let nsAttributedString = try? NSAttributedString(data: Data(sHelpBasicContents.utf8), 
-                                                                    options: [.documentType: NSAttributedString.DocumentType.html], 
-                                                                    documentAttributes: nil),
-                   let attributedString   = try? AttributedString(nsAttributedString, including: \.appKit) 
-                {
-                    
-                    textField = Text(attributedString)
-                    
-                }
-                else
-                {
-                    
-                    textField = Text(sHelpBasicContents)
-                    
-                }
-                
+            //  if let nsAttributedString = try? NSAttributedString(data: Data(sHelpBasicContents.utf8), 
+            //                                                      options: [.documentType: NSAttributedString.DocumentType.html], 
+            //                                                      documentAttributes: nil),
+            //  //  let attributedString   = try? AttributedString(nsAttributedString, including: .appKit)
+            //  {
+            //      
+            //      textField = Text(attributedString)
+            //      
+            //  }
+            //  else
+            //  {
+            //      
+            //      textField = Text(sHelpBasicContents)
+            //      
+            //  }
+              
+                textField = Text(sHelpBasicContents)
+
             }
             
         case .markdown:

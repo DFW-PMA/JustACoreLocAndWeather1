@@ -1,6 +1,6 @@
 //
 //  HelpBasicMode.swift
-//  JustAXCGLoggerWithLogonTest2
+//  JustACoreLocAndWeather1
 //
 //  Created by JustMacApps.net on 05/09/2024.
 //  Copyright © 2023-2024 JustMacApps. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  LogFileView.swift
-//  JustAXCGLoggerWithLogonTest2
+//  JustACoreLocAndWeather1
 //
 //  Created by JustMacApps.net on 03/20/2024.
 //  Copyright © 2023-2024 JustMacApps. All rights reserved.
@@ -10,6 +10,12 @@ import Foundation
 import SwiftUI
 import QuickLook
 
+#if os(iOS)
+
+    import UIKit
+
+#endif
+
 struct LogFileView: View 
 {
     
@@ -17,7 +23,7 @@ struct LogFileView: View
     {
         
         static let sClsId          = "LogFileView"
-        static let sClsVers        = "v1.0404"
+        static let sClsVers        = "v1.0503"
         static let sClsDisp        = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight   = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace       = true
@@ -27,18 +33,26 @@ struct LogFileView: View
 
     // AppDelegate (via @EnvironmentObject - automatic via the App's @NSApplicationDelegateAdaptor property wrapper
 
-    @EnvironmentObject private var appDelegate:JustAXCGLoggerWithLogonTest2AppDelegate
+    @EnvironmentObject private var appDelegate:JustACoreLocAndWeather1AppDelegate
 
     // App Data field(s):
 
     @State  var logFileUrl:URL?
     
+#if os(macOS)
+
     private let pasteboard = NSPasteboard.general
-    
+
+#elseif os(iOS)
+
+    private let pasteboard = UIPasteboard.general
+
+#endif
+
     private var sLogFileText:String
     {
         
-    //  JmFileIO.readFile(sFilespec: JustAXCGLoggerWithLogonTest2AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec!) ?? "--- empty LOG file ---"
+    //  JmFileIO.readFile(sFilespec: JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec!) ?? "--- empty LOG file ---"
         JmFileIO.readFile(sFilespec: self.appDelegate.sAppDelegateLogFilespec!) ?? "--- empty LOG file ---"
         
     }
@@ -71,7 +85,7 @@ struct LogFileView: View
                 
                 }
 
-        //  Text(JustAXCGLoggerWithLogonTest2AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec ?? "...empty...")
+        //  Text(JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec ?? "...empty...")
             Text(self.appDelegate.sAppDelegateLogFilespec ?? "...empty...")
                 .contextMenu
                 {
@@ -96,7 +110,7 @@ struct LogFileView: View
             Button("Preview Log file") 
             {
 
-            //  self.logFileUrl = JustAXCGLoggerWithLogonTest2AppDelegate.ClassSingleton.appDelegate!.urlAppDelegateLogFilespec
+            //  self.logFileUrl = JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!.urlAppDelegateLogFilespec
                 self.logFileUrl = self.appDelegate.urlAppDelegateLogFilespec
 
                 xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):LogFileView.Button('Preview Log file') performed for the URL of [\(String(describing: self.logFileUrl))]...")
@@ -122,14 +136,22 @@ struct LogFileView: View
     func copyLogFilespecToClipboard()
     {
         
-        xcgLoggerMsg(sMessage:"...\(ClassInfo.sClsDisp):ContentView in ContextMenu.copyLogFilespecToClipboard() for text of [\(JustAXCGLoggerWithLogonTest2AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec!)]...")
+        xcgLoggerMsg(sMessage:"...\(ClassInfo.sClsDisp):ContentView in ContextMenu.copyLogFilespecToClipboard() for text of [\(JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec!)]...")
         
+    #if os(macOS)
+
         pasteboard.prepareForNewContents()
-        pasteboard.setString(JustAXCGLoggerWithLogonTest2AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec!, forType: .string)
-        
+        pasteboard.setString(JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec!, forType: .string)
+
+    #elseif os(iOS)
+
+        pasteboard.string = JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec!
+
+    #endif
+
         return
-        
-    }
+
+    }   // End of func copyLogFilespecToClipboard().
     
 }
 
