@@ -15,7 +15,7 @@ struct SettingsSingleView: View
     {
         
         static let sClsId        = "SettingsSingleView"
-        static let sClsVers      = "v1.0507"
+        static let sClsVers      = "v1.0601"
         static let sClsDisp      = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -120,6 +120,45 @@ struct SettingsSingleView: View
                         .italic()
                         .controlSize(.mini)
                     
+                }
+                
+                Spacer()
+                
+            }
+
+            Spacer()
+
+            HStack(alignment:.center)
+            {
+                
+                Spacer()
+                
+                Text(" - - - - - - - - - - ")
+                    .bold()
+                    .controlSize(.regular)
+
+                Spacer()
+                
+            }
+
+            Spacer()
+
+            HStack(alignment:.center)
+            {
+                
+                Spacer()
+                
+                VStack(alignment:.center)
+                {
+                    
+                    Text("'JustACoreLocAndWeather1' App LOG file at:")
+                        .bold()
+                        .controlSize(.regular)
+
+                    Text("\(JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec!)")
+                        .italic()
+                        .controlSize(.mini)
+
                 }
                 
                 Spacer()
