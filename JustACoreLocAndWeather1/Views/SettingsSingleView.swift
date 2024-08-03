@@ -15,7 +15,7 @@ struct SettingsSingleView: View
     {
         
         static let sClsId        = "SettingsSingleView"
-        static let sClsVers      = "v1.0601"
+        static let sClsVers      = "v1.0602"
         static let sClsDisp      = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -126,14 +126,14 @@ struct SettingsSingleView: View
                 
             }
 
-            Spacer()
+        //  Spacer()
 
             HStack(alignment:.center)
             {
                 
                 Spacer()
                 
-                Text(" - - - - - - - - - - ")
+                Text(" - - - - - - - - - - - - - - - - - - - - ")
                     .bold()
                     .controlSize(.regular)
 
@@ -141,7 +141,7 @@ struct SettingsSingleView: View
                 
             }
 
-            Spacer()
+        //  Spacer()
 
             HStack(alignment:.center)
             {
