@@ -15,7 +15,7 @@ struct SettingsSingleView: View
     {
         
         static let sClsId        = "SettingsSingleView"
-        static let sClsVers      = "v1.0602"
+        static let sClsVers      = "v1.0603"
         static let sClsDisp      = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -23,6 +23,10 @@ struct SettingsSingleView: View
         
     }
     
+    // AppDelegate (via @EnvironmentObject - automatic via the App's @NSApplicationDelegateAdaptor property wrapper
+
+    @EnvironmentObject private var appDelegate:JustACoreLocAndWeather1AppDelegate
+
     // App Data field(s):
 
     @Environment(\.dismiss) var dismiss
@@ -83,7 +87,7 @@ struct SettingsSingleView: View
                 Button("Dismiss") 
                 {
 
-                    let _ = print("\(ClassInfo.sClsDisp):SettingsSingleView.Button('Dismiss') performed...")
+                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):SettingsSingleView.Button(Xcode).'Dismiss' pressed...")
 
                     dismiss()
 
@@ -174,6 +178,15 @@ struct SettingsSingleView: View
         
     }
     
+    func xcgLoggerMsg(sMessage:String)
+    {
+
+        self.appDelegate.xcgLogger?.info("\(sMessage)")
+
+        return
+
+    }   // End of func xcgLoggerMsg().
+
 }
 
 #Preview 

@@ -17,7 +17,7 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
     {
         
         static let sClsId        = "CoreLocationModelObservable"
-        static let sClsVers      = "v1.0401"
+        static let sClsVers      = "v1.0402"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -67,6 +67,13 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
 
         self.bCLManagerHeadingAvailable = CLLocationManager.headingAvailable()
         
+        if (self.bCLManagerHeadingAvailable == true)
+        {
+
+            self.locationManager?.startUpdatingHeading()
+
+        }
+
         print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
         
     }   // End of override init().

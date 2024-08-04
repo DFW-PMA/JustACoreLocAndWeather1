@@ -16,7 +16,7 @@ struct ContentView: View
     {
         
         static let sClsId        = "ContentView"
-        static let sClsVers      = "v1.0404"
+        static let sClsVers      = "v1.0408"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -24,18 +24,25 @@ struct ContentView: View
         
     }
 
+    // AppDelegate (via @EnvironmentObject - automatic via the App's @NSApplicationDelegateAdaptor property wrapper
+
+    @EnvironmentObject private var appDelegate:JustACoreLocAndWeather1AppDelegate
+
     // App Data field(s):
     
     @StateObject   var coreLocationModelObservable:CoreLocationModelObservable
     
     @State private var cContentViewRefreshButtonPresses:Int  = 0
     @State private var cContentViewSettingsButtonPresses:Int = 0
+    @State private var cContentViewSiteButtonPresses:Int     = 0
+
     @State private var isAppSettingsModal:Bool               = false
+    @State private var isAppSiteViewModal:Bool               = false
     
     var body: some View
     {
         
-        let _ = print("\(ClassInfo.sClsDisp):body(some View) \(ClassInfo.sClsCopyRight)...")
+        let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):body(some View) \(ClassInfo.sClsCopyRight)...")
         
         Spacer(minLength: 10)
         
@@ -53,7 +60,7 @@ struct ContentView: View
 
                     self.cContentViewSettingsButtonPresses += 1
 
-                    let _ = print("...\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Settings'.#(\(self.cContentViewSettingsButtonPresses))...")
+                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Settings'.#(\(self.cContentViewSettingsButtonPresses))...")
 
                     self.isAppSettingsModal.toggle()
 
@@ -65,8 +72,6 @@ struct ContentView: View
                         .padding()
                         .imageScale(.large)
                         .foregroundStyle(.tint)
-                    //  .foregroundStyle(.black)
-                    //  .background(.white)
 
                 }
                 .sheet(isPresented:$isAppSettingsModal, content:
@@ -85,7 +90,7 @@ struct ContentView: View
             //
             //      self.refreshCoreLocation()
             //
-            //      let _ = print("...\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Settings'.#(\(self.cContentViewSettingsButtonPresses))...")
+            //      let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Settings'.#(\(self.cContentViewSettingsButtonPresses))...")
             //
             //  }  
             //  label: 
@@ -148,43 +153,63 @@ struct ContentView: View
             Text("  Heading (Magnetic) : \(String(describing:coreLocationModelObservable.locationManager?.heading?.magneticHeading))")
             Text("  Heading (TimeStamp): \(String(describing:coreLocationModelObservable.locationManager?.heading?.timestamp))")
 
-            Text("")
+            Spacer(minLength: 1)
             
-            Text("Current 'site' (City,Country,TimeZone, etc.):")
-                .bold()
-                .underline(true, color:.black)
-            
-            Text("")
-            
-            Text("  Location (Lat/Long)    : \(String(describing:coreLocationModelObservable.sCurrentLocation))")
-            Text("  Location 'Name'        : \(String(describing:coreLocationModelObservable.sCurrentLocationName))")
-            Text("  City                   : \(String(describing:coreLocationModelObservable.sCurrentCity))")
-            Text("  Country                : \(String(describing:coreLocationModelObservable.sCurrentCountry))")
-            Text("  Postal Code            : \(String(describing:coreLocationModelObservable.sCurrentPostalCode))")
-            Text("  TimeZone               : \(String(describing:coreLocationModelObservable.tzCurrentTimeZone))")
-            Text("  Region                 : \(String(describing:coreLocationModelObservable.clCurrentRegion))")
-            Text("  SUB Locality           : \(String(describing:coreLocationModelObservable.sCurrentSubLocality))")
-            Text("  Thorough Fare          : \(String(describing:coreLocationModelObservable.sCurrentThoroughfare))")
-            Text("  SUB Thorough Fare      : \(String(describing:coreLocationModelObservable.sCurrentSubThoroughfare))")
-            Text("  Administrative Area    : \(String(describing:coreLocationModelObservable.sCurrentAdministrativeArea))")
-            Text("  SUB Administrative Area: \(String(describing:coreLocationModelObservable.sCurrentSubAdministrativeArea))")
-            
-            Spacer(minLength: 5)
-
-            Button("Refresh - #(\(self.cContentViewRefreshButtonPresses))...")
+            HStack
             {
-                
-                self.cContentViewRefreshButtonPresses += 1
 
-                self.refreshCoreLocation()
-                
-                let _ = print("...\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Refresh'.#(\(self.cContentViewRefreshButtonPresses))...")
+                Spacer()
+
+                Button
+                {
+
+                    self.cContentViewSiteButtonPresses += 1
+
+                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Site Info'.#(\(self.cContentViewSiteButtonPresses))...")
+
+                    self.isAppSiteViewModal.toggle()
+
+                }
+                label: 
+                {
+                    
+                    Text("Site Info")
+
+                }
+                .sheet(isPresented:$isAppSiteViewModal, content:
+                    {
+
+                        CoreLocationSiteView(coreLocationModelObservable:coreLocationModelObservable)
+
+                    }
+                )
+                .controlSize(.extraLarge)
+                .background(Color(red: 0, green: 0.5, blue: 0.5))
+                .foregroundStyle(.white)
+                .buttonStyle(.borderedProminent)
+
+                Spacer()
+
+                Button("Refresh - #(\(self.cContentViewRefreshButtonPresses))...")
+                {
+
+                    self.cContentViewRefreshButtonPresses += 1
+
+                    self.refreshCoreLocation()
+
+                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Refresh'.#(\(self.cContentViewRefreshButtonPresses))...")
+
+                }
+                .controlSize(.extraLarge)
+                .background(Color(red: 0, green: 0.5, blue: 0.5))
+                .foregroundStyle(.white)
+                .buttonStyle(.borderedProminent)
+
+                Spacer()
 
             }
-            .controlSize(.extraLarge)
-            .background(Color(red: 0, green: 0.5, blue: 0.5))
-            .foregroundStyle(.white)
-            .buttonStyle(.borderedProminent)
+
+            Spacer(minLength: 5)
 
             Spacer()
             
@@ -228,7 +253,7 @@ struct ContentView: View
 
         coreLocationModelObservable.requestLocationUpdate()
         
-        let currLatitude:Double = coreLocationModelObservable.locationManager?.location?.coordinate.latitude ?? 0.0
+        let currLatitude:Double  = coreLocationModelObservable.locationManager?.location?.coordinate.latitude ?? 0.0
         let currLongitude:Double = coreLocationModelObservable.locationManager?.location?.coordinate.longitude ?? 0.0
 
         let _ = coreLocationModelObservable.updateGeocoderLocation(latitude:  currLatitude,
@@ -237,6 +262,15 @@ struct ContentView: View
         return
 
     }   // End of func refreshCoreLocation().
+    
+    func xcgLoggerMsg(sMessage:String)
+    {
+
+        self.appDelegate.xcgLogger?.info("\(sMessage)")
+
+        return
+
+    }   // End of func xcgLoggerMsg().
 
 }
 
