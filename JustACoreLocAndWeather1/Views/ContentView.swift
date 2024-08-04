@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct ContentView: View 
 {
@@ -15,7 +16,7 @@ struct ContentView: View
     {
         
         static let sClsId        = "ContentView"
-        static let sClsVers      = "v1.0401"
+        static let sClsVers      = "v1.0404"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -36,7 +37,7 @@ struct ContentView: View
         
         let _ = print("\(ClassInfo.sClsDisp):body(some View) \(ClassInfo.sClsCopyRight)...")
         
-        Spacer(minLength: 50)
+        Spacer(minLength: 10)
         
         VStack
         {
@@ -69,11 +70,13 @@ struct ContentView: View
 
                 }
                 .sheet(isPresented:$isAppSettingsModal, content:
-                {
+                    {
 
-                    SettingsSingleView()
+                        SettingsSingleView()
 
-                })
+                    }
+                )
+                .padding()
 
             //  Button
             //  {
@@ -108,17 +111,21 @@ struct ContentView: View
                 Image(systemName: "globe.desk.fill")
                     .imageScale(.large)
                     .foregroundStyle(.tint)
+                    .onAppear(perform:
+                    {
+                        self.refreshCoreLocation()
+                    })
 
                 Spacer()
 
             }
             
-            Spacer(minLength: 2)
+            Spacer(minLength: 1)
             
             Text("Welcome to the 'JustACoreLocAndWeather1' App!")
                 .bold()
 
-            Spacer(minLength: 2)
+            Spacer(minLength: 1)
             
             Text("Current 'location (Latitude/Longitude)':")
                 .bold()
@@ -131,7 +138,7 @@ struct ContentView: View
             
             Text("")
             
-            Text("Current 'heading':")
+            Text("Current 'heading' ('headingAvailable?': [\(coreLocationModelObservable.bCLManagerHeadingAvailable)]):")
                 .bold()
                 .underline(true, color:.black)
             

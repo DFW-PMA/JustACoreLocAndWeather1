@@ -27,20 +27,22 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
 
     // App Data field(s):
     
-    var locationManager:CLLocationManager?
+               var locationManager:CLLocationManager?   = nil
+
+    @Published var bCLManagerHeadingAvailable:Bool      = false
     
-    @Published var sCurrentLocation:CLLocation?         = nil
-    @Published var sCurrentLocationName:String          = "-N/A-"
-    @Published var sCurrentCity:String                  = "-N/A-"
-    @Published var sCurrentCountry:String               = "-N/A-"
-    @Published var sCurrentPostalCode:String            = "-N/A-"
-    @Published var tzCurrentTimeZone:TimeZone?          = nil
-    @Published var clCurrentRegion:CLRegion?            = nil
-    @Published var sCurrentSubLocality:String           = "-N/A-"
-    @Published var sCurrentThoroughfare:String          = "-N/A-"
-    @Published var sCurrentSubThoroughfare:String       = "-N/A-"
-    @Published var sCurrentAdministrativeArea:String    = "-N/A-"
-    @Published var sCurrentSubAdministrativeArea:String = "-N/A-"
+    @Published var sCurrentLocation:CLLocation?         = nil       // Contains: Latitude, Longitude...
+    @Published var sCurrentLocationName:String          = "-N/A-"   // This is actually the Address (Line #1) <# Street> (i.e. 8908 Michelle Ln)...
+    @Published var sCurrentCity:String                  = "-N/A-"   // City (i.e. North Richland Hills)...
+    @Published var sCurrentCountry:String               = "-N/A-"   // Country (i.e. United States)...
+    @Published var sCurrentPostalCode:String            = "-N/A-"   // Zip Code (i.e. 76182) (Zip-5)...
+    @Published var tzCurrentTimeZone:TimeZone?          = nil       // This is TimeZone in English (i.e. 'America/Chicago')...
+    @Published var clCurrentRegion:CLRegion?            = nil       // ???
+    @Published var sCurrentSubLocality:String           = "-N/A-"   // ??? 
+    @Published var sCurrentThoroughfare:String          = "-N/A-"   // Street (Michelle Ln)...
+    @Published var sCurrentSubThoroughfare:String       = "-N/A-"   // (House) # (i.e. 8908)...
+    @Published var sCurrentAdministrativeArea:String    = "-N/A-"   // State  (i.e. TX)...
+    @Published var sCurrentSubAdministrativeArea:String = "-N/A-"   // County (i.e. Tarrant County)
     
     override init()
     {
@@ -62,6 +64,8 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
         self.locationManager?.requestAlwaysAuthorization()
         
         self.requestLocationUpdate()
+
+        self.bCLManagerHeadingAvailable = CLLocationManager.headingAvailable()
         
         print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
         
