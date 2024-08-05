@@ -8,6 +8,12 @@
 
 import SwiftUI
 
+#if os(iOS)
+
+    import UIKit
+
+#endif
+
 struct SettingsSingleView: View 
 {
     
@@ -15,7 +21,7 @@ struct SettingsSingleView: View
     {
         
         static let sClsId        = "SettingsSingleView"
-        static let sClsVers      = "v1.0603"
+        static let sClsVers      = "v1.0801"
         static let sClsDisp      = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -30,7 +36,21 @@ struct SettingsSingleView: View
     // App Data field(s):
 
     @Environment(\.dismiss) var dismiss
+
+    @State private var cContentViewAppAboutButtonPresses:Int = 0
+
+    @State private var isAppAboutViewModal:Bool              = false
     
+#if os(macOS)
+
+    private let pasteboard = NSPasteboard.general
+
+#elseif os(iOS)
+
+    private let pasteboard = UIPasteboard.general
+
+#endif
+
     var body: some View 
     {
         
@@ -40,7 +60,7 @@ struct SettingsSingleView: View
         {
 
             Spacer()
-                .frame(height:150)
+                .frame(height:50)
             
             Divider()
                 .border(Color.black, width:5)
@@ -49,7 +69,7 @@ struct SettingsSingleView: View
             {
             
                 Spacer()
-                    .frame(width:50)
+                    .frame(width:10)
                 
                 Text("Preferences:")
             
@@ -76,7 +96,7 @@ struct SettingsSingleView: View
             }   // End of HStack #1.2
 
             Spacer()
-                .frame(height:150)
+                .frame(height:50)
 
             HStack(alignment:.center)           // HStack #1.3
             {
@@ -84,6 +104,36 @@ struct SettingsSingleView: View
                 Spacer()
                 //  .frame(width:30)
                 
+                Button
+                {
+
+                    self.cContentViewAppAboutButtonPresses += 1
+
+                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):SettingsSingleView in Button(Xcode).'App About'.#(\(self.cContentViewAppAboutButtonPresses))...")
+
+                    self.isAppAboutViewModal.toggle()
+
+                }
+                label: 
+                {
+                    
+                    Text("App About")
+
+                }
+                .sheet(isPresented:$isAppAboutViewModal, content:
+                    {
+
+                        AppAboutView()
+
+                    }
+                )
+                .controlSize(.extraLarge)
+                .background(Color(red: 0, green: 0.5, blue: 0.5))
+                .foregroundStyle(.white)
+                .buttonStyle(.borderedProminent)
+
+                Spacer()
+
                 Button("Dismiss") 
                 {
 
@@ -116,9 +166,9 @@ struct SettingsSingleView: View
                         .bold()
                         .controlSize(.regular)
 
-                    Text("\(ClassInfo.sClsDisp):body(some View)")
-                        .italic()
-                        .controlSize(.mini)
+                //  Text("\(ClassInfo.sClsDisp):body(some View)")
+                //      .italic()
+                //      .controlSize(.mini)
 
                     Text("\(ClassInfo.sClsCopyRight)")
                         .italic()
@@ -158,8 +208,28 @@ struct SettingsSingleView: View
                     Text("'JustACoreLocAndWeather1' App LOG file at:")
                         .bold()
                         .controlSize(.regular)
+                        .contextMenu
+                        {
 
-                    Text("\(JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec!)")
+                            Button
+                            {
+
+                                let _ = xcgLoggerMsg(sMessage:"...\(ClassInfo.sClsDisp):SettingsSingleView in Text.contextMenu.'copy' button #1...")
+
+                                copyLogFilespecToClipboard()
+
+                            }
+                            label:
+                            {
+
+                                Text("Copy to Clipboard")
+
+                            }
+
+                        }
+
+                //  Text("\(JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec!)")
+                    Text("\(self.appDelegate.sAppDelegateLogFilespec!)")
                         .italic()
                         .controlSize(.mini)
 
@@ -177,6 +247,26 @@ struct SettingsSingleView: View
         .frame(minWidth: 50, idealWidth: 200, maxWidth: .infinity, minHeight: 70, idealHeight: 100, maxHeight: .infinity)
         
     }
+    
+    func copyLogFilespecToClipboard()
+    {
+        
+        xcgLoggerMsg(sMessage:"...\(ClassInfo.sClsDisp):SettingsSingleView in 'copyLogFilespecToClipboard()' for text of [\(self.appDelegate.sAppDelegateLogFilespec!)]...")
+        
+    #if os(macOS)
+
+        pasteboard.prepareForNewContents()
+        pasteboard.setString(self.appDelegate.sAppDelegateLogFilespec!, forType: .string)
+
+    #elseif os(iOS)
+
+        pasteboard.string = self.appDelegate.sAppDelegateLogFilespec!
+
+    #endif
+
+        return
+
+    }   // End of func copyLogFilespecToClipboard().
     
     func xcgLoggerMsg(sMessage:String)
     {

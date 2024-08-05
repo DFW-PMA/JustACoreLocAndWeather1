@@ -1,5 +1,5 @@
 //
-//  CoreLocationSiteView.swift
+//  CoreLocationSiteDetailsView.swift
 //  JustACoreLocAndWeather1
 //
 //  Created by Daryl Cox on 08/03/2024.
@@ -9,20 +9,21 @@
 import SwiftUI
 import CoreLocation
 
-struct CoreLocationSiteView: View 
+struct CoreLocationSiteDetailsView: View 
 {
     
     struct ClassInfo
     {
         
-        static let sClsId        = "CoreLocationSiteView"
-        static let sClsVers      = "v1.0102"
+        static let sClsId        = "CoreLocationSiteDetailsView"
+        static let sClsVers      = "v1.0301"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
         static let bClsFileLog   = true
         
     }
+    
     // AppDelegate (via @EnvironmentObject - automatic via the App's @NSApplicationDelegateAdaptor property wrapper
 
     @EnvironmentObject private var appDelegate:JustACoreLocAndWeather1AppDelegate
@@ -33,14 +34,15 @@ struct CoreLocationSiteView: View
     
     @StateObject   var coreLocationModelObservable:CoreLocationModelObservable
     
-    @State private var cCoreLocationSiteViewRefreshButtonPresses:Int  = 0
+    @State private var cCoreLocationSiteDetailsViewRefreshButtonPresses:Int  = 0
     
     var body: some View
     {
         
         let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):body(some View) \(ClassInfo.sClsCopyRight)...")
         
-        Spacer(minLength: 10)
+    //  Spacer(minLength: 10)
+        Spacer()
         
         VStack
         {
@@ -64,21 +66,21 @@ struct CoreLocationSiteView: View
             Text("Administrative Area    : \(String(describing:coreLocationModelObservable.sCurrentAdministrativeArea))")
             Text("SUB Administrative Area: \(String(describing:coreLocationModelObservable.sCurrentSubAdministrativeArea))")
             
-            Spacer(minLength: 5)
+            Spacer(minLength: 3)
 
             HStack(alignment:.center)           // HStack #1.3
             {
             
                 Spacer()
 
-                Button("Refresh - #(\(self.cCoreLocationSiteViewRefreshButtonPresses))...")
+                Button("Refresh - #(\(self.cCoreLocationSiteDetailsViewRefreshButtonPresses))...")
                 {
 
-                    self.cCoreLocationSiteViewRefreshButtonPresses += 1
+                    self.cCoreLocationSiteDetailsViewRefreshButtonPresses += 1
 
                     self.refreshCoreLocation()
 
-                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)CoreLocationSiteView.Button(Xcode).'Refresh'.#(\(self.cCoreLocationSiteViewRefreshButtonPresses))...")
+                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)CoreLocationSiteDetailsView.Button(Xcode).'Refresh'.#(\(self.cCoreLocationSiteDetailsViewRefreshButtonPresses))...")
 
                 }
                 .controlSize(.extraLarge)
@@ -91,7 +93,7 @@ struct CoreLocationSiteView: View
                 Button("Dismiss") 
                 {
 
-                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):SettingsSingleView.Button(Xcode).'Dismiss' pressed...")
+                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):CoreLocationSiteDetailsView.Button(Xcode).'Dismiss' pressed...")
 
                     dismiss()
 
@@ -143,7 +145,7 @@ struct CoreLocationSiteView: View
 #Preview 
 {
     
-    CoreLocationSiteView(coreLocationModelObservable:CoreLocationModelObservable())
+    CoreLocationSiteDetailsView(coreLocationModelObservable:CoreLocationModelObservable())
     
 }
 

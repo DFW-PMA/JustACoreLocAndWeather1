@@ -23,7 +23,7 @@ struct LogFileView: View
     {
         
         static let sClsId          = "LogFileView"
-        static let sClsVers        = "v1.0503"
+        static let sClsVers        = "v1.0601"
         static let sClsDisp        = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight   = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace       = true
@@ -71,7 +71,7 @@ struct LogFileView: View
                     Button
                     {
                         
-                        let _ = xcgLoggerMsg(sMessage:"...\(ClassInfo.sClsDisp):ContentView in Text.contextMenu.'copy' button #1...")
+                        let _ = xcgLoggerMsg(sMessage:"...\(ClassInfo.sClsDisp):LogFileView in Text.contextMenu.'copy' button #1...")
                         
                         copyLogFilespecToClipboard()
                         
@@ -93,7 +93,7 @@ struct LogFileView: View
                     Button
                     {
                         
-                        let _ = xcgLoggerMsg(sMessage:"...\(ClassInfo.sClsDisp):ContentView in Text.contextMenu.'copy' button #2...")
+                        let _ = xcgLoggerMsg(sMessage:"...\(ClassInfo.sClsDisp):LogFileView in Text.contextMenu.'copy' button #2...")
                         
                         copyLogFilespecToClipboard()
                         
@@ -115,14 +115,32 @@ struct LogFileView: View
 
                 xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):LogFileView.Button('Preview Log file') performed for the URL of [\(String(describing: self.logFileUrl))]...")
 
-                
-
             }
             .quickLookPreview($logFileUrl)
 
         }
         
     }
+    
+    func copyLogFilespecToClipboard()
+    {
+        
+        xcgLoggerMsg(sMessage:"...\(ClassInfo.sClsDisp):LogFileView in 'copyLogFilespecToClipboard()' for text of [\(self.appDelegate.sAppDelegateLogFilespec!)]...")
+        
+    #if os(macOS)
+
+        pasteboard.prepareForNewContents()
+        pasteboard.setString(self.appDelegate.sAppDelegateLogFilespec!, forType: .string)
+
+    #elseif os(iOS)
+
+        pasteboard.string = self.appDelegate.sAppDelegateLogFilespec!
+
+    #endif
+
+        return
+
+    }   // End of func copyLogFilespecToClipboard().
     
     func xcgLoggerMsg(sMessage:String)
     {
@@ -133,26 +151,6 @@ struct LogFileView: View
 
     }   // End of func xcgLoggerMsg().
 
-    func copyLogFilespecToClipboard()
-    {
-        
-        xcgLoggerMsg(sMessage:"...\(ClassInfo.sClsDisp):ContentView in ContextMenu.copyLogFilespecToClipboard() for text of [\(JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec!)]...")
-        
-    #if os(macOS)
-
-        pasteboard.prepareForNewContents()
-        pasteboard.setString(JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec!, forType: .string)
-
-    #elseif os(iOS)
-
-        pasteboard.string = JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec!
-
-    #endif
-
-        return
-
-    }   // End of func copyLogFilespecToClipboard().
-    
 }
 
 #Preview 

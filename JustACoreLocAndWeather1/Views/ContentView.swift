@@ -16,7 +16,7 @@ struct ContentView: View
     {
         
         static let sClsId        = "ContentView"
-        static let sClsVers      = "v1.0408"
+        static let sClsVers      = "v1.0501"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -32,12 +32,12 @@ struct ContentView: View
     
     @StateObject   var coreLocationModelObservable:CoreLocationModelObservable
     
-    @State private var cContentViewRefreshButtonPresses:Int  = 0
-    @State private var cContentViewSettingsButtonPresses:Int = 0
-    @State private var cContentViewSiteButtonPresses:Int     = 0
+    @State private var cContentViewRefreshButtonPresses:Int     = 0
+    @State private var cContentViewSettingsButtonPresses:Int    = 0
+    @State private var cContentViewSiteDetailsButtonPresses:Int = 0
 
-    @State private var isAppSettingsModal:Bool               = false
-    @State private var isAppSiteViewModal:Bool               = false
+    @State private var isAppSettingsModal:Bool                  = false
+    @State private var isAppSiteDetailsViewModal:Bool           = false
     
     var body: some View
     {
@@ -163,23 +163,23 @@ struct ContentView: View
                 Button
                 {
 
-                    self.cContentViewSiteButtonPresses += 1
+                    self.cContentViewSiteDetailsButtonPresses += 1
 
-                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Site Info'.#(\(self.cContentViewSiteButtonPresses))...")
+                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Site Detail(s)'.#(\(self.cContentViewSiteDetailsButtonPresses))...")
 
-                    self.isAppSiteViewModal.toggle()
+                    self.isAppSiteDetailsViewModal.toggle()
 
                 }
                 label: 
                 {
                     
-                    Text("Site Info")
+                    Text("Site Detail(s)")
 
                 }
-                .sheet(isPresented:$isAppSiteViewModal, content:
+                .sheet(isPresented:$isAppSiteDetailsViewModal, content:
                     {
 
-                        CoreLocationSiteView(coreLocationModelObservable:coreLocationModelObservable)
+                        CoreLocationSiteDetailsView(coreLocationModelObservable:coreLocationModelObservable)
 
                     }
                 )
@@ -221,13 +221,13 @@ struct ContentView: View
                 VStack(alignment:.center)
                 {
                     
-                    Text("'JustACoreLocAndWeather1' App information:")
-                        .bold()
-                        .controlSize(.regular)
-
-                    Text("\(ClassInfo.sClsDisp):body(some View)")
-                        .italic()
-                        .controlSize(.mini)
+                //  Text("'JustACoreLocAndWeather1' App information:")
+                //      .bold()
+                //      .controlSize(.regular)
+                //
+                //  Text("\(ClassInfo.sClsDisp):body(some View)")
+                //      .italic()
+                //      .controlSize(.mini)
 
                     Text("\(ClassInfo.sClsCopyRight)")
                         .italic()
