@@ -21,7 +21,7 @@ struct SettingsSingleView: View
     {
         
         static let sClsId        = "SettingsSingleView"
-        static let sClsVers      = "v1.0804"
+        static let sClsVers      = "v1.0808"
         static let sClsDisp      = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -37,11 +37,15 @@ struct SettingsSingleView: View
 
     @Environment(\.dismiss) var dismiss
 
-    @State private var cContentViewAppAboutButtonPresses:Int = 0
-    @State private var cContentViewAppHelpButtonPresses:Int  = 0
+    @State private var cContentViewAppAboutButtonPresses:Int    = 0
+    @State private var cContentViewAppHelpButtonPresses:Int     = 0
+    @State private var cContentViewAppLogViewButtonPresses:Int  = 0
+    @State private var cContentViewAppLogClearButtonPresses:Int = 0
 
-    @State private var isAppAboutViewModal:Bool              = false
-    @State private var isAppHelpViewModal:Bool               = false
+    @State private var isAppAboutViewModal:Bool                 = false
+    @State private var isAppHelpViewModal:Bool                  = false
+    @State private var isAppLogViewModal:Bool                   = false
+    @State private var isAppLogClearShowingAlert:Bool           = false
     
 #if os(macOS)
 
@@ -159,6 +163,65 @@ struct SettingsSingleView: View
 
                     }
                 )
+                .controlSize(.large)
+                .background(Color(red: 0, green: 0.5, blue: 0.5))
+                .foregroundStyle(.white)
+                .buttonStyle(.borderedProminent)
+
+                Spacer()
+
+                Button
+                {
+
+                    self.cContentViewAppLogViewButtonPresses += 1
+
+                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):SettingsSingleView in Button(Xcode).'App Log View'.#(\(self.cContentViewAppLogViewButtonPresses))...")
+
+                    self.isAppLogViewModal.toggle()
+
+                }
+                label: 
+                {
+                    
+                    Text("App Log View")
+
+                }
+                .sheet(isPresented:$isAppLogViewModal, content:
+                    {
+
+                        LogFileView()
+
+                    }
+                )
+                .controlSize(.large)
+                .background(Color(red: 0, green: 0.5, blue: 0.5))
+                .foregroundStyle(.white)
+                .buttonStyle(.borderedProminent)
+
+                Spacer()
+
+                Button
+                {
+
+                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):SettingsSingleView in Button(Xcode).'App Log 'Clear''...")
+
+                    self.appDelegate.clearAppDelegateTraceLogFile()
+
+                    self.isAppLogClearShowingAlert = true
+
+                }
+                label: 
+                {
+                    
+                    Text("App Log 'Clear'")
+
+                }
+                .alert("App Log has been 'Cleared'...", isPresented:$isAppLogClearShowingAlert)
+                {
+
+                    Button("Ok", role:.cancel) { }
+
+                }
                 .controlSize(.large)
                 .background(Color(red: 0, green: 0.5, blue: 0.5))
                 .foregroundStyle(.white)

@@ -23,7 +23,7 @@ struct LogFileView: View
     {
         
         static let sClsId          = "LogFileView"
-        static let sClsVers        = "v1.0602"
+        static let sClsVers        = "v1.0604"
         static let sClsDisp        = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight   = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace       = true
@@ -56,6 +56,8 @@ struct LogFileView: View
         
         VStack
         {
+
+            Spacer()
 
             Text("Log file:")
                 .font(.callout)
@@ -101,6 +103,8 @@ struct LogFileView: View
                 
                 }
 
+            Spacer()
+
             Button("Preview Log file") 
             {
 
@@ -111,6 +115,10 @@ struct LogFileView: View
 
             }
             .quickLookPreview($logFileUrl)
+            .controlSize(.large)
+            .background(Color(red: 0, green: 0.5, blue: 0.5))
+            .foregroundStyle(.white)
+            .buttonStyle(.borderedProminent)
 
             Spacer()
 
