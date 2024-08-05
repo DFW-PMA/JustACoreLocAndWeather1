@@ -18,7 +18,7 @@ class JustACoreLocAndWeather1AppDelegate: NSObject, UIApplicationDelegate, Obser
     {
         
         static let sClsId          = "JustACoreLocAndWeather1AppDelegate"
-        static let sClsVers        = "v1.0803"
+        static let sClsVers        = "v1.0701"
         static let sClsDisp        = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight   = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace       = true
@@ -145,46 +145,9 @@ class JustACoreLocAndWeather1AppDelegate: NSObject, UIApplicationDelegate, Obser
         self.xcgLogger?.info("\(sCurrMethodDisp) AppDelegate is starting - 'self' is [\(self)]...")
         self.xcgLogger?.info("\(sCurrMethodDisp) XCGLogger 'log' instance 'self.xcgLogger' is being used (default instance)...")
         
-        // Dump the App 'Info.plist':
-
-        let _ = self.dumpAppInfoPlistToLog()
-
-        // Help:
-
-        if (self.helpBasicLoader.bHelpSetupRequired == true)
-        {
-
-            self.sHelpBasicContents = self.helpBasicLoader.loadHelpBasicContents(helpbasicfileext:self.sHelpBasicFileExt, helpbasicloadertag:"'appDidFinish...()'")
-
-        }
-
-    //  // Setup the Objective-C/Swift Bridge:
-    //
-    //  self.jmObjCSwiftEnvBridge = JmObjCSwiftEnvBridge(xcgLogger:self.xcgLogger!)
-    //
-    //  // Objective-C call(s):
-    //
-    //  let calledObjCModule = CalledObjCModule()
-    //
-    //  self.xcgLogger?.info("\(sCurrMethodDisp) Objective-C call #1 - invoking 'setObjCSwiftEnvBridge()' with a parameter 'self.jmObjCSwiftEnvBridge' of [\(String(describing: self.jmObjCSwiftEnvBridge))]...")
-    //
-    //  let _ = #selector(setter: calledObjCModule.setObjCSwiftEnvBridge(_ :self.jmObjCSwiftEnvBridge!))
-    //
-    //  self.xcgLogger?.info("\(sCurrMethodDisp) Objective-C call #1 - invoked 'setObjCSwiftEnvBridge()' with a parameter 'self.jmObjCSwiftEnvBridge' of [\(String(describing: self.jmObjCSwiftEnvBridge))]...")
-    //
-    //  let sInternalVariable:String? = calledObjCModule.getInternalVariable()
-    //
-    //  self.xcgLogger?.info("\(sCurrMethodDisp) Objective-C call #2 - 'sInternalVariable' (via 'getCalledObjCModuleVariable()') is [\(String(describing: sInternalVariable))]...")
-    //
-    //  let sHelloMessage:String = "Message from 'JustACoreLocAndWeather1AppDelegate'..."
-    //  
-    //  calledObjCModule.sayHello(sHelloMessage)
-    //  
-    //  self.xcgLogger?.info("\(sCurrMethodDisp) Objective-C call #3 - 'sayHello()' with a parameter of [\(String(describing: sHelloMessage))]...")
-        
         // Exit:
 
-        self.xcgLogger?.info("\(sCurrMethodDisp) Method Exiting - #(\(self.cAppDelegateInitCalls)) time(s) - 'sApplicationName' is [\(self.sApplicationName)] - 'sAppVersionAndBuildNumber' is [\(self.getAppVersionAndBuildNumber())]...")
+        self.xcgLogger?.info("\(sCurrMethodDisp) Method Exiting - #(\(self.cAppDelegateInitCalls)) time(s) - 'sApplicationName' is [\(self.sApplicationName)]...")
 
         return
 
@@ -389,6 +352,39 @@ class JustACoreLocAndWeather1AppDelegate: NSObject, UIApplicationDelegate, Obser
 
         self.xcgLogger?.info("\(sCurrMethodDisp) Invoked - 'uiApplication' is [\(uiApplication)] - 'willFinishLaunchingWithOptions' is [\(willFinishLaunchingWithOptions)] - 'sApplicationName' is [\(self.sApplicationName)] - 'self' is [\(self)]...")
 
+        // Help:
+
+        if (self.helpBasicLoader.bHelpSetupRequired == true)
+        {
+
+            self.sHelpBasicContents = self.helpBasicLoader.loadHelpBasicContents(helpbasicfileext:self.sHelpBasicFileExt, helpbasicloadertag:"'appDidFinish...()'")
+
+        }
+
+    //  // Setup the Objective-C/Swift Bridge:
+    //
+    //  self.jmObjCSwiftEnvBridge = JmObjCSwiftEnvBridge(xcgLogger:self.xcgLogger!)
+    //
+    //  // Objective-C call(s):
+    //
+    //  let calledObjCModule = CalledObjCModule()
+    //
+    //  self.xcgLogger?.info("\(sCurrMethodDisp) Objective-C call #1 - invoking 'setObjCSwiftEnvBridge()' with a parameter 'self.jmObjCSwiftEnvBridge' of [\(String(describing: self.jmObjCSwiftEnvBridge))]...")
+    //
+    //  let _ = #selector(setter: calledObjCModule.setObjCSwiftEnvBridge(_ :self.jmObjCSwiftEnvBridge!))
+    //
+    //  self.xcgLogger?.info("\(sCurrMethodDisp) Objective-C call #1 - invoked 'setObjCSwiftEnvBridge()' with a parameter 'self.jmObjCSwiftEnvBridge' of [\(String(describing: self.jmObjCSwiftEnvBridge))]...")
+    //
+    //  let sInternalVariable:String? = calledObjCModule.getInternalVariable()
+    //
+    //  self.xcgLogger?.info("\(sCurrMethodDisp) Objective-C call #2 - 'sInternalVariable' (via 'getCalledObjCModuleVariable()') is [\(String(describing: sInternalVariable))]...")
+    //
+    //  let sHelloMessage:String = "Message from 'JustACoreLocAndWeather1AppDelegate'..."
+    //  
+    //  calledObjCModule.sayHello(sHelloMessage)
+    //  
+    //  self.xcgLogger?.info("\(sCurrMethodDisp) Objective-C call #3 - 'sayHello()' with a parameter of [\(String(describing: sHelloMessage))]...")
+        
         // Exit:
 
         self.xcgLogger?.info("\(sCurrMethodDisp) Method Exiting...")
@@ -418,6 +414,10 @@ class JustACoreLocAndWeather1AppDelegate: NSObject, UIApplicationDelegate, Obser
             self.xcgLogger?.info("\(sCurrMethodDisp) Input parameter #(\(i)) is [\(sArgV)]...")
             
         }
+
+        // Dump the App 'Info.plist':
+
+        let _ = self.dumpAppInfoPlistToLog()
 
         // Exit:
 
@@ -574,7 +574,7 @@ class JustACoreLocAndWeather1AppDelegate: NSObject, UIApplicationDelegate, Obser
         
         self.xcgLogger?.info("\(sCurrMethodDisp) Invoked...")
 
-        let infoFileURL = Bundle.main.url(forResource: "Info", withExtension: "plist")
+        var infoFileURL = Bundle.main.url(forResource: "Info", withExtension: "plist")
 
         if (infoFileURL == nil)
         {
@@ -608,34 +608,11 @@ class JustACoreLocAndWeather1AppDelegate: NSObject, UIApplicationDelegate, Obser
         }
 
         self.xcgLogger?.info("\(sCurrMethodDisp) Read the dictionary 'dictInfoPlist' with (\(dictInfoPlist.count)) element(s) of [\(dictInfoPlist)] from file [\(String(describing: infoFileURL))]...")
-
-        // Exit:
-
         self.xcgLogger?.info("\(sCurrMethodDisp) Exiting...")
 
         return true
 
-    }   // End of open func dumpAppInfoPlistToLog().
-
-    open func getAppVersionAndBuildNumber() -> String 
-    {
-
-        let sCurrMethod:String = #function
-        let sCurrMethodDisp    = "\(ClassInfo.sClsDisp)'"+sCurrMethod+"':"
-        
-        self.xcgLogger?.info("\(sCurrMethodDisp) Invoked...")
-
-        let sAppVersionNumber:String         = (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) ?? "-N/A-"
-        let sAppBuildNumber:String           = (Bundle.main.infoDictionary?["CFBundleVersion"]            as? String) ?? "-N/A-"
-        let sAppVersionAndBuildNumber:String = "v\(sAppVersionNumber).\(sAppBuildNumber)"
-
-        // Exit:
-
-        self.xcgLogger?.info("\(sCurrMethodDisp) Exiting - '' is [\(sAppVersionAndBuildNumber)]...")
-
-        return sAppVersionAndBuildNumber
-
-    }   // End of open func getAppVersionAndBuildNumber().
+    }   // End of func dumpAppInfoPlistToLog().
 
 }   // End of class JustACoreLocAndWeather1AppDelegate(NSObject, NSApplicationDelegate, ObservableObject).
 
