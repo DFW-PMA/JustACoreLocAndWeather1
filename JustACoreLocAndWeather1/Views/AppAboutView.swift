@@ -16,7 +16,7 @@ struct AppAboutView: View
     {
         
         static let sClsId          = "AppAboutView"
-        static let sClsVers        = "v1.0102"
+        static let sClsVers        = "v1.0108"
         static let sClsDisp        = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight   = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace       = true
@@ -45,17 +45,15 @@ struct AppAboutView: View
     var body: some View 
     {
         
-        Spacer()
-        
         VStack
         {
 
-            Divider()
-            
+            Spacer()
+
             if #available(iOS 17.0, *)
             {
 
-                Image(ImageResource(name: "AppIcon@3x", bundle: Bundle.main))
+                Image(ImageResource(name: "Gfx/AppIcon", bundle: Bundle.main))
                     .resizable()
                     .scaledToFit()
                     .containerRelativeFrame(.horizontal)
@@ -67,29 +65,65 @@ struct AppAboutView: View
             else
             {
 
-                Image(ImageResource(name: "AppIcon@3x", bundle: Bundle.main))
+                Image(ImageResource(name: "Gfx/AppIcon", bundle: Bundle.main))
                     .resizable()
                     .scaledToFit()
                     .frame(width:100, height: 100, alignment:.center)
 
             }
 
-            Spacer(minLength:10)
+            Spacer(minLength:2)
 
-            HStack
-            {
-                
-                Text("App About...")
-                
-            }
+            Text("\(AppGlobalInfo.sGlobalInfoAppId)")
+                .bold()
+                .controlSize(.regular)
 
-            Divider()
+            Spacer(minLength:2)
+
+            Text("\(self.appDelegate.getAppVersionAndBuildNumber())")    // <=== Version...
+                .controlSize(.regular)
+
+            Spacer(minLength:2)
+
+            Text("'\(AppGlobalInfo.sGlobalInfoAppId)' App LOG file at:")
+                .bold()
+                .controlSize(.regular)
+                .contextMenu
+                {
+
+                    Button
+                    {
+
+                        let _ = xcgLoggerMsg(sMessage:"...\(ClassInfo.sClsDisp):AppAboutView in Text.contextMenu.'copy' button #1...")
+
+                        copyLogFilespecToClipboard()
+
+                    }
+                    label:
+                    {
+
+                        Text("Copy to Clipboard")
+
+                    }
+
+                }
+
+        //  Text("\(JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec!)")
+            Text("\(self.appDelegate.sAppDelegateLogFilespec!)")
+                .italic()
+                .controlSize(.mini)
+
+            Spacer(minLength:2)
+
+            Text("\(ClassInfo.sClsCopyRight)")
+                .italic()
+                .controlSize(.mini)
+
+            Spacer()
 
         }
         .padding()
     //  .frame(minWidth: 100, idealWidth: 200, maxWidth: 300, minHeight: 50, idealHeight: 100, maxHeight: 300)
-        
-        Spacer()
         
         HStack(alignment:.center)           // HStack #1.3
         {
@@ -121,7 +155,7 @@ struct AppAboutView: View
                 dismiss()
 
             }
-            .controlSize(.extraLarge)
+            .controlSize(.large)
             .background(Color(red: 0, green: 0.5, blue: 0.5))
             .foregroundStyle(.white)
             .buttonStyle(.borderedProminent)
@@ -129,93 +163,6 @@ struct AppAboutView: View
             Spacer()
 
         }   // End of HStack #1.1
-
-        Spacer()
-
-        HStack(alignment:.center)
-        {
-
-            Spacer()
-
-            VStack(alignment:.center)
-            {
-
-                Text("'JustACoreLocAndWeather1' App information:")
-                    .bold()
-                    .controlSize(.regular)
-
-            //  Text("\(ClassInfo.sClsDisp):body(some View)")
-            //      .italic()
-            //      .controlSize(.mini)
-
-                Text("\(ClassInfo.sClsCopyRight)")
-                    .italic()
-                    .controlSize(.mini)
-
-            }
-
-            Spacer()
-
-        }
-
-    //  Spacer()
-
-        HStack(alignment:.center)
-        {
-
-            Spacer()
-
-            Text(" - - - - - - - - - - - - - - - - - - - - ")
-                .bold()
-                .controlSize(.regular)
-
-            Spacer()
-
-        }
-
-    //  Spacer()
-
-        HStack(alignment:.center)
-        {
-
-            Spacer()
-
-            VStack(alignment:.center)
-            {
-
-                Text("'JustACoreLocAndWeather1' App LOG file at:")
-                    .bold()
-                    .controlSize(.regular)
-                    .contextMenu
-                    {
-
-                        Button
-                        {
-
-                            let _ = xcgLoggerMsg(sMessage:"...\(ClassInfo.sClsDisp):AppAboutView in Text.contextMenu.'copy' button #1...")
-
-                            copyLogFilespecToClipboard()
-
-                        }
-                        label:
-                        {
-
-                            Text("Copy to Clipboard")
-
-                        }
-
-                    }
-
-            //  Text("\(JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec!)")
-                Text("\(self.appDelegate.sAppDelegateLogFilespec!)")
-                    .italic()
-                    .controlSize(.mini)
-
-            }
-
-            Spacer()
-
-        }
 
         Spacer()
 

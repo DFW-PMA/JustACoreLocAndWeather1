@@ -23,7 +23,7 @@ struct LogFileView: View
     {
         
         static let sClsId          = "LogFileView"
-        static let sClsVers        = "v1.0601"
+        static let sClsVers        = "v1.0602"
         static let sClsDisp        = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight   = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace       = true
@@ -37,6 +37,8 @@ struct LogFileView: View
 
     // App Data field(s):
 
+    @Environment(\.dismiss)    var dismiss
+    
     @State  var logFileUrl:URL?
     
 #if os(macOS)
@@ -48,14 +50,6 @@ struct LogFileView: View
     private let pasteboard = UIPasteboard.general
 
 #endif
-
-    private var sLogFileText:String
-    {
-        
-    //  JmFileIO.readFile(sFilespec: JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec!) ?? "--- empty LOG file ---"
-        JmFileIO.readFile(sFilespec: self.appDelegate.sAppDelegateLogFilespec!) ?? "--- empty LOG file ---"
-        
-    }
 
     var body: some View 
     {
@@ -117,6 +111,23 @@ struct LogFileView: View
 
             }
             .quickLookPreview($logFileUrl)
+
+            Spacer()
+
+            Button("Dismiss") 
+            {
+
+                let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):LogFileView.Button(Xcode).'Dismiss' pressed...")
+
+                dismiss()
+
+            }
+            .controlSize(.large)
+            .background(Color(red: 0, green: 0.5, blue: 0.5))
+            .foregroundStyle(.white)
+            .buttonStyle(.borderedProminent)
+
+            Spacer()
 
         }
         

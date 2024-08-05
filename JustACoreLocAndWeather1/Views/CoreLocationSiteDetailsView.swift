@@ -16,7 +16,7 @@ struct CoreLocationSiteDetailsView: View
     {
         
         static let sClsId        = "CoreLocationSiteDetailsView"
-        static let sClsVers      = "v1.0301"
+        static let sClsVers      = "v1.0302"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -83,7 +83,7 @@ struct CoreLocationSiteDetailsView: View
                     let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)CoreLocationSiteDetailsView.Button(Xcode).'Refresh'.#(\(self.cCoreLocationSiteDetailsViewRefreshButtonPresses))...")
 
                 }
-                .controlSize(.extraLarge)
+                .controlSize(.large)
                 .background(Color(red: 0, green: 0.5, blue: 0.5))
                 .foregroundStyle(.white)
                 .buttonStyle(.borderedProminent)
@@ -98,7 +98,7 @@ struct CoreLocationSiteDetailsView: View
                     dismiss()
 
                 }
-                .controlSize(.extraLarge)
+                .controlSize(.large)
                 .background(Color(red: 0, green: 0.5, blue: 0.5))
                 .foregroundStyle(.white)
                 .buttonStyle(.borderedProminent)

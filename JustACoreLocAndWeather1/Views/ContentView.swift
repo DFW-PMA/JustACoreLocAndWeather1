@@ -16,7 +16,7 @@ struct ContentView: View
     {
         
         static let sClsId        = "ContentView"
-        static let sClsVers      = "v1.0501"
+        static let sClsVers      = "v1.0502"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -54,7 +54,6 @@ struct ContentView: View
 
                 Spacer()
 
-            //  Button("Settings...")
                 Button
                 {
 
@@ -83,27 +82,6 @@ struct ContentView: View
                 )
                 .padding()
 
-            //  Button
-            //  {
-            //
-            //      self.cContentViewSettingsButtonPresses += 1
-            //
-            //      self.refreshCoreLocation()
-            //
-            //      let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Settings'.#(\(self.cContentViewSettingsButtonPresses))...")
-            //
-            //  }  
-            //  label: 
-            //  {
-            //
-            //  //  Label("Settings - #(\(self.cContentViewSettingsButtonPresses))...", systemImage: "gearshape")
-            //      Label("", systemImage: "gearshape")
-            //          .padding()
-            //          .foregroundStyle(.black)
-            //          .background(.white)
-            //
-            //  }
-
             }
             
             Spacer()
@@ -127,7 +105,7 @@ struct ContentView: View
             
             Spacer(minLength: 1)
             
-            Text("Welcome to the 'JustACoreLocAndWeather1' App!")
+            Text("Welcome to the '\(AppGlobalInfo.sGlobalInfoAppId)' App!")
                 .bold()
 
             Spacer(minLength: 1)
@@ -183,7 +161,7 @@ struct ContentView: View
 
                     }
                 )
-                .controlSize(.extraLarge)
+                .controlSize(.large)
                 .background(Color(red: 0, green: 0.5, blue: 0.5))
                 .foregroundStyle(.white)
                 .buttonStyle(.borderedProminent)
@@ -200,7 +178,7 @@ struct ContentView: View
                     let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Refresh'.#(\(self.cContentViewRefreshButtonPresses))...")
 
                 }
-                .controlSize(.extraLarge)
+                .controlSize(.large)
                 .background(Color(red: 0, green: 0.5, blue: 0.5))
                 .foregroundStyle(.white)
                 .buttonStyle(.borderedProminent)
@@ -221,14 +199,6 @@ struct ContentView: View
                 VStack(alignment:.center)
                 {
                     
-                //  Text("'JustACoreLocAndWeather1' App information:")
-                //      .bold()
-                //      .controlSize(.regular)
-                //
-                //  Text("\(ClassInfo.sClsDisp):body(some View)")
-                //      .italic()
-                //      .controlSize(.mini)
-
                     Text("\(ClassInfo.sClsCopyRight)")
                         .italic()
                         .controlSize(.mini)

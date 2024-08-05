@@ -16,7 +16,7 @@ struct HelpBasicView: View
     {
         
         static let sClsId          = "HelpBasicView"
-        static let sClsVers        = "v1.0502"
+        static let sClsVers        = "v1.0505"
         static let sClsDisp        = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight   = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace       = true
@@ -30,16 +30,10 @@ struct HelpBasicView: View
 
     // App Data field(s):
 
+    @Environment(\.dismiss)      var dismiss
+    
     @AppStorage("helpBasicMode") var helpBasicMode             = HelpBasicMode.hypertext
     @State                       var sHelpBasicContents:String = "----NOT-Loaded-(View)----"
-
-    private var sLogFileText:String
-    {
-        
-    //  JmFileIO.readFile(sFilespec: JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec!) ?? "--- empty LOG file ---"
-        JmFileIO.readFile(sFilespec: self.appDelegate.sAppDelegateLogFilespec!) ?? "--- empty LOG file ---"
-        
-    }
 
     var body: some View 
     {
@@ -47,8 +41,8 @@ struct HelpBasicView: View
         VStack
         {
 
-            Divider()
-            
+            Spacer()
+
             HStack
             {
                 
@@ -60,14 +54,55 @@ struct HelpBasicView: View
                 }
                 
             }
-            .padding()
+        //  .padding()
 
-            Divider()
+            Spacer()
 
         }
         .padding()
-        .frame(minWidth: 100, idealWidth: 200, maxWidth: 300, minHeight: 50, idealHeight: 100, maxHeight: 300)
+    //  .frame(minWidth: 100, idealWidth: 200, maxWidth: 300, minHeight: 50, idealHeight: 100, maxHeight: 300)
         
+        HStack(alignment:.center)           // HStack #1.3
+        {
+
+            Spacer()
+
+        //  Button("Refresh - #(\(self.cCoreLocationSiteDetailsViewRefreshButtonPresses))...")
+        //  {
+        //
+        //      self.cCoreLocationSiteDetailsViewRefreshButtonPresses += 1
+        //
+        //      self.refreshCoreLocation()
+        //
+        //      let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)HelpBasicView.Button(Xcode).'Refresh'.#(\(self.cCoreLocationSiteDetailsViewRefreshButtonPresses))...")
+        //
+        //  }
+        //  .controlSize(.extraLarge)
+        //  .background(Color(red: 0, green: 0.5, blue: 0.5))
+        //  .foregroundStyle(.white)
+        //  .buttonStyle(.borderedProminent)
+        //
+        //  Spacer()
+
+            Button("Dismiss") 
+            {
+
+                let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):HelpBasicView.Button(Xcode).'Dismiss' pressed...")
+
+                dismiss()
+
+            }
+            .controlSize(.large)
+            .background(Color(red: 0, green: 0.5, blue: 0.5))
+            .foregroundStyle(.white)
+            .buttonStyle(.borderedProminent)
+
+            Spacer()
+
+        }   // End of HStack #1.1
+
+        Spacer()
+
     }
     
     func renderHELPContentsInTextView() -> Text
@@ -123,6 +158,15 @@ struct HelpBasicView: View
         return textField
 
     }   // End of func renderHELPContentsInTextView().
+
+    func xcgLoggerMsg(sMessage:String)
+    {
+
+        self.appDelegate.xcgLogger?.info("\(sMessage)")
+
+        return
+
+    }   // End of func xcgLoggerMsg().
 
 }
 

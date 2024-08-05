@@ -17,7 +17,7 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
     {
         
         static let sClsId        = "CoreLocationModelObservable"
-        static let sClsVers      = "v1.0402"
+        static let sClsVers      = "v1.0405"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -52,7 +52,7 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
 
         super.init()
 
-        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
+        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
         
         self.locationManager = CLLocationManager()
         
@@ -74,7 +74,7 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
 
         }
 
-        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
+        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
         
     }   // End of override init().
     
@@ -84,13 +84,13 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
         let sCurrMethod:String = #function
         let sCurrMethodDisp    = "'"+sCurrMethod+"'"
 
-        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
+        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
         
         self.locationManager?.requestLocation()
         
     //  self.locationManager?.startUpdatingLocation()
         
-        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
+        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
         
     }   // End of public func requestLocationUpdate().
     
@@ -100,11 +100,11 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
         let sCurrMethod:String = #function
         let sCurrMethodDisp    = "'"+sCurrMethod+"'"
 
-        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
+        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
         
         self.locationManager?.stopUpdatingLocation()
         
-        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
+        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
         
     }   // End of public func stopLocationUpdate().
     
@@ -122,7 +122,7 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
         let sCurrMethod:String = #function
         let sCurrMethodDisp    = "'"+sCurrMethod+"'"
         
-        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
+        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
         
         let clGeocoder:CLGeocoder      = CLGeocoder()
         let currentLocation:CLLocation = CLLocation(latitude: latitude, longitude: longitude)
@@ -163,7 +163,7 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
                                              }
                                          )
         
-        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
+        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
         
         return true
         
@@ -175,14 +175,14 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
         let sCurrMethod:String = #function
         let sCurrMethodDisp    = "'"+sCurrMethod+"'"
 
-        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
+        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
         
         guard let location = locations.last
         else { return }
         
-        print("Latitude: \(location.coordinate.latitude), Longitude: \(location.coordinate.longitude)")
+        self.xcgLoggerMsg(sMessage:"Latitude: \(location.coordinate.latitude), Longitude: \(location.coordinate.longitude)")
         
-        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
+        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
         
     }   // End of func locationManager().
     
@@ -192,7 +192,7 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
         let sCurrMethod:String = #function
         let sCurrMethodDisp    = "'"+sCurrMethod+"'"
 
-        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
+        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
         
         self.locationManager?.stopUpdatingLocation()
         
@@ -204,23 +204,23 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
                 
             case .locationUnknown, .denied, .network:
                 
-                print("Location request failed with error: \(clErr.localizedDescription)...")
+                self.xcgLoggerMsg(sMessage:"Location request failed with error: \(clErr.localizedDescription)...")
                 
             case .headingFailure:
                 
-                print("Heading request failed with error: \(clErr.localizedDescription)...")
+                self.xcgLoggerMsg(sMessage:"Heading request failed with error: \(clErr.localizedDescription)...")
                 
             case .rangingUnavailable, .rangingFailure:
                 
-                print("Ranging request failed with error: \(clErr.localizedDescription)...")
+                self.xcgLoggerMsg(sMessage:"Ranging request failed with error: \(clErr.localizedDescription)...")
                 
             case .regionMonitoringDenied, .regionMonitoringFailure, .regionMonitoringSetupDelayed, .regionMonitoringResponseDelayed:
                 
-                print("Region monitoring request failed with error: \(clErr.localizedDescription)...")
+                self.xcgLoggerMsg(sMessage:"Region monitoring request failed with error: \(clErr.localizedDescription)...")
                 
             default:
                 
-                print("Unknown 'location manager' error: \(clErr.localizedDescription)...")
+                self.xcgLoggerMsg(sMessage:"Unknown 'location manager' error: \(clErr.localizedDescription)...")
                 
             }
             
@@ -228,11 +228,11 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
         else
         {
             
-            print("Unknown error occurred while handling the 'location manager' error: \(error.localizedDescription)...")
+            self.xcgLoggerMsg(sMessage:"Unknown error occurred while handling the 'location manager' error: \(error.localizedDescription)...")
             
         }
         
-        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
+        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
         
     }   // End of func locationManager().
     
@@ -242,43 +242,55 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
         let sCurrMethod:String = #function
         let sCurrMethodDisp    = "'"+sCurrMethod+"'"
 
-        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
+        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
         
         switch manager.authorizationStatus
         {
             
         case .notDetermined:
             
-            print("The User has NOT yet determined authorization...")
+            self.xcgLoggerMsg(sMessage:"The User has NOT yet determined authorization...")
             
         case .restricted:
             
-            print("Authorization is RESTRICTED by Parental control...")
+            self.xcgLoggerMsg(sMessage:"Authorization is RESTRICTED by Parental control...")
             
         case .denied:
             
-            print("The User has selected 'Do NOT Allow' (denied)...")
+            self.xcgLoggerMsg(sMessage:"The User has selected 'Do NOT Allow' (denied)...")
             
         case .authorizedAlways:
             
-            print("The User has changed the selection to 'Always Allow'...")
+            self.xcgLoggerMsg(sMessage:"The User has changed the selection to 'Always Allow'...")
             
         case .authorizedWhenInUse:
             
-            print("The User has selected 'Allow while Using' or 'Allow Once'...")
+            self.xcgLoggerMsg(sMessage:"The User has selected 'Allow while Using' or 'Allow Once'...")
             
             self.locationManager?.requestAlwaysAuthorization()
             
         default:
             
-            print("This is the 'default' option...")
+            self.xcgLoggerMsg(sMessage:"This is the 'default' option...")
             
         }
         
-        print("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
+        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
         
     }   // End of func locationManagerDidChangeAuthorization().
-    
+
+    func xcgLoggerMsg(sMessage:String)
+    {
+
+        let appDelegate:JustACoreLocAndWeather1AppDelegate
+                               = JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!
+
+        appDelegate.xcgLogger?.info("\(sMessage)")
+
+        return
+
+    }   // End of func xcgLoggerMsg().
+
 }   // End of class CoreLocationModelObservable(NSObject, CLLocationManagerDelegate, ObservableObject).
 
 // --------------------------------------------------------------------------------------------------------------------

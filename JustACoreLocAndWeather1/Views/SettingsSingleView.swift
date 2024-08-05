@@ -21,7 +21,7 @@ struct SettingsSingleView: View
     {
         
         static let sClsId        = "SettingsSingleView"
-        static let sClsVers      = "v1.0801"
+        static let sClsVers      = "v1.0804"
         static let sClsDisp      = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -38,8 +38,10 @@ struct SettingsSingleView: View
     @Environment(\.dismiss) var dismiss
 
     @State private var cContentViewAppAboutButtonPresses:Int = 0
+    @State private var cContentViewAppHelpButtonPresses:Int  = 0
 
     @State private var isAppAboutViewModal:Bool              = false
+    @State private var isAppHelpViewModal:Bool               = false
     
 #if os(macOS)
 
@@ -62,47 +64,46 @@ struct SettingsSingleView: View
             Spacer()
                 .frame(height:50)
             
-            Divider()
-                .border(Color.black, width:5)
-            
-            HStack(alignment:.center)           // HStack #1.1
-            {
-            
-                Spacer()
-                    .frame(width:10)
-                
-                Text("Preferences:")
-            
-            }   // End of HStack #1.1
-
-            Divider()
-                .border(Color.black, width:5)
-
-            Spacer()
-                .frame(height:5)
-
-            HStack(alignment:.bottom)   // HStack #1.2
-            {
-
-                Spacer()
-                    .frame(width:100, height:10)
-
-                Text("Settings field #1...")
-                    .frame(alignment:.bottom)
-
-                Spacer()
-                    .frame(width:100, height:10)
-
-            }   // End of HStack #1.2
-
-            Spacer()
-                .frame(height:50)
+        //  Divider()
+        //      .border(Color.black, width:5)
+        //  
+        //  HStack(alignment:.center)           // HStack #1.1
+        //  {
+        //  
+        //      Spacer()
+        //          .frame(width:10)
+        //      
+        //      Text("Preferences:")
+        //  
+        //  }   // End of HStack #1.1
+        //
+        //  Divider()
+        //      .border(Color.black, width:5)
+        //
+        //  Spacer()
+        //      .frame(height:5)
+        //
+        //  HStack(alignment:.bottom)   // HStack #1.2
+        //  {
+        //
+        //      Spacer()
+        //          .frame(width:100, height:10)
+        //
+        //      Text("Settings field #1...")
+        //          .frame(alignment:.bottom)
+        //
+        //      Spacer()
+        //          .frame(width:100, height:10)
+        //
+        //  }   // End of HStack #1.2
+        //
+        //  Spacer()
+        //      .frame(height:50)
 
             HStack(alignment:.center)           // HStack #1.3
             {
             
                 Spacer()
-                //  .frame(width:30)
                 
                 Button
                 {
@@ -127,29 +128,44 @@ struct SettingsSingleView: View
 
                     }
                 )
-                .controlSize(.extraLarge)
+                .controlSize(.large)
                 .background(Color(red: 0, green: 0.5, blue: 0.5))
                 .foregroundStyle(.white)
                 .buttonStyle(.borderedProminent)
 
                 Spacer()
 
-                Button("Dismiss") 
+                Button
                 {
 
-                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):SettingsSingleView.Button(Xcode).'Dismiss' pressed...")
+                    self.cContentViewAppHelpButtonPresses += 1
 
-                    dismiss()
+                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):SettingsSingleView in Button(Xcode).'App Help'.#(\(self.cContentViewAppHelpButtonPresses))...")
+
+                    self.isAppHelpViewModal.toggle()
 
                 }
-                .controlSize(.extraLarge)
+                label: 
+                {
+                    
+                    Text("App Help")
+
+                }
+                .sheet(isPresented:$isAppHelpViewModal, content:
+                    {
+
+                    //  HelpBasicView()
+                        HelpBasicView(sHelpBasicContents: self.appDelegate.getAppDelegateHelpBasicContents())
+
+                    }
+                )
+                .controlSize(.large)
                 .background(Color(red: 0, green: 0.5, blue: 0.5))
                 .foregroundStyle(.white)
                 .buttonStyle(.borderedProminent)
 
                 Spacer()
-                //  .frame(width:30)
-                
+
             }   // End of HStack #1.1
 
             Spacer()
@@ -241,6 +257,30 @@ struct SettingsSingleView: View
 
             Spacer()
 
+            HStack(alignment:.center)           // HStack #1.3
+            {
+            
+                Spacer()
+
+                Button("Dismiss") 
+                {
+
+                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):SettingsSingleView.Button(Xcode).'Dismiss' pressed...")
+
+                    dismiss()
+
+                }
+                .controlSize(.large)
+                .background(Color(red: 0, green: 0.5, blue: 0.5))
+                .foregroundStyle(.white)
+                .buttonStyle(.borderedProminent)
+
+                Spacer()
+                
+            }   // End of HStack #1.1
+
+            Spacer()
+            
         }   // End of VStack #1
         .padding()
     //  .background(Color.black)

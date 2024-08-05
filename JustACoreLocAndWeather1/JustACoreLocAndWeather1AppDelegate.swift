@@ -18,7 +18,7 @@ class JustACoreLocAndWeather1AppDelegate: NSObject, UIApplicationDelegate, Obser
     {
         
         static let sClsId          = "JustACoreLocAndWeather1AppDelegate"
-        static let sClsVers        = "v1.0803"
+        static let sClsVers        = "v1.0805"
         static let sClsDisp        = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight   = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace       = true
@@ -47,7 +47,8 @@ class JustACoreLocAndWeather1AppDelegate: NSObject, UIApplicationDelegate, Obser
     var sApplicationTitle:String              = "-N/A-"
     let sApplicationShortTitle:String         = "JACLAW1"
 
-    let sHelpBasicFileExt:String              = "html"     // 'help' File extension: "md", "html", or "txt"
+//  let sHelpBasicFileExt:String              = "html"     // 'help' File extension: "md", "html", or "txt"
+    let sHelpBasicFileExt:String              = "md"       // 'help' File extension: "md", "html", or "txt"
     var sHelpBasicContents:String             = "-N/A-"
 
     @AppStorage("helpBasicMode") 
@@ -627,7 +628,7 @@ class JustACoreLocAndWeather1AppDelegate: NSObject, UIApplicationDelegate, Obser
 
         let sAppVersionNumber:String         = (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) ?? "-N/A-"
         let sAppBuildNumber:String           = (Bundle.main.infoDictionary?["CFBundleVersion"]            as? String) ?? "-N/A-"
-        let sAppVersionAndBuildNumber:String = "v\(sAppVersionNumber).\(sAppBuildNumber)"
+        let sAppVersionAndBuildNumber:String = "Version v\(sAppVersionNumber) (\(sAppBuildNumber))"
 
         // Exit:
 
