@@ -16,7 +16,7 @@ struct CoreLocationSiteDetailsView: View
     {
         
         static let sClsId        = "CoreLocationSiteDetailsView"
-        static let sClsVers      = "v1.0302"
+        static let sClsVers      = "v1.0401"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -53,7 +53,7 @@ struct CoreLocationSiteDetailsView: View
             
             Text("")
             
-            Text("Location (Lat/Long)    : \(String(describing:coreLocationModelObservable.sCurrentLocation))")
+            Text("Location (Lat/Long)    : \(String(describing:coreLocationModelObservable.clCurrentLocation))")
             Text("Location 'Name'        : \(String(describing:coreLocationModelObservable.sCurrentLocationName))")
             Text("City                   : \(String(describing:coreLocationModelObservable.sCurrentCity))")
             Text("Country                : \(String(describing:coreLocationModelObservable.sCurrentCountry))")
