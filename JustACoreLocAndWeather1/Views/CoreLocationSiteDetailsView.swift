@@ -16,7 +16,7 @@ struct CoreLocationSiteDetailsView: View
     {
         
         static let sClsId        = "CoreLocationSiteDetailsView"
-        static let sClsVers      = "v1.0501"
+        static let sClsVers      = "v1.0503"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -49,14 +49,17 @@ struct CoreLocationSiteDetailsView: View
 
             Text("Current 'site' (City,Country,TimeZone, etc.):")
                 .bold()
+                .italic()
                 .underline(true, color:.black)
             
             Text("")
 
-            Grid 
+            Grid(alignment:.leadingFirstTextBaseline, horizontalSpacing:5, verticalSpacing: 3)
             {
 
                 // Column Headings:
+
+                Divider() 
 
                 GridRow 
                 {
@@ -72,16 +75,17 @@ struct CoreLocationSiteDetailsView: View
 
                 // Item Rows:
 
-                ForEach(coreLocationModelObservable.listCoreLocationSiteItems) 
+                ForEach(coreLocationModelObservable.listCoreLocationSiteItems!) 
                 { siteItem in
 
-                    GridRow 
+                    GridRow(alignment:.bottom)
                     {
 
                         Text(siteItem.sCLSiteItemName)
                             .bold()
                         Text(siteItem.sCLSiteItemDesc)
-                        Text(siteItem.objCLSiteItemValue)
+                            .gridColumnAlignment(.center)
+                        Text(siteItem.sCLSiteItemValue)
 
                     }
 

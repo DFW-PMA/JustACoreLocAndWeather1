@@ -17,7 +17,7 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
     {
         
         static let sClsId        = "CoreLocationModelObservable"
-        static let sClsVers      = "v1.0503"
+        static let sClsVers      = "v1.0506"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -188,6 +188,7 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
         
         self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "Location",
                                                                     sCLSiteItemDesc:    "(Latitude,Longitude)",
+                                                                    sCLSiteItemValue:   "\(String(describing:self.clCurrentLocation))",
                                                                     objCLSiteItemValue: self.clCurrentLocation))
 
         self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "Street Address",
@@ -207,6 +208,7 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
 
         self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "TimeZone",
                                                                     sCLSiteItemDesc:    "\(String(describing:self.tzCurrentTimeZone))",
+                                                                    sCLSiteItemValue:   "\(String(describing:self.tzCurrentTimeZone))",
                                                                     objCLSiteItemValue: self.tzCurrentTimeZone))
 
         self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "Country",
@@ -223,6 +225,7 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
 
         self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "Region",
                                                                     sCLSiteItemDesc:    "-N/A-",
+                                                                    sCLSiteItemValue:   "\(String(describing:self.clCurrentRegion))",
                                                                     objCLSiteItemValue: self.clCurrentRegion))
 
         // Exit...

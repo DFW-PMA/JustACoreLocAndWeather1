@@ -23,7 +23,7 @@ struct LogFileView: View
     {
         
         static let sClsId          = "LogFileView"
-        static let sClsVers        = "v1.0604"
+        static let sClsVers        = "v1.0703"
         static let sClsDisp        = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight   = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace       = true
@@ -38,6 +38,10 @@ struct LogFileView: View
     // App Data field(s):
 
     @Environment(\.dismiss)    var dismiss
+
+    @State private var cContentViewAppLogClearButtonPresses:Int = 0
+
+    @State private var isAppLogClearShowingAlert:Bool           = false
     
     @State  var logFileUrl:URL?
     
@@ -115,6 +119,37 @@ struct LogFileView: View
 
             }
             .quickLookPreview($logFileUrl)
+            .controlSize(.large)
+            .background(Color(red: 0, green: 0.5, blue: 0.5))
+            .foregroundStyle(.white)
+            .buttonStyle(.borderedProminent)
+
+            Spacer()
+
+            Button
+            {
+
+                self.cContentViewAppLogClearButtonPresses += 1
+
+                let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):LogFileView in Button(Xcode).'App Log 'Clear'.#(\(self.cContentViewAppLogClearButtonPresses))'...")
+
+                self.appDelegate.clearAppDelegateTraceLogFile()
+
+                self.isAppLogClearShowingAlert = true
+
+            }
+            label: 
+            {
+
+                Text("App Log 'Clear'")
+
+            }
+            .alert("App Log has been 'Cleared'...", isPresented:$isAppLogClearShowingAlert)
+            {
+
+                Button("Ok", role:.cancel) { }
+
+            }
             .controlSize(.large)
             .background(Color(red: 0, green: 0.5, blue: 0.5))
             .foregroundStyle(.white)

@@ -21,7 +21,7 @@ struct SettingsSingleView: View
     {
         
         static let sClsId        = "SettingsSingleView"
-        static let sClsVers      = "v1.0808"
+        static let sClsVers      = "v1.0901"
         static let sClsDisp      = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -203,7 +203,9 @@ struct SettingsSingleView: View
                 Button
                 {
 
-                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):SettingsSingleView in Button(Xcode).'App Log 'Clear''...")
+                    self.cContentViewAppLogClearButtonPresses += 1
+
+                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):SettingsSingleView in Button(Xcode).'App Log 'Clear'.#(\(self.cContentViewAppLogClearButtonPresses))'...")
 
                     self.appDelegate.clearAppDelegateTraceLogFile()
 
