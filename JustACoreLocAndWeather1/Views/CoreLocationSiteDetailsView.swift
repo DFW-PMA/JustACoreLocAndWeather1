@@ -16,7 +16,7 @@ struct CoreLocationSiteDetailsView: View
     {
         
         static let sClsId        = "CoreLocationSiteDetailsView"
-        static let sClsVers      = "v1.0401"
+        static let sClsVers      = "v1.0501"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -52,19 +52,55 @@ struct CoreLocationSiteDetailsView: View
                 .underline(true, color:.black)
             
             Text("")
+
+            Grid 
+            {
+
+                // Column Headings:
+
+                GridRow 
+                {
+
+                    Text("ItemName")
+                    Text("Description")
+                    Text("ItemObjValue")
+
+                }
+                .font(.title2) 
+
+                Divider() 
+
+                // Item Rows:
+
+                ForEach(coreLocationModelObservable.listCoreLocationSiteItems) 
+                { siteItem in
+
+                    GridRow 
+                    {
+
+                        Text(siteItem.sCLSiteItemName)
+                            .bold()
+                        Text(siteItem.sCLSiteItemDesc)
+                        Text(siteItem.objCLSiteItemValue)
+
+                    }
+
+                }
+
+            }
             
-            Text("Location (Lat/Long)    : \(String(describing:coreLocationModelObservable.clCurrentLocation))")
-            Text("Location 'Name'        : \(String(describing:coreLocationModelObservable.sCurrentLocationName))")
-            Text("City                   : \(String(describing:coreLocationModelObservable.sCurrentCity))")
-            Text("Country                : \(String(describing:coreLocationModelObservable.sCurrentCountry))")
-            Text("Postal Code            : \(String(describing:coreLocationModelObservable.sCurrentPostalCode))")
-            Text("TimeZone               : \(String(describing:coreLocationModelObservable.tzCurrentTimeZone))")
-            Text("Region                 : \(String(describing:coreLocationModelObservable.clCurrentRegion))")
-            Text("SUB Locality           : \(String(describing:coreLocationModelObservable.sCurrentSubLocality))")
-            Text("Thorough Fare          : \(String(describing:coreLocationModelObservable.sCurrentThoroughfare))")
-            Text("SUB Thorough Fare      : \(String(describing:coreLocationModelObservable.sCurrentSubThoroughfare))")
-            Text("Administrative Area    : \(String(describing:coreLocationModelObservable.sCurrentAdministrativeArea))")
-            Text("SUB Administrative Area: \(String(describing:coreLocationModelObservable.sCurrentSubAdministrativeArea))")
+        //  Text("Location (Lat/Long)    : \(String(describing:coreLocationModelObservable.clCurrentLocation))")
+        //  Text("Location 'Name'        : \(String(describing:coreLocationModelObservable.sCurrentLocationName))")
+        //  Text("City                   : \(String(describing:coreLocationModelObservable.sCurrentCity))")
+        //  Text("Country                : \(String(describing:coreLocationModelObservable.sCurrentCountry))")
+        //  Text("Postal Code            : \(String(describing:coreLocationModelObservable.sCurrentPostalCode))")
+        //  Text("TimeZone               : \(String(describing:coreLocationModelObservable.tzCurrentTimeZone))")
+        //  Text("Region                 : \(String(describing:coreLocationModelObservable.clCurrentRegion))")
+        //  Text("SUB Locality           : \(String(describing:coreLocationModelObservable.sCurrentSubLocality))")
+        //  Text("Thorough Fare          : \(String(describing:coreLocationModelObservable.sCurrentThoroughfare))")
+        //  Text("SUB Thorough Fare      : \(String(describing:coreLocationModelObservable.sCurrentSubThoroughfare))")
+        //  Text("Administrative Area    : \(String(describing:coreLocationModelObservable.sCurrentAdministrativeArea))")
+        //  Text("SUB Administrative Area: \(String(describing:coreLocationModelObservable.sCurrentSubAdministrativeArea))")
             
             Spacer(minLength: 3)
 

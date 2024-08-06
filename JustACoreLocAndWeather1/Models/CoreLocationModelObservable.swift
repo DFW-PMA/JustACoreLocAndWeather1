@@ -17,7 +17,7 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
     {
         
         static let sClsId        = "CoreLocationModelObservable"
-        static let sClsVers      = "v1.0502"
+        static let sClsVers      = "v1.0503"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -187,43 +187,43 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
         self.listCoreLocationSiteItems = []
         
         self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "Location",
-                                                                   sCLSiteItemDesc:     "(Latitude,Longitude)",
-                                                                   objCLSiteItemValue:  self.clCurrentLocation))
+                                                                    sCLSiteItemDesc:    "(Latitude,Longitude)",
+                                                                    objCLSiteItemValue: self.clCurrentLocation))
 
         self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "Street Address",
-                                                                   sCLSiteItemDesc:     "\(String(describing:self.sCurrentLocationName))"))
+                                                                    sCLSiteItemDesc:    "\(String(describing:self.sCurrentLocationName))"))
 
         self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "City",
-                                                                   sCLSiteItemDesc:     "\(String(describing:self.sCurrentCity))"))
+                                                                    sCLSiteItemDesc:    "\(String(describing:self.sCurrentCity))"))
 
         self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "Zip Code",
-                                                                   sCLSiteItemDesc:     "\(String(describing:self.sCurrentPostalCode))"))
+                                                                    sCLSiteItemDesc:    "\(String(describing:self.sCurrentPostalCode))"))
 
         self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "County",
-                                                                   sCLSiteItemDesc:     "\(String(describing:self.sCurrentSubAdministrativeArea))"))
+                                                                    sCLSiteItemDesc:    "\(String(describing:self.sCurrentSubAdministrativeArea))"))
 
         self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "State",
-                                                                   sCLSiteItemDesc:     "\(String(describing:self.sCurrentAdministrativeArea))"))
+                                                                    sCLSiteItemDesc:    "\(String(describing:self.sCurrentAdministrativeArea))"))
 
         self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "TimeZone",
-                                                                   sCLSiteItemDesc:     "\(String(describing:self.tzCurrentTimeZone))",
-                                                                   objCLSiteItemValue:  self.tzCurrentTimeZone))
+                                                                    sCLSiteItemDesc:    "\(String(describing:self.tzCurrentTimeZone))",
+                                                                    objCLSiteItemValue: self.tzCurrentTimeZone))
 
         self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "Country",
-                                                                   sCLSiteItemDesc:     "\(String(describing:self.sCurrentCountry))"))
+                                                                    sCLSiteItemDesc:    "\(String(describing:self.sCurrentCountry))"))
 
         self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "Street Name",
-                                                                   sCLSiteItemDesc:     "\(String(describing:self.sCurrentThoroughfare))"))
+                                                                    sCLSiteItemDesc:    "\(String(describing:self.sCurrentThoroughfare))"))
 
         self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "Building #",
-                                                                   sCLSiteItemDesc:     "\(String(describing:self.sCurrentSubThoroughfare))"))
+                                                                    sCLSiteItemDesc:    "\(String(describing:self.sCurrentSubThoroughfare))"))
 
         self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "Sub Locality",
-                                                                   sCLSiteItemDesc:     "\(String(describing:self.sCurrentSubLocality))"))
+                                                                    sCLSiteItemDesc:    "\(String(describing:self.sCurrentSubLocality))"))
 
         self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "Region",
-                                                                   sCLSiteItemDesc:     "-N/A-",
-                                                                   objCLSiteItemValue:  self.clCurrentRegion))
+                                                                    sCLSiteItemDesc:    "-N/A-",
+                                                                    objCLSiteItemValue: self.clCurrentRegion))
 
         // Exit...
 
