@@ -16,7 +16,7 @@ struct CoreLocationSiteItem: Identifiable
     {
         
         static let sClsId        = "CoreLocationSiteItem"
-        static let sClsVers      = "v1.0201"
+        static let sClsVers      = "v1.0301"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true

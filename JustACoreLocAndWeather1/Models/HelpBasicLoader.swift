@@ -17,7 +17,7 @@ class HelpBasicLoader: NSObject
     {
         
         static let sClsId        = "HelpBasicLoader"
-        static let sClsVers      = "v1.0506"
+        static let sClsVers      = "v1.0602"
         static let sClsDisp      = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -68,10 +68,8 @@ class HelpBasicLoader: NSObject
 
         let sCurrMethod:String = #function
         let sCurrMethodDisp    = "'"+sCurrMethod+"'"
-//      let appDelegate:JustACoreLocAndWeather1AppDelegate
-//                             = JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!
 
-        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp) \(sCurrMethodDisp) - Invoked...")
+        self.xcgLogMsg("\(ClassInfo.sClsDisp) \(sCurrMethodDisp) - Invoked...")
 
         if (self.bHelpSetupRequired == true)
         {
@@ -85,7 +83,7 @@ class HelpBasicLoader: NSObject
 
                 let sSearchMessage:String = "\(ClassInfo.sClsDisp) \(sCurrMethodDisp) - Supplied 'help' Basic loader TAG string is an 'empty' string - defaulting it to [\(self.sHelpBasicLoaderTag)] - Warning!"
 
-                self.xcgLoggerMsg(sMessage:sSearchMessage)
+                self.xcgLogMsg(sSearchMessage)
 
             }
 
@@ -98,11 +96,11 @@ class HelpBasicLoader: NSObject
 
                 let sSearchMessage:String = "\(ClassInfo.sClsDisp) \(sCurrMethodDisp) - Supplied 'help' Basic loader TAG string is an 'empty' string - defaulting it to [\(self.sHelpBasicFileExt)] - Warning!"
 
-                self.xcgLoggerMsg(sMessage:sSearchMessage)
+                self.xcgLogMsg(sSearchMessage)
 
             }
 
-            self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp) \(sCurrMethodDisp) - Loading the HELP 'Basic' contents from file extension of [\(self.sHelpBasicFileExt)] via [\(self.sHelpBasicLoaderTag)]...")
+            self.xcgLogMsg("\(ClassInfo.sClsDisp) \(sCurrMethodDisp) - Loading the HELP 'Basic' contents from file extension of [\(self.sHelpBasicFileExt)] via [\(self.sHelpBasicLoaderTag)]...")
 
             if let fpBasicHelp = Bundle.main.path(forResource: "HelpBasic", ofType: self.sHelpBasicFileExt)
             {
@@ -114,7 +112,7 @@ class HelpBasicLoader: NSObject
 
                     print("\(ClassInfo.sClsDisp) \(sCurrMethodDisp) - HELP 'basic' contents 'self.sHelpBasicContents' via [\(self.sHelpBasicLoaderTag)] are [\(self.sHelpBasicContents)]...")
 
-                    self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp) \(sCurrMethodDisp) - HELP 'basic' contents 'self.sHelpBasicContents' via [\(self.sHelpBasicLoaderTag)] are [\(self.sHelpBasicContents)]...")
+                    self.xcgLogMsg("\(ClassInfo.sClsDisp) \(sCurrMethodDisp) - HELP 'basic' contents 'self.sHelpBasicContents' via [\(self.sHelpBasicLoaderTag)] are [\(self.sHelpBasicContents)]...")
 
                     if (self.sHelpBasicFileExt == "html")
                     {
@@ -158,17 +156,17 @@ class HelpBasicLoader: NSObject
 
             }
 
-            self.xcgLoggerMsg(sMessage:"")
+            self.xcgLogMsg("")
 
         }
 
-        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp) \(sCurrMethodDisp) - Exiting...")
+        self.xcgLogMsg("\(ClassInfo.sClsDisp) \(sCurrMethodDisp) - Exiting...")
 
         return self.sHelpBasicContents
 
     }   // End of func loadHelpBasicContents().
 
-    func xcgLoggerMsg(sMessage:String)
+    func xcgLogMsg(_ sMessage:String)
     {
 
         let appDelegate:JustACoreLocAndWeather1AppDelegate
@@ -178,7 +176,7 @@ class HelpBasicLoader: NSObject
 
         return
 
-    }   // End of func xcgLoggerMsg().
+    }   // End of func xcgLogMsg().
 
 }   // End of class HelpBasicLoader(NSObject).
 

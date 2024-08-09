@@ -21,7 +21,7 @@ struct SettingsSingleView: View
     {
         
         static let sClsId        = "SettingsSingleView"
-        static let sClsVers      = "v1.0901"
+        static let sClsVers      = "v1.1001"
         static let sClsDisp      = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -68,42 +68,6 @@ struct SettingsSingleView: View
             Spacer()
                 .frame(height:50)
             
-        //  Divider()
-        //      .border(Color.black, width:5)
-        //  
-        //  HStack(alignment:.center)           // HStack #1.1
-        //  {
-        //  
-        //      Spacer()
-        //          .frame(width:10)
-        //      
-        //      Text("Preferences:")
-        //  
-        //  }   // End of HStack #1.1
-        //
-        //  Divider()
-        //      .border(Color.black, width:5)
-        //
-        //  Spacer()
-        //      .frame(height:5)
-        //
-        //  HStack(alignment:.bottom)   // HStack #1.2
-        //  {
-        //
-        //      Spacer()
-        //          .frame(width:100, height:10)
-        //
-        //      Text("Settings field #1...")
-        //          .frame(alignment:.bottom)
-        //
-        //      Spacer()
-        //          .frame(width:100, height:10)
-        //
-        //  }   // End of HStack #1.2
-        //
-        //  Spacer()
-        //      .frame(height:50)
-
             HStack(alignment:.center)           // HStack #1.3
             {
             
@@ -114,7 +78,7 @@ struct SettingsSingleView: View
 
                     self.cContentViewAppAboutButtonPresses += 1
 
-                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):SettingsSingleView in Button(Xcode).'App About'.#(\(self.cContentViewAppAboutButtonPresses))...")
+                    let _ = xcgLogMsg("\(ClassInfo.sClsDisp):SettingsSingleView in Button(Xcode).'App About'.#(\(self.cContentViewAppAboutButtonPresses))...")
 
                     self.isAppAboutViewModal.toggle()
 
@@ -144,7 +108,7 @@ struct SettingsSingleView: View
 
                     self.cContentViewAppHelpButtonPresses += 1
 
-                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):SettingsSingleView in Button(Xcode).'App Help'.#(\(self.cContentViewAppHelpButtonPresses))...")
+                    let _ = xcgLogMsg("\(ClassInfo.sClsDisp):SettingsSingleView in Button(Xcode).'App Help'.#(\(self.cContentViewAppHelpButtonPresses))...")
 
                     self.isAppHelpViewModal.toggle()
 
@@ -158,7 +122,6 @@ struct SettingsSingleView: View
                 .sheet(isPresented:$isAppHelpViewModal, content:
                     {
 
-                    //  HelpBasicView()
                         HelpBasicView(sHelpBasicContents: self.appDelegate.getAppDelegateHelpBasicContents())
 
                     }
@@ -175,7 +138,7 @@ struct SettingsSingleView: View
 
                     self.cContentViewAppLogViewButtonPresses += 1
 
-                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):SettingsSingleView in Button(Xcode).'App Log View'.#(\(self.cContentViewAppLogViewButtonPresses))...")
+                    let _ = xcgLogMsg("\(ClassInfo.sClsDisp):SettingsSingleView in Button(Xcode).'App Log View'.#(\(self.cContentViewAppLogViewButtonPresses))...")
 
                     self.isAppLogViewModal.toggle()
 
@@ -205,7 +168,7 @@ struct SettingsSingleView: View
 
                     self.cContentViewAppLogClearButtonPresses += 1
 
-                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):SettingsSingleView in Button(Xcode).'App Log 'Clear'.#(\(self.cContentViewAppLogClearButtonPresses))'...")
+                    let _ = xcgLogMsg("\(ClassInfo.sClsDisp):SettingsSingleView in Button(Xcode).'App Log 'Clear'.#(\(self.cContentViewAppLogClearButtonPresses))'...")
 
                     self.appDelegate.clearAppDelegateTraceLogFile()
 
@@ -247,10 +210,6 @@ struct SettingsSingleView: View
                         .bold()
                         .controlSize(.regular)
 
-                //  Text("\(ClassInfo.sClsDisp):body(some View)")
-                //      .italic()
-                //      .controlSize(.mini)
-
                     Text("\(ClassInfo.sClsCopyRight)")
                         .italic()
                         .controlSize(.mini)
@@ -260,8 +219,6 @@ struct SettingsSingleView: View
                 Spacer()
                 
             }
-
-        //  Spacer()
 
             HStack(alignment:.center)
             {
@@ -275,8 +232,6 @@ struct SettingsSingleView: View
                 Spacer()
                 
             }
-
-        //  Spacer()
 
             HStack(alignment:.center)
             {
@@ -295,7 +250,7 @@ struct SettingsSingleView: View
                             Button
                             {
 
-                                let _ = xcgLoggerMsg(sMessage:"...\(ClassInfo.sClsDisp):SettingsSingleView in Text.contextMenu.'copy' button #1...")
+                                let _ = xcgLogMsg("...\(ClassInfo.sClsDisp):SettingsSingleView in Text.contextMenu.'copy' button #1...")
 
                                 copyLogFilespecToClipboard()
 
@@ -309,7 +264,6 @@ struct SettingsSingleView: View
 
                         }
 
-                //  Text("\(JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec!)")
                     Text("\(self.appDelegate.sAppDelegateLogFilespec!)")
                         .italic()
                         .controlSize(.mini)
@@ -330,7 +284,7 @@ struct SettingsSingleView: View
                 Button("Dismiss") 
                 {
 
-                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):SettingsSingleView.Button(Xcode).'Dismiss' pressed...")
+                    let _ = xcgLogMsg("\(ClassInfo.sClsDisp):SettingsSingleView.Button(Xcode).'Dismiss' pressed...")
 
                     dismiss()
 
@@ -356,7 +310,7 @@ struct SettingsSingleView: View
     func copyLogFilespecToClipboard()
     {
         
-        xcgLoggerMsg(sMessage:"...\(ClassInfo.sClsDisp):SettingsSingleView in 'copyLogFilespecToClipboard()' for text of [\(self.appDelegate.sAppDelegateLogFilespec!)]...")
+        xcgLogMsg("...\(ClassInfo.sClsDisp):SettingsSingleView in 'copyLogFilespecToClipboard()' for text of [\(self.appDelegate.sAppDelegateLogFilespec!)]...")
         
     #if os(macOS)
 
@@ -373,14 +327,14 @@ struct SettingsSingleView: View
 
     }   // End of func copyLogFilespecToClipboard().
     
-    func xcgLoggerMsg(sMessage:String)
+    func xcgLogMsg(_ sMessage:String)
     {
 
         self.appDelegate.xcgLogger?.info("\(sMessage)")
 
         return
 
-    }   // End of func xcgLoggerMsg().
+    }   // End of func xcgLogMsg().
 
 }
 

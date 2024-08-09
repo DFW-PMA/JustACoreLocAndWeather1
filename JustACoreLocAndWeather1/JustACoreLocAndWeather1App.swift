@@ -16,7 +16,7 @@ struct JustACoreLocAndWeather1App: App
     {
         
         static let sClsId        = "JustACoreLocAndWeather1App"
-        static let sClsVers      = "v1.0301"
+        static let sClsVers      = "v1.0502"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -35,22 +35,60 @@ struct JustACoreLocAndWeather1App: App
 
     let sAppBundlePath:String                                   = Bundle.main.bundlePath
     var coreLocationModelObservable:CoreLocationModelObservable = CoreLocationModelObservable()
+
+//  @State private var cAppSceneSettingsButtonPresses:Int       = 0
+//  @State private var isAppSettingsModal:Bool                  = false
     
     var body: some Scene
     {
         
-        let _ = xcgLogger(sMessage:"\(ClassInfo.sClsDisp):body(some Scene) \(ClassInfo.sClsCopyRight)...")
-        let _ = xcgLogger(sMessage:"\(ClassInfo.sClsDisp):body(some Scene) - 'sAppBundlePath' is [\(sAppBundlePath)]...")
+        let _ = xcgLogMsg("\(ClassInfo.sClsDisp):body(some Scene) \(ClassInfo.sClsCopyRight)...")
+        let _ = xcgLogMsg("\(ClassInfo.sClsDisp):body(some Scene) - 'sAppBundlePath' is [\(sAppBundlePath)]...")
         
         WindowGroup 
         {
             
             ContentView(coreLocationModelObservable:coreLocationModelObservable)
                 .navigationTitle(AppGlobalInfo.sGlobalInfoAppId)
+            // ------------------------------------------------------------------------------------------------------
+            // >>> This didn't work:
+            //  .toolbar
+            //  {
+            //
+            //      Button
+            //      {
+            //
+            //          self.cAppSceneSettingsButtonPresses += 1
+            //          
+            //          print("\(ClassInfo.sClsDisp):body(some Scene) in Button(Xcode).'Settings'.#(\(self.cAppSceneSettingsButtonPresses))...")
+            //      //  xcgLogMsgMsg(sMessage:"\(ClassInfo.sClsDisp):body(some Scene) in Button(Xcode).'Settings'.#(\(self.cAppSceneSettingsButtonPresses))...")
+            //
+            //          self.isAppSettingsModal.toggle()
+            //
+            //      }
+            //      label: 
+            //      {
+            //
+            //          Label("", systemImage: "gearshape")
+            //              .padding()
+            //              .imageScale(.large)
+            //              .foregroundStyle(.tint)
+            //
+            //      }
+            //      .sheet(isPresented:$isAppSettingsModal, content:
+            //          {
+            //
+            //              SettingsSingleView()
+            //
+            //          }
+            //      )
+            //
+            //  }
+            // ------------------------------------------------------------------------------------------------------
                 .onOpenURL(perform: 
                 { url in
                     
-                    xcgLogger(sMessage:"\(ClassInfo.sClsDisp):ContentView.onOpenURL() performed for the URL of [\(url)]...")
+                    xcgLogMsg("\(ClassInfo.sClsDisp):ContentView.onOpenURL() performed for the URL of [\(url)]...")
 
                 })
             
@@ -59,14 +97,14 @@ struct JustACoreLocAndWeather1App: App
         
     }
     
-    func xcgLogger(sMessage:String)
+    func xcgLogMsg(_ sMessage:String)
     {
 
-        self.appDelegate.xcgLogger?.info("\(sMessage)")
+        self.appDelegate.xcgLogMsg("\(sMessage)")
 
         return
 
-    }   // End of func xcgLogger().
+    }   // End of func xcgLogMsg().
 
 }
 

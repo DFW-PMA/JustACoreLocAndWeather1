@@ -16,7 +16,7 @@ struct CoreLocationSiteDetailsView: View
     {
         
         static let sClsId        = "CoreLocationSiteDetailsView"
-        static let sClsVers      = "v1.0503"
+        static let sClsVers      = "v1.0701"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -39,7 +39,7 @@ struct CoreLocationSiteDetailsView: View
     var body: some View
     {
         
-        let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):body(some View) \(ClassInfo.sClsCopyRight)...")
+        let _ = xcgLogMsg("\(ClassInfo.sClsDisp):body(some View) \(ClassInfo.sClsCopyRight)...")
         
     //  Spacer(minLength: 10)
         Spacer()
@@ -75,7 +75,7 @@ struct CoreLocationSiteDetailsView: View
 
                 // Item Rows:
 
-                ForEach(coreLocationModelObservable.listCoreLocationSiteItems!) 
+                ForEach(coreLocationModelObservable.listCoreLocationSiteItems) 
                 { siteItem in
 
                     GridRow(alignment:.bottom)
@@ -120,7 +120,7 @@ struct CoreLocationSiteDetailsView: View
 
                     self.refreshCoreLocation()
 
-                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)CoreLocationSiteDetailsView.Button(Xcode).'Refresh'.#(\(self.cCoreLocationSiteDetailsViewRefreshButtonPresses))...")
+                    let _ = xcgLogMsg("\(ClassInfo.sClsDisp)CoreLocationSiteDetailsView.Button(Xcode).'Refresh'.#(\(self.cCoreLocationSiteDetailsViewRefreshButtonPresses))...")
 
                 }
                 .controlSize(.large)
@@ -133,7 +133,7 @@ struct CoreLocationSiteDetailsView: View
                 Button("Dismiss") 
                 {
 
-                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):CoreLocationSiteDetailsView.Button(Xcode).'Dismiss' pressed...")
+                    let _ = xcgLogMsg("\(ClassInfo.sClsDisp):CoreLocationSiteDetailsView.Button(Xcode).'Dismiss' pressed...")
 
                     dismiss()
 
@@ -171,14 +171,14 @@ struct CoreLocationSiteDetailsView: View
 
     }   // End of func refreshCoreLocation().
     
-    func xcgLoggerMsg(sMessage:String)
+    func xcgLogMsg(_ sMessage:String)
     {
 
         self.appDelegate.xcgLogger?.info("\(sMessage)")
 
         return
 
-    }   // End of func xcgLoggerMsg().
+    }   // End of func xcgLogMsg().
 
 }
 

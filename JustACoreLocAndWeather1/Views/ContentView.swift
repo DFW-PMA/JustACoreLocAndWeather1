@@ -16,7 +16,7 @@ struct ContentView: View
     {
         
         static let sClsId        = "ContentView"
-        static let sClsVers      = "v1.0502"
+        static let sClsVers      = "v1.0701"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -42,7 +42,7 @@ struct ContentView: View
     var body: some View
     {
         
-        let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):body(some View) \(ClassInfo.sClsCopyRight)...")
+        let _ = xcgLogMsg("\(ClassInfo.sClsDisp):body(some View) \(ClassInfo.sClsCopyRight)...")
         
         Spacer(minLength: 10)
         
@@ -51,37 +51,37 @@ struct ContentView: View
 
             HStack
             {
-
+          
                 Spacer()
-
+          
                 Button
                 {
-
+          
                     self.cContentViewSettingsButtonPresses += 1
-
-                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Settings'.#(\(self.cContentViewSettingsButtonPresses))...")
-
+          
+                    let _ = xcgLogMsg("\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Settings'.#(\(self.cContentViewSettingsButtonPresses))...")
+          
                     self.isAppSettingsModal.toggle()
-
+          
                 }
                 label: 
                 {
-
+          
                     Label("", systemImage: "gearshape")
                         .padding()
                         .imageScale(.large)
                         .foregroundStyle(.tint)
-
+          
                 }
                 .sheet(isPresented:$isAppSettingsModal, content:
                     {
-
+          
                         SettingsSingleView()
-
+          
                     }
                 )
                 .padding()
-
+          
             }
             
             Spacer()
@@ -91,13 +91,27 @@ struct ContentView: View
 
                 Spacer()
 
-                Image(systemName: "globe.desk.fill")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                    .onAppear(perform:
-                    {
-                        self.refreshCoreLocation()
-                    })
+            if #available(iOS 17.0, *)
+            {
+
+                Image(ImageResource(name: "Gfx/AppIcon", bundle: Bundle.main))
+                    .resizable()
+                    .scaledToFit()
+                    .containerRelativeFrame(.horizontal)
+                        { size, axis in
+                            size * 0.05
+                        }
+
+            }
+            else
+            {
+
+                Image(ImageResource(name: "Gfx/AppIcon", bundle: Bundle.main))
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width:25, height: 25, alignment:.center)
+
+            }
 
                 Spacer()
 
@@ -143,7 +157,7 @@ struct ContentView: View
 
                     self.cContentViewSiteDetailsButtonPresses += 1
 
-                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Site Detail(s)'.#(\(self.cContentViewSiteDetailsButtonPresses))...")
+                    let _ = xcgLogMsg("\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Site Detail(s)'.#(\(self.cContentViewSiteDetailsButtonPresses))...")
 
                     self.isAppSiteDetailsViewModal.toggle()
 
@@ -175,7 +189,7 @@ struct ContentView: View
 
                     self.refreshCoreLocation()
 
-                    let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Refresh'.#(\(self.cContentViewRefreshButtonPresses))...")
+                    let _ = xcgLogMsg("\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Refresh'.#(\(self.cContentViewRefreshButtonPresses))...")
 
                 }
                 .controlSize(.large)
@@ -212,6 +226,40 @@ struct ContentView: View
             Spacer()
             
         }
+    // ------------------------------------------------------------------------------------------------------
+    // >>> This didn't work:
+    //  .toolbar
+    //  {
+    //
+    //      Button
+    //      {
+    //      
+    //          self.cContentViewSettingsButtonPresses += 1
+    //      
+    //          let _ = xcgLogMsg("\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Settings'.#(\(self.cContentViewSettingsButtonPresses))...")
+    //      
+    //          self.isAppSettingsModal.toggle()
+    //      
+    //      }
+    //      label: 
+    //      {
+    //      
+    //          Label("", systemImage: "gearshape")
+    //              .padding()
+    //              .imageScale(.large)
+    //              .foregroundStyle(.tint)
+    //      
+    //      }
+    //      .sheet(isPresented:$isAppSettingsModal, content:
+    //          {
+    //      
+    //              SettingsSingleView()
+    //      
+    //          }
+    //      )
+    //
+    //  }
+    // ------------------------------------------------------------------------------------------------------
         .padding()
         
         Spacer(minLength: 100)
@@ -233,14 +281,14 @@ struct ContentView: View
 
     }   // End of func refreshCoreLocation().
     
-    func xcgLoggerMsg(sMessage:String)
+    func xcgLogMsg(_ sMessage:String)
     {
 
         self.appDelegate.xcgLogger?.info("\(sMessage)")
 
         return
 
-    }   // End of func xcgLoggerMsg().
+    }   // End of func xcgLogMsg().
 
 }
 

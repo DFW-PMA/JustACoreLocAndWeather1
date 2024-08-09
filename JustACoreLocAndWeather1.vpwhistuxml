@@ -1,0 +1,221 @@
+<vpwhist>
+	<global>
+		<p n="CurrentProject" v=""/>
+	</global>
+	<project_dates/>
+	<tree_expansion scroll="0"/>
+	<state>
+		<monitor_configs>
+			<monitor_config v="0 0 1920 1080,-1920 0 1920 1080">
+				<screen v="1920 1080 0 25 1920 971 0 0 M 0 0 0 0 1517 905 0"/>
+				<mdistate v="AAAAAwAAAAIAAAAC2gAAAAIAMAAAAAAAAAApAAAHfwAAA7EAAAAAAAAAGQAAB38AAAP/AAAAAuoAAAAWAAAAAvsAAAAAAAAAAPsAAAAAAAAAAAAAAADaAAAAHgAwAC0AMQA3ADEANwA0ADIANgA5ADMAMQA0ADgANQBOAAABvwAAABoAAASzAAAEUQAAAAAAAAAZAAAHfwAAA/8AAAAC6gAAABYAAAAC+wAAAAAAAAAA+wAAAAAAAAAAAAAAAA=="/>
+				<standard_layout version="1" state="M" fullscreen="0">
+					<toolwindowinfo>
+						<p n="_tbannotations_browser_form" f="0"/>
+						<p n="_tbbaseclasses_form" f="40"/>
+						<p n="_tbbookmarks_form" f="8"/>
+						<p n="_tbbufftabs_form" f="11"/>
+						<p n="_tbcbrowser_form" f="8"/>
+						<p n="_tbclass_form" f="8"/>
+						<p n="_tbclipboard_form" f="44"/>
+						<p n="_tbdebug_autovars_form" f="64"/>
+						<p n="_tbdebug_breakpoints_form" f="384"/>
+						<p n="_tbdebug_classes_form" f="64"/>
+						<p n="_tbdebug_exceptions_form" f="384"/>
+						<p n="_tbdebug_locals_form" f="64"/>
+						<p n="_tbdebug_members_form" f="64"/>
+						<p n="_tbdebug_memory_form" f="64"/>
+						<p n="_tbdebug_regs_form" f="64"/>
+						<p n="_tbdebug_stack_form" f="64"/>
+						<p n="_tbdebug_threads_form" f="64"/>
+						<p n="_tbdebug_watches_form" f="64"/>
+						<p n="_tbdeltasave_form" f="0"/>
+						<p n="_tbderivedclasses_form" f="40"/>
+						<p n="_tbfilelist_form" f="44"/>
+						<p n="_tbfind_form" f="36"/>
+						<p n="_tbfind_symbol_form" f="32"/>
+						<p n="_tbFTPClient_form" f="0"/>
+						<p n="_tbFTPOpen_form" f="0"/>
+						<p n="_tbhighlight_form" f="8"/>
+						<p n="_tbinteractive_form" f="8"/>
+						<p n="_tbmessages_browser_form" f="8"/>
+						<p n="_tbnotification_form" f="36"/>
+						<p n="_tbopen_form" f="40"/>
+						<p n="_tboutputwin_form" f="8"/>
+						<p n="_tbproctree_form" f="8"/>
+						<p n="_tbprojects_form" f="8"/>
+						<p n="_tbregex_form" f="40"/>
+						<p n="_tbsearch_form" f="8"/>
+						<p n="_tbshell_form" f="8"/>
+						<p n="_tbslickc_stack_form" f="8"/>
+						<p n="_tbsymbol_args_form" f="8"/>
+						<p n="_tbsymbol_props_form" f="8"/>
+						<p n="_tbsymbolcallers_form" f="40"/>
+						<p n="_tbsymbolcalls_form" f="40"/>
+						<p n="_tbtagrefs_form" f="8"/>
+						<p n="_tbtagwin_form" f="8"/>
+						<p n="_tbterminal_form" f="8"/>
+						<p n="_tbunittest_form" f="0"/>
+					</toolwindowinfo>
+					<toolwindows>
+						<p n="_tbcbrowser_form" t="0"/>
+						<p n="_tbclass_form" t="0"/>
+						<p n="_tbopen_form" t="0"/>
+						<p n="_tbproctree_form" t="0"/>
+						<p n="_tbprojects_form" t="0"/>
+					</toolwindows>
+					<mdistate v="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"/>
+					<toolbars state="AAAA/wAAAAD9AAAAAAAAB4AAAAOJAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAUAAAAQAFMAdABhAG4AZABhAHIAZAEAAAAA/////wAAAAAAAAAAAAAAHgBDAHUAcgByAGUAbgB0ACAAQwBvAG4AdABlAHgAdAEAAANK/////wAAAAAAAAAAAAAAIgBTAGUAbABlAGMAdABpAHYAZQAgAEQAaQBzAHAAbABhAHkBAAAHAP////8AAAAAAAAAAAAAAAoAVABvAG8AbABzAQAABwD/////An0N/wApf/8AAAAGAFgATQBMAQAAB0D/////AAAAAAAAAAA=">
+						<p n="_tbstandard_form" movable="1"/>
+						<p n="_tbtools_form" movable="1"/>
+						<p n="_tbseldisp_form" movable="1"/>
+						<p n="_tbxml_form" movable="1"/>
+						<p n="_tbcontext_form" movable="1"/>
+					</toolbars>
+				</standard_layout>
+				<app_layout version="1" state="M" fullscreen="0">
+					<toolwindowinfo>
+						<p n="_tbannotations_browser_form" f="0"/>
+						<p n="_tbbaseclasses_form" f="40"/>
+						<p n="_tbbookmarks_form" f="8"/>
+						<p n="_tbbufftabs_form" f="11"/>
+						<p n="_tbcbrowser_form" f="8"/>
+						<p n="_tbclass_form" f="8"/>
+						<p n="_tbclipboard_form" f="44"/>
+						<p n="_tbdebug_autovars_form" f="64"/>
+						<p n="_tbdebug_breakpoints_form" f="384"/>
+						<p n="_tbdebug_classes_form" f="64"/>
+						<p n="_tbdebug_exceptions_form" f="384"/>
+						<p n="_tbdebug_locals_form" f="64"/>
+						<p n="_tbdebug_members_form" f="64"/>
+						<p n="_tbdebug_memory_form" f="64"/>
+						<p n="_tbdebug_regs_form" f="64"/>
+						<p n="_tbdebug_stack_form" f="64"/>
+						<p n="_tbdebug_threads_form" f="64"/>
+						<p n="_tbdebug_watches_form" f="64"/>
+						<p n="_tbdeltasave_form" f="0"/>
+						<p n="_tbderivedclasses_form" f="40"/>
+						<p n="_tbfilelist_form" f="44"/>
+						<p n="_tbfind_form" f="36"/>
+						<p n="_tbfind_symbol_form" f="32"/>
+						<p n="_tbFTPClient_form" f="0"/>
+						<p n="_tbFTPOpen_form" f="0"/>
+						<p n="_tbhighlight_form" f="8"/>
+						<p n="_tbinteractive_form" f="8"/>
+						<p n="_tbmessages_browser_form" f="8"/>
+						<p n="_tbnotification_form" f="36"/>
+						<p n="_tbopen_form" f="40"/>
+						<p n="_tboutputwin_form" f="8"/>
+						<p n="_tbproctree_form" f="8"/>
+						<p n="_tbprojects_form" f="8"/>
+						<p n="_tbregex_form" f="40"/>
+						<p n="_tbsearch_form" f="8"/>
+						<p n="_tbshell_form" f="8"/>
+						<p n="_tbslickc_stack_form" f="8"/>
+						<p n="_tbsymbol_args_form" f="8"/>
+						<p n="_tbsymbol_props_form" f="8"/>
+						<p n="_tbsymbolcallers_form" f="40"/>
+						<p n="_tbsymbolcalls_form" f="40"/>
+						<p n="_tbtagrefs_form" f="8"/>
+						<p n="_tbtagwin_form" f="8"/>
+						<p n="_tbterminal_form" f="8"/>
+						<p n="_tbunittest_form" f="0"/>
+					</toolwindowinfo>
+					<toolwindows>
+						<p n="_tbcbrowser_form" t="0"/>
+						<p n="_tbclass_form" t="0"/>
+						<p n="_tbopen_form" t="0"/>
+						<p n="_tbproctree_form" t="0"/>
+						<p n="_tbprojects_form" t="0"/>
+					</toolwindows>
+					<mdistate v="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"/>
+					<toolbars state="AAAA/wAAAAD9AAAAAAAAB4AAAAOJAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAUAAAAQAFMAdABhAG4AZABhAHIAZAEAAAAA/////wAAAAAAAAAAAAAAHgBDAHUAcgByAGUAbgB0ACAAQwBvAG4AdABlAHgAdAEAAANK/////wAAAAAAAAAAAAAAIgBTAGUAbABlAGMAdABpAHYAZQAgAEQAaQBzAHAAbABhAHkBAAAHAP////8AAAAAAAAAAAAAAAoAVABvAG8AbABzAQAABwD/////An0N/wApf/8AAAAGAFgATQBMAQAAB0D/////AAAAAAAAAAA=">
+						<p n="_tbstandard_form" movable="1"/>
+						<p n="_tbtools_form" movable="1"/>
+						<p n="_tbseldisp_form" movable="1"/>
+						<p n="_tbxml_form" movable="1"/>
+						<p n="_tbcontext_form" movable="1"/>
+					</toolbars>
+				</app_layout>
+			</monitor_config>
+		</monitor_configs>
+		<cwd v="JustACoreLocAndWeather1/Models/"/>
+		<filehist>
+			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/Views/ContentView.swift"/>
+			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/Commands/HelpCommands.swift"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-254_swift/VisitVerify/AppDelegate.m"/>
+			<p n="JustACoreLocAndWeather1/Views/AppAboutView.swift"/>
+			<p n="JustACoreLocAndWeather1/JustACoreLocAndWeather1App.swift"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-254_swift/VisitVerify/ContentView2.swift"/>
+			<p n="JustACoreLocAndWeather1/Views/ContentView.swift"/>
+			<p n="JustACoreLocAndWeather1/Models/CoreLocationModelObservable.swift"/>
+			<p n="JustACoreLocAndWeather1/Views/CoreLocationSiteDetailsView.swift"/>
+		</filehist>
+		<allfilehist>
+			<p n="JustACoreLocAndWeather1/JustACoreLocAndWeather1App.swift"/>
+			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/JmObjCSwiftEnvBridge.swift"/>
+			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/JmObjCSwiftEnvBridge-Bridging-Header.h"/>
+			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/JmUtils/JmFileIO.swift"/>
+			<p n="../JustAMultiplatformAppTest1/.git/index"/>
+			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/Commands/HelpCommands.swift"/>
+			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/Views/HelpBasicView.swift"/>
+			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/Models/HelpBasicMode.swift"/>
+			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/Models/HelpBasicLoader.swift"/>
+			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/Resources/HelpBasic.md"/>
+			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/Resources/HelpBasic.html"/>
+			<p n="../JustAMultiplatformAppTest1/.git/FETCH_HEAD"/>
+			<p n="JustACoreLocAndWeather1/Views/CoreLocationSiteDetailsView.swift"/>
+			<p n="JustACoreLocAndWeather1/Models/CoreLocationModelObservable.swift"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-254_swift/VisitVerify/ContentView2.swift"/>
+			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/Views/ContentView.swift"/>
+			<p n="JustACoreLocAndWeather1/Views/ContentView.swift"/>
+			<p n="../JustAClock3Sm/JustAClock3Sm/Views/ContentView.swift"/>
+			<p n="../JustAXCGLoggerWithLogonTest2/JustAXCGLoggerWithLogonTest2/Assets.xcassets/Contents.json"/>
+			<p n="../JustAXCGLoggerWithLogonTest2/JustAXCGLoggerWithLogonTest2/Assets.xcassets/AppIcon.appiconset/Contents.json"/>
+			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/Assets.xcassets/Contents.json"/>
+			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/Assets.xcassets/AppIcon.appiconset/Contents.json"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-254_swift/VisitVerify/Images.xcassets/Gfx/Splash_iPad.imageset/Contents.json"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-254_swift/VisitVerify/Images.xcassets/Gfx/Contents.json"/>
+			<p n="../JustAXCGLoggerWithLogonTest2/JustAXCGLoggerWithLogonTest2/Objective-C/CalledObjCModule.m"/>
+			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/Objective-C/CalledObjCModule.m"/>
+			<p n="../JustAXCGLoggerWithLogonTest2/JustAXCGLoggerWithLogonTest2/Objective-C/CalledObjCModule.h"/>
+			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/Objective-C/CalledObjCModule.h"/>
+			<p n="../JustAXCGLoggerWithLogonTest2/JustAXCGLoggerWithLogonTest2/Objective-C/CalledObjCModule-Bridging-Header.h"/>
+			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/Objective-C/CalledObjCModule-Bridging-Header.h"/>
+			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/Commands/AppInfoCommands.swift"/>
+			<p n="../JustMovieSearch1/JustMovieSearch1/JustMovieSearch1/AppDelegate.swift"/>
+			<p n="../../../../../../../../../Crucial-X6-1-SSD/Users/Shared/public_hda2/JWeb.Software/JWeb_MacOSx_apps/SwiftUI_GUI_tools/DrcSwiftUI4MastersWork1/JustAClock1/JustAClock1/AppDelegate.swift"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-254_swift/VisitVerify/AppDelegate.m"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-253_swift/VisitVerify/AppDelegate.m"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-252_swift/VisitVerify/AppDelegate.m"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-251_swift/VisitVerify/AppDelegate.m"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-251_base/VisitVerify/AppDelegate.m"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-250_swift/VisitVerify/AppDelegate.m"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-250/VisitVerify/AppDelegate.m"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-249_swift/VisitVerify/AppDelegate.m"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-248_swift/VisitVerify/AppDelegate.m"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-248/VisitVerify/AppDelegate.m"/>
+			<p n="../../../../../../../../../Crucial-X6-1-SSD/Users/Shared/public_hda2/JWeb.Software/Dfw-PTS_OSx_apps/VisitVerify/VisitVerify/AppDelegate.m"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-254_swift/VisitVerify/AppDelegate.h"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-253_swift/VisitVerify/AppDelegate.h"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-252_swift/VisitVerify/AppDelegate.h"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-251_swift/VisitVerify/AppDelegate.h"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-253_swift/VisitVerify/AppDelegate-Bridging-Header.h"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-252_swift/VisitVerify/AppDelegate-Bridging-Header.h"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-251_swift/VisitVerify/AppDelegate-Bridging-Header.h"/>
+			<p n="JustACoreLocAndWeather1/Views/AppAboutView.swift"/>
+			<p n="../../mobileappmike_StoryboardSegue_final_2/StoryboardSegue/StoryboardSegue/AlternateViewController.swift"/>
+			<p n="../../mobileappmike_StoryboardSegue_final/StoryboardSegue/StoryboardSegue/AlternateViewController.swift"/>
+			<p n="../../mobileappmike_StoryboardSegue_final_2/StoryboardSegue/StoryboardSegue/Alternate.storyboard"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-248/VisitVerify/AllPostedVisitsController.m"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-249_swift/VisitVerify/SendGrid/AFURLRequestSerialization.m"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-252_swift/VisitVerify/AddVisitViewController.h"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-251_swift/VisitVerify/AddVisitViewController.h"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-252_swift/VisitVerify/AddPatientViewController.h"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-251_swift/VisitVerify/AddPatientViewController.h"/>
+			<p n="../../soje_SwiftUI-Storyboard-Embed_2/SwiftUI-Storyboard-Embed_2/.gitignore"/>
+			<p n="../JustAMultiplatformAppTest1/.gitignore"/>
+			<p n="/Users/dcox/Library/Containers/net.justmacapps.JustAClock3Sm/.com.apple.containermanagerd.metadata.plist"/>
+		</allfilehist>
+	</state>
+</vpwhist>

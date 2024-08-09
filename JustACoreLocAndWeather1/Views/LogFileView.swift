@@ -23,7 +23,7 @@ struct LogFileView: View
     {
         
         static let sClsId          = "LogFileView"
-        static let sClsVers        = "v1.0703"
+        static let sClsVers        = "v1.0901"
         static let sClsDisp        = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight   = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace       = true
@@ -39,7 +39,7 @@ struct LogFileView: View
 
     @Environment(\.dismiss)    var dismiss
 
-    @State private var cContentViewAppLogClearButtonPresses:Int = 0
+    @State private var cLogFileViewAppLogClearButtonPresses:Int = 0
 
     @State private var isAppLogClearShowingAlert:Bool           = false
     
@@ -71,7 +71,7 @@ struct LogFileView: View
                     Button
                     {
                         
-                        let _ = xcgLoggerMsg(sMessage:"...\(ClassInfo.sClsDisp):LogFileView in Text.contextMenu.'copy' button #1...")
+                        let _ = xcgLogMsg("...\(ClassInfo.sClsDisp):LogFileView in Text.contextMenu.'copy' button #1...")
                         
                         copyLogFilespecToClipboard()
                         
@@ -85,7 +85,6 @@ struct LogFileView: View
                 
                 }
 
-        //  Text(JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec ?? "...empty...")
             Text(self.appDelegate.sAppDelegateLogFilespec ?? "...empty...")
                 .contextMenu
                 {
@@ -93,7 +92,7 @@ struct LogFileView: View
                     Button
                     {
                         
-                        let _ = xcgLoggerMsg(sMessage:"...\(ClassInfo.sClsDisp):LogFileView in Text.contextMenu.'copy' button #2...")
+                        let _ = xcgLogMsg("...\(ClassInfo.sClsDisp):LogFileView in Text.contextMenu.'copy' button #2...")
                         
                         copyLogFilespecToClipboard()
                         
@@ -112,10 +111,9 @@ struct LogFileView: View
             Button("Preview Log file") 
             {
 
-            //  self.logFileUrl = JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!.urlAppDelegateLogFilespec
                 self.logFileUrl = self.appDelegate.urlAppDelegateLogFilespec
 
-                xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):LogFileView.Button('Preview Log file') performed for the URL of [\(String(describing: self.logFileUrl))]...")
+                xcgLogMsg("\(ClassInfo.sClsDisp):LogFileView.Button('Preview Log file') performed for the URL of [\(String(describing: self.logFileUrl))]...")
 
             }
             .quickLookPreview($logFileUrl)
@@ -129,9 +127,9 @@ struct LogFileView: View
             Button
             {
 
-                self.cContentViewAppLogClearButtonPresses += 1
+                self.cLogFileViewAppLogClearButtonPresses += 1
 
-                let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):LogFileView in Button(Xcode).'App Log 'Clear'.#(\(self.cContentViewAppLogClearButtonPresses))'...")
+                let _ = xcgLogMsg("\(ClassInfo.sClsDisp):LogFileView in Button(Xcode).'App Log 'Clear'.#(\(self.cLogFileViewAppLogClearButtonPresses))'...")
 
                 self.appDelegate.clearAppDelegateTraceLogFile()
 
@@ -160,7 +158,7 @@ struct LogFileView: View
             Button("Dismiss") 
             {
 
-                let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):LogFileView.Button(Xcode).'Dismiss' pressed...")
+                let _ = xcgLogMsg("\(ClassInfo.sClsDisp):LogFileView.Button(Xcode).'Dismiss' pressed...")
 
                 dismiss()
 
@@ -179,7 +177,7 @@ struct LogFileView: View
     func copyLogFilespecToClipboard()
     {
         
-        xcgLoggerMsg(sMessage:"...\(ClassInfo.sClsDisp):LogFileView in 'copyLogFilespecToClipboard()' for text of [\(self.appDelegate.sAppDelegateLogFilespec!)]...")
+        xcgLogMsg("...\(ClassInfo.sClsDisp):LogFileView in 'copyLogFilespecToClipboard()' for text of [\(self.appDelegate.sAppDelegateLogFilespec!)]...")
         
     #if os(macOS)
 
@@ -196,14 +194,14 @@ struct LogFileView: View
 
     }   // End of func copyLogFilespecToClipboard().
     
-    func xcgLoggerMsg(sMessage:String)
+    func xcgLogMsg(_ sMessage:String)
     {
 
         self.appDelegate.xcgLogger?.info("\(sMessage)")
 
         return
 
-    }   // End of func xcgLoggerMsg().
+    }   // End of func xcgLogMsg().
 
 }
 

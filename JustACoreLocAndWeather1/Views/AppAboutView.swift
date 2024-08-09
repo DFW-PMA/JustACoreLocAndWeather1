@@ -16,7 +16,7 @@ struct AppAboutView: View
     {
         
         static let sClsId          = "AppAboutView"
-        static let sClsVers        = "v1.0108"
+        static let sClsVers        = "v1.0203"
         static let sClsDisp        = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight   = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace       = true
@@ -58,7 +58,7 @@ struct AppAboutView: View
                     .scaledToFit()
                     .containerRelativeFrame(.horizontal)
                         { size, axis in
-                            size * 0.2
+                            size * 0.10
                         }
 
             }
@@ -68,7 +68,7 @@ struct AppAboutView: View
                 Image(ImageResource(name: "Gfx/AppIcon", bundle: Bundle.main))
                     .resizable()
                     .scaledToFit()
-                    .frame(width:100, height: 100, alignment:.center)
+                    .frame(width:50, height: 50, alignment:.center)
 
             }
 
@@ -94,7 +94,7 @@ struct AppAboutView: View
                     Button
                     {
 
-                        let _ = xcgLoggerMsg(sMessage:"...\(ClassInfo.sClsDisp):AppAboutView in Text.contextMenu.'copy' button #1...")
+                        let _ = xcgLogMsg("...\(ClassInfo.sClsDisp):AppAboutView in Text.contextMenu.'copy' button #1...")
 
                         copyLogFilespecToClipboard()
 
@@ -137,7 +137,7 @@ struct AppAboutView: View
         //
         //      self.refreshCoreLocation()
         //
-        //      let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)AppAboutView.Button(Xcode).'Refresh'.#(\(self.cCoreLocationSiteDetailsViewRefreshButtonPresses))...")
+        //      let _ = xcgLogMsg("\(ClassInfo.sClsDisp)AppAboutView.Button(Xcode).'Refresh'.#(\(self.cCoreLocationSiteDetailsViewRefreshButtonPresses))...")
         //
         //  }
         //  .controlSize(.extraLarge)
@@ -150,7 +150,7 @@ struct AppAboutView: View
             Button("Dismiss") 
             {
 
-                let _ = xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp):AppAboutView.Button(Xcode).'Dismiss' pressed...")
+                let _ = xcgLogMsg("\(ClassInfo.sClsDisp):AppAboutView.Button(Xcode).'Dismiss' pressed...")
 
                 dismiss()
 
@@ -171,7 +171,7 @@ struct AppAboutView: View
     func copyLogFilespecToClipboard()
     {
         
-        xcgLoggerMsg(sMessage:"...\(ClassInfo.sClsDisp):AppAboutView in 'copyLogFilespecToClipboard()' for text of [\(self.appDelegate.sAppDelegateLogFilespec!)]...")
+        xcgLogMsg("...\(ClassInfo.sClsDisp):AppAboutView in 'copyLogFilespecToClipboard()' for text of [\(self.appDelegate.sAppDelegateLogFilespec!)]...")
         
     #if os(macOS)
 
@@ -188,14 +188,14 @@ struct AppAboutView: View
 
     }   // End of func copyLogFilespecToClipboard().
     
-    func xcgLoggerMsg(sMessage:String)
+    func xcgLogMsg(_ sMessage:String)
     {
 
         self.appDelegate.xcgLogger?.info("\(sMessage)")
 
         return
 
-    }   // End of func xcgLoggerMsg().
+    }   // End of func xcgLogMsg().
 
 }
 

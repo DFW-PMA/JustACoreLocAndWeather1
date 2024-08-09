@@ -17,7 +17,7 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
     {
         
         static let sClsId        = "CoreLocationModelObservable"
-        static let sClsVers      = "v1.0506"
+        static let sClsVers      = "v1.0801"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -44,8 +44,8 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
     @Published var sCurrentAdministrativeArea:String    = "-N/A-"   // State  (i.e. TX)...
     @Published var sCurrentSubAdministrativeArea:String = "-N/A-"   // County (i.e. Tarrant County)
 
-    @Published var listCoreLocationSiteItems:[CoreLocationSiteItem]?
-                                                        = nil       // List of the 'current' Location Site Item(s) as CoreLocationSiteItem(s)...
+    @Published var listCoreLocationSiteItems:[CoreLocationSiteItem]
+                                                        = []        // List of the 'current' Location Site Item(s) as CoreLocationSiteItem(s)...
     
     override init()
     {
@@ -55,7 +55,7 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
 
         super.init()
 
-        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
+        self.xcgLogMsg("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
         
         self.locationManager = CLLocationManager()
         
@@ -79,7 +79,7 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
 
         // Exit...
 
-        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
+        self.xcgLogMsg("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
 
         return
         
@@ -91,13 +91,13 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
         let sCurrMethod:String = #function
         let sCurrMethodDisp    = "'"+sCurrMethod+"'"
 
-        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
+        self.xcgLogMsg("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
         
         self.locationManager?.requestLocation()
         
     //  self.locationManager?.startUpdatingLocation()
 
-        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
+        self.xcgLogMsg("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
 
         return
         
@@ -109,13 +109,13 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
         let sCurrMethod:String = #function
         let sCurrMethodDisp    = "'"+sCurrMethod+"'"
 
-        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
+        self.xcgLogMsg("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
         
         self.locationManager?.stopUpdatingLocation()
         
         // Exit...
 
-        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
+        self.xcgLogMsg("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
 
         return
         
@@ -127,7 +127,7 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
         let sCurrMethod:String = #function
         let sCurrMethodDisp    = "'"+sCurrMethod+"'"
         
-        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
+        self.xcgLogMsg("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
         
         let clGeocoder:CLGeocoder      = CLGeocoder()
         let currentLocation:CLLocation = CLLocation(latitude: latitude, longitude: longitude)
@@ -139,7 +139,7 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
 
                                                      let firstLocation                  = placemarks?[0]
 
-                                                     self.clCurrentLocation              = firstLocation?.location
+                                                     self.clCurrentLocation             = firstLocation?.location
                                                      self.sCurrentLocationName          = firstLocation?.name                  ?? "-N/A-"
                                                      self.sCurrentCity                  = firstLocation?.locality              ?? "-N/A-"
                                                      self.sCurrentCountry               = firstLocation?.country               ?? "-N/A-"
@@ -168,7 +168,7 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
         
         // Exit...
 
-        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
+        self.xcgLogMsg("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
         
         return true
         
@@ -180,57 +180,57 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
         let sCurrMethod:String = #function
         let sCurrMethodDisp    = "'"+sCurrMethod+"'"
         
-        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
+        self.xcgLogMsg("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
         
         // Build the CoreLocationSiteItem(s) list...
 
         self.listCoreLocationSiteItems = []
         
-        self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "Location",
-                                                                    sCLSiteItemDesc:    "(Latitude,Longitude)",
-                                                                    sCLSiteItemValue:   "\(String(describing:self.clCurrentLocation))",
-                                                                    objCLSiteItemValue: self.clCurrentLocation))
+        self.listCoreLocationSiteItems.append(CoreLocationSiteItem(sCLSiteItemName:    "Location",
+                                                                   sCLSiteItemDesc:    "(Latitude,Longitude)",
+                                                                   sCLSiteItemValue:   "\(String(describing:self.clCurrentLocation))",
+                                                                   objCLSiteItemValue: self.clCurrentLocation))
 
-        self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "Street Address",
-                                                                    sCLSiteItemDesc:    "\(String(describing:self.sCurrentLocationName))"))
+        self.listCoreLocationSiteItems.append(CoreLocationSiteItem(sCLSiteItemName:    "Street Address",
+                                                                   sCLSiteItemDesc:    "\(String(describing:self.sCurrentLocationName))"))
 
-        self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "City",
-                                                                    sCLSiteItemDesc:    "\(String(describing:self.sCurrentCity))"))
+        self.listCoreLocationSiteItems.append(CoreLocationSiteItem(sCLSiteItemName:    "City",
+                                                                   sCLSiteItemDesc:    "\(String(describing:self.sCurrentCity))"))
 
-        self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "Zip Code",
-                                                                    sCLSiteItemDesc:    "\(String(describing:self.sCurrentPostalCode))"))
+        self.listCoreLocationSiteItems.append(CoreLocationSiteItem(sCLSiteItemName:    "Zip Code",
+                                                                   sCLSiteItemDesc:    "\(String(describing:self.sCurrentPostalCode))"))
 
-        self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "County",
-                                                                    sCLSiteItemDesc:    "\(String(describing:self.sCurrentSubAdministrativeArea))"))
+        self.listCoreLocationSiteItems.append(CoreLocationSiteItem(sCLSiteItemName:    "County",
+                                                                   sCLSiteItemDesc:    "\(String(describing:self.sCurrentSubAdministrativeArea))"))
 
-        self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "State",
-                                                                    sCLSiteItemDesc:    "\(String(describing:self.sCurrentAdministrativeArea))"))
+        self.listCoreLocationSiteItems.append(CoreLocationSiteItem(sCLSiteItemName:    "State",
+                                                                   sCLSiteItemDesc:    "\(String(describing:self.sCurrentAdministrativeArea))"))
 
-        self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "TimeZone",
-                                                                    sCLSiteItemDesc:    "\(String(describing:self.tzCurrentTimeZone))",
-                                                                    sCLSiteItemValue:   "\(String(describing:self.tzCurrentTimeZone))",
-                                                                    objCLSiteItemValue: self.tzCurrentTimeZone))
+        self.listCoreLocationSiteItems.append(CoreLocationSiteItem(sCLSiteItemName:    "TimeZone",
+                                                                   sCLSiteItemDesc:    "\(String(describing:self.tzCurrentTimeZone))",
+                                                                   sCLSiteItemValue:   "\(String(describing:self.tzCurrentTimeZone))",
+                                                                   objCLSiteItemValue: self.tzCurrentTimeZone))
 
-        self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "Country",
-                                                                    sCLSiteItemDesc:    "\(String(describing:self.sCurrentCountry))"))
+        self.listCoreLocationSiteItems.append(CoreLocationSiteItem(sCLSiteItemName:    "Country",
+                                                                   sCLSiteItemDesc:    "\(String(describing:self.sCurrentCountry))"))
 
-        self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "Street Name",
-                                                                    sCLSiteItemDesc:    "\(String(describing:self.sCurrentThoroughfare))"))
+        self.listCoreLocationSiteItems.append(CoreLocationSiteItem(sCLSiteItemName:    "Street Name",
+                                                                   sCLSiteItemDesc:    "\(String(describing:self.sCurrentThoroughfare))"))
 
-        self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "Building #",
-                                                                    sCLSiteItemDesc:    "\(String(describing:self.sCurrentSubThoroughfare))"))
+        self.listCoreLocationSiteItems.append(CoreLocationSiteItem(sCLSiteItemName:    "Building #",
+                                                                   sCLSiteItemDesc:    "\(String(describing:self.sCurrentSubThoroughfare))"))
 
-        self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "Sub Locality",
-                                                                    sCLSiteItemDesc:    "\(String(describing:self.sCurrentSubLocality))"))
+        self.listCoreLocationSiteItems.append(CoreLocationSiteItem(sCLSiteItemName:    "Sub Locality",
+                                                                   sCLSiteItemDesc:    "\(String(describing:self.sCurrentSubLocality))"))
 
-        self.listCoreLocationSiteItems?.append(CoreLocationSiteItem(sCLSiteItemName:    "Region",
-                                                                    sCLSiteItemDesc:    "-N/A-",
-                                                                    sCLSiteItemValue:   "\(String(describing:self.clCurrentRegion))",
-                                                                    objCLSiteItemValue: self.clCurrentRegion))
+        self.listCoreLocationSiteItems.append(CoreLocationSiteItem(sCLSiteItemName:    "Region",
+                                                                   sCLSiteItemDesc:    "-N/A-",
+                                                                   sCLSiteItemValue:   "\(String(describing:self.clCurrentRegion))",
+                                                                   objCLSiteItemValue: self.clCurrentRegion))
 
         // Exit...
 
-        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
+        self.xcgLogMsg("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
         
         return true
 
@@ -242,16 +242,16 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
         let sCurrMethod:String = #function
         let sCurrMethodDisp    = "'"+sCurrMethod+"'"
 
-        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
+        self.xcgLogMsg("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
         
         guard let location = locations.last
         else { return }
         
-        self.xcgLoggerMsg(sMessage:"Latitude: \(location.coordinate.latitude), Longitude: \(location.coordinate.longitude)")
+        self.xcgLogMsg("Latitude: \(location.coordinate.latitude), Longitude: \(location.coordinate.longitude)")
         
         // Exit...
 
-        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
+        self.xcgLogMsg("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
 
         return
         
@@ -263,7 +263,7 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
         let sCurrMethod:String = #function
         let sCurrMethodDisp    = "'"+sCurrMethod+"'"
 
-        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
+        self.xcgLogMsg("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
         
         self.locationManager?.stopUpdatingLocation()
         
@@ -275,23 +275,23 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
                 
             case .locationUnknown, .denied, .network:
                 
-                self.xcgLoggerMsg(sMessage:"Location request failed with error: \(clErr.localizedDescription)...")
+                self.xcgLogMsg("Location request failed with error: \(clErr.localizedDescription)...")
                 
             case .headingFailure:
                 
-                self.xcgLoggerMsg(sMessage:"Heading request failed with error: \(clErr.localizedDescription)...")
+                self.xcgLogMsg("Heading request failed with error: \(clErr.localizedDescription)...")
                 
             case .rangingUnavailable, .rangingFailure:
                 
-                self.xcgLoggerMsg(sMessage:"Ranging request failed with error: \(clErr.localizedDescription)...")
+                self.xcgLogMsg("Ranging request failed with error: \(clErr.localizedDescription)...")
                 
             case .regionMonitoringDenied, .regionMonitoringFailure, .regionMonitoringSetupDelayed, .regionMonitoringResponseDelayed:
                 
-                self.xcgLoggerMsg(sMessage:"Region monitoring request failed with error: \(clErr.localizedDescription)...")
+                self.xcgLogMsg("Region monitoring request failed with error: \(clErr.localizedDescription)...")
                 
             default:
                 
-                self.xcgLoggerMsg(sMessage:"Unknown 'location manager' error: \(clErr.localizedDescription)...")
+                self.xcgLogMsg("Unknown 'location manager' error: \(clErr.localizedDescription)...")
                 
             }
             
@@ -299,13 +299,13 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
         else
         {
             
-            self.xcgLoggerMsg(sMessage:"Unknown error occurred while handling the 'location manager' error: \(error.localizedDescription)...")
+            self.xcgLogMsg("Unknown error occurred while handling the 'location manager' error: \(error.localizedDescription)...")
             
         }
         
         // Exit...
 
-        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
+        self.xcgLogMsg("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
 
         return
         
@@ -317,48 +317,48 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
         let sCurrMethod:String = #function
         let sCurrMethodDisp    = "'"+sCurrMethod+"'"
 
-        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
+        self.xcgLogMsg("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Invoked...")
         
         switch manager.authorizationStatus
         {
             
         case .notDetermined:
             
-            self.xcgLoggerMsg(sMessage:"The User has NOT yet determined authorization...")
+            self.xcgLogMsg("The User has NOT yet determined authorization...")
             
         case .restricted:
             
-            self.xcgLoggerMsg(sMessage:"Authorization is RESTRICTED by Parental control...")
+            self.xcgLogMsg("Authorization is RESTRICTED by Parental control...")
             
         case .denied:
             
-            self.xcgLoggerMsg(sMessage:"The User has selected 'Do NOT Allow' (denied)...")
+            self.xcgLogMsg("The User has selected 'Do NOT Allow' (denied)...")
             
         case .authorizedAlways:
             
-            self.xcgLoggerMsg(sMessage:"The User has changed the selection to 'Always Allow'...")
+            self.xcgLogMsg("The User has changed the selection to 'Always Allow'...")
             
         case .authorizedWhenInUse:
             
-            self.xcgLoggerMsg(sMessage:"The User has selected 'Allow while Using' or 'Allow Once'...")
+            self.xcgLogMsg("The User has selected 'Allow while Using' or 'Allow Once'...")
             
             self.locationManager?.requestAlwaysAuthorization()
             
         default:
             
-            self.xcgLoggerMsg(sMessage:"This is the 'default' option...")
+            self.xcgLogMsg("This is the 'default' option...")
             
         }
         
         // Exit...
 
-        self.xcgLoggerMsg(sMessage:"\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
+        self.xcgLogMsg("\(ClassInfo.sClsDisp)\(sCurrMethodDisp) Exiting...")
 
         return
         
     }   // End of func locationManagerDidChangeAuthorization().
 
-    func xcgLoggerMsg(sMessage:String)
+    func xcgLogMsg(_ sMessage:String)
     {
 
         let appDelegate:JustACoreLocAndWeather1AppDelegate
@@ -368,7 +368,7 @@ class CoreLocationModelObservable: NSObject, CLLocationManagerDelegate, Observab
 
         return
 
-    }   // End of func xcgLoggerMsg().
+    }   // End of func xcgLogMsg().
 
 }   // End of class CoreLocationModelObservable(NSObject, CLLocationManagerDelegate, ObservableObject).
 
