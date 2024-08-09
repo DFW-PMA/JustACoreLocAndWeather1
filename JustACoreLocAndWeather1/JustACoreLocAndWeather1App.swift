@@ -16,7 +16,7 @@ struct JustACoreLocAndWeather1App: App
     {
         
         static let sClsId        = "JustACoreLocAndWeather1App"
-        static let sClsVers      = "v1.0502"
+        static let sClsVers      = "v1.0506"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -36,8 +36,8 @@ struct JustACoreLocAndWeather1App: App
     let sAppBundlePath:String                                   = Bundle.main.bundlePath
     var coreLocationModelObservable:CoreLocationModelObservable = CoreLocationModelObservable()
 
-//  @State private var cAppSceneSettingsButtonPresses:Int       = 0
-//  @State private var isAppSettingsModal:Bool                  = false
+    @State private var cAppSceneSettingsButtonPresses:Int       = 0
+    @State private var isAppSettingsModal:Bool                  = false
     
     var body: some Scene
     {
@@ -47,50 +47,59 @@ struct JustACoreLocAndWeather1App: App
         
         WindowGroup 
         {
-            
-            ContentView(coreLocationModelObservable:coreLocationModelObservable)
-                .navigationTitle(AppGlobalInfo.sGlobalInfoAppId)
-            // ------------------------------------------------------------------------------------------------------
-            // >>> This didn't work:
-            //  .toolbar
-            //  {
-            //
-            //      Button
-            //      {
-            //
-            //          self.cAppSceneSettingsButtonPresses += 1
-            //          
-            //          print("\(ClassInfo.sClsDisp):body(some Scene) in Button(Xcode).'Settings'.#(\(self.cAppSceneSettingsButtonPresses))...")
-            //      //  xcgLogMsgMsg(sMessage:"\(ClassInfo.sClsDisp):body(some Scene) in Button(Xcode).'Settings'.#(\(self.cAppSceneSettingsButtonPresses))...")
-            //
-            //          self.isAppSettingsModal.toggle()
-            //
-            //      }
-            //      label: 
-            //      {
-            //
-            //          Label("", systemImage: "gearshape")
-            //              .padding()
-            //              .imageScale(.large)
-            //              .foregroundStyle(.tint)
-            //
-            //      }
-            //      .sheet(isPresented:$isAppSettingsModal, content:
-            //          {
-            //
-            //              SettingsSingleView()
-            //
-            //          }
-            //      )
-            //
-            //  }
-            // ------------------------------------------------------------------------------------------------------
-                .onOpenURL(perform: 
-                { url in
-                    
-                    xcgLogMsg("\(ClassInfo.sClsDisp):ContentView.onOpenURL() performed for the URL of [\(url)]...")
 
-                })
+            NavigationStack
+            {
+
+                ContentView(coreLocationModelObservable:coreLocationModelObservable)
+                    .navigationTitle("App::\(AppGlobalInfo.sGlobalInfoAppId)")
+                    // ------------------------------------------------------------------------------------------------------
+                    // >>> This works (the .toolbar() MUST be under a NavigationStack:
+                    // ------------------------------------------------------------------------------------------------------
+                    .toolbar
+                    {
+
+                        ToolbarItem(placement:.navigationBarTrailing)
+                        {
+
+                            Button
+                            {
+
+                                self.cAppSceneSettingsButtonPresses += 1
+
+                                xcgLogMsg("\(ClassInfo.sClsDisp):body(some Scene) in Button(Xcode).'Settings'.#(\(self.cAppSceneSettingsButtonPresses))...")
+
+                                self.isAppSettingsModal.toggle()
+
+                            }
+                            label: 
+                            {
+
+                                Label("", systemImage: "gearshape")
+                                    .padding()
+                                    .imageScale(.large)
+                                    .foregroundStyle(.tint)
+
+                            }
+                            .sheet(isPresented:$isAppSettingsModal, content:
+                                {
+
+                                    SettingsSingleView()
+
+                                }
+                            )
+
+                        }
+                  
+                    }
+                    .onOpenURL(perform: 
+                    { url in
+                        
+                        xcgLogMsg("\(ClassInfo.sClsDisp):ContentView.onOpenURL() performed for the URL of [\(url)]...")
+
+                    })
+
+            }
             
         }
         .handlesExternalEvents(matching: [])
