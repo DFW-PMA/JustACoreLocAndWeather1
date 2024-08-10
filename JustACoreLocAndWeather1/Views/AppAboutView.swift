@@ -16,7 +16,7 @@ struct AppAboutView: View
     {
         
         static let sClsId          = "AppAboutView"
-        static let sClsVers        = "v1.0203"
+        static let sClsVers        = "v1.0301"
         static let sClsDisp        = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight   = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace       = true
@@ -47,6 +47,26 @@ struct AppAboutView: View
         
         VStack
         {
+
+            HStack(alignment:.center)           // HStack #1.3
+            {
+
+                Spacer()
+
+                Button("Dismiss") 
+                {
+
+                    let _ = xcgLogMsg("\(ClassInfo.sClsDisp):AppAboutView.Button(Xcode).'Dismiss' pressed...")
+
+                    dismiss()
+
+                }
+                .controlSize(.large)
+                .background(Color(red: 0, green: 0.5, blue: 0.5))
+                .foregroundStyle(.white)
+                .buttonStyle(.borderedProminent)
+
+            }   // End of HStack #1.1
 
             Spacer()
 
@@ -108,64 +128,21 @@ struct AppAboutView: View
 
                 }
 
-        //  Text("\(JustACoreLocAndWeather1AppDelegate.ClassSingleton.appDelegate!.sAppDelegateLogFilespec!)")
             Text("\(self.appDelegate.sAppDelegateLogFilespec!)")
                 .italic()
                 .controlSize(.mini)
 
             Spacer(minLength:2)
 
-            Text("\(ClassInfo.sClsCopyRight)")
+        //  Text("\(ClassInfo.sClsCopyRight)")
+            Text("\(getAppCopyright())")
                 .italic()
                 .controlSize(.mini)
 
             Spacer()
 
         }
-        .padding()
-    //  .frame(minWidth: 100, idealWidth: 200, maxWidth: 300, minHeight: 50, idealHeight: 100, maxHeight: 300)
         
-        HStack(alignment:.center)           // HStack #1.3
-        {
-
-            Spacer()
-
-        //  Button("Refresh - #(\(self.cCoreLocationSiteDetailsViewRefreshButtonPresses))...")
-        //  {
-        //
-        //      self.cCoreLocationSiteDetailsViewRefreshButtonPresses += 1
-        //
-        //      self.refreshCoreLocation()
-        //
-        //      let _ = xcgLogMsg("\(ClassInfo.sClsDisp)AppAboutView.Button(Xcode).'Refresh'.#(\(self.cCoreLocationSiteDetailsViewRefreshButtonPresses))...")
-        //
-        //  }
-        //  .controlSize(.extraLarge)
-        //  .background(Color(red: 0, green: 0.5, blue: 0.5))
-        //  .foregroundStyle(.white)
-        //  .buttonStyle(.borderedProminent)
-        //
-        //  Spacer()
-
-            Button("Dismiss") 
-            {
-
-                let _ = xcgLogMsg("\(ClassInfo.sClsDisp):AppAboutView.Button(Xcode).'Dismiss' pressed...")
-
-                dismiss()
-
-            }
-            .controlSize(.large)
-            .background(Color(red: 0, green: 0.5, blue: 0.5))
-            .foregroundStyle(.white)
-            .buttonStyle(.borderedProminent)
-
-            Spacer()
-
-        }   // End of HStack #1.1
-
-        Spacer()
-
     }
     
     func copyLogFilespecToClipboard()
@@ -187,7 +164,25 @@ struct AppAboutView: View
         return
 
     }   // End of func copyLogFilespecToClipboard().
-    
+
+    func getAppCopyright() -> String 
+    {
+
+        let sCurrMethod:String = #function
+        let sCurrMethodDisp    = "\(ClassInfo.sClsDisp)'"+sCurrMethod+"':"
+        
+        self.xcgLogMsg("\(sCurrMethodDisp) Invoked...")
+
+        let sAppCopyRight:String = (Bundle.main.infoDictionary?["NSHumanReadableCopyright"] as? String) ?? "-N/A-"
+
+        // Exit:
+
+        self.xcgLogMsg("\(sCurrMethodDisp) Exiting - 'sAppCopyRight' is [\(sAppCopyRight)]...")
+
+        return sAppCopyRight
+
+    }   // End of func getAppCopyright().
+
     func xcgLogMsg(_ sMessage:String)
     {
 

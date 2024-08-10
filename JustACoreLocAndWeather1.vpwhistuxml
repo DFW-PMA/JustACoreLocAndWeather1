@@ -139,23 +139,22 @@
 				</app_layout>
 			</monitor_config>
 		</monitor_configs>
-		<cwd v="JustACoreLocAndWeather1/Models/"/>
+		<cwd v="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-254_swift/VisitVerify/Views_Swift/"/>
 		<filehist>
-			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/Views/ContentView.swift"/>
-			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/Commands/HelpCommands.swift"/>
-			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-254_swift/VisitVerify/AppDelegate.m"/>
-			<p n="JustACoreLocAndWeather1/Views/AppAboutView.swift"/>
-			<p n="JustACoreLocAndWeather1/JustACoreLocAndWeather1App.swift"/>
-			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-254_swift/VisitVerify/ContentView2.swift"/>
-			<p n="JustACoreLocAndWeather1/Views/ContentView.swift"/>
 			<p n="JustACoreLocAndWeather1/Models/CoreLocationModelObservable.swift"/>
 			<p n="JustACoreLocAndWeather1/Views/CoreLocationSiteDetailsView.swift"/>
+			<p n="JustACoreLocAndWeather1/JustACoreLocAndWeather1AppDelegate.swift"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-254_swift/VisitVerify/ContentView2.swift"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-254_swift/VisitVerify/VVSwiftStoryboard1UISceneDelegate.swift"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-254_swift/VisitVerify/AppDelegate.m"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-254_swift/VisitVerify/Views_Swift/AppAboutView.swift"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-254_swift/VisitVerify/Views_Swift/SettingsSingleView.swift"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-254_swift/VV-254_iPhone_Crash_ReviewSignatures.txt"/>
 		</filehist>
 		<allfilehist>
-			<p n="JustACoreLocAndWeather1/JustACoreLocAndWeather1App.swift"/>
-			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/JmObjCSwiftEnvBridge.swift"/>
-			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/JmObjCSwiftEnvBridge-Bridging-Header.h"/>
-			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/JmUtils/JmFileIO.swift"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-254_swift/VisitVerify/VVSwiftStoryboard1UISceneDelegate.swift"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-254_swift/VV-254_iPhone_Crash_ReviewSignatures.txt"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-254_swift/VisitVerify/Views_Swift/SettingsSingleView.swift"/>
 			<p n="../JustAMultiplatformAppTest1/.git/index"/>
 			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/Commands/HelpCommands.swift"/>
 			<p n="../JustAMultiplatformAppTest1/JustAMultiplatformAppTest1/Views/HelpBasicView.swift"/>
@@ -204,6 +203,7 @@
 			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-252_swift/VisitVerify/AppDelegate-Bridging-Header.h"/>
 			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-251_swift/VisitVerify/AppDelegate-Bridging-Header.h"/>
 			<p n="JustACoreLocAndWeather1/Views/AppAboutView.swift"/>
+			<p n="../../../../Dfw-PTS_OSx_apps/VisitVerify_VV-254_swift/VisitVerify/Views_Swift/AppAboutView.swift"/>
 			<p n="../../mobileappmike_StoryboardSegue_final_2/StoryboardSegue/StoryboardSegue/AlternateViewController.swift"/>
 			<p n="../../mobileappmike_StoryboardSegue_final/StoryboardSegue/StoryboardSegue/AlternateViewController.swift"/>
 			<p n="../../mobileappmike_StoryboardSegue_final_2/StoryboardSegue/StoryboardSegue/Alternate.storyboard"/>

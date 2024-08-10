@@ -16,7 +16,7 @@ struct HelpBasicView: View
     {
         
         static let sClsId          = "HelpBasicView"
-        static let sClsVers        = "v1.0601"
+        static let sClsVers        = "v1.0802"
         static let sClsDisp        = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight   = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace       = true
@@ -41,6 +41,26 @@ struct HelpBasicView: View
         VStack
         {
 
+            HStack(alignment:.center)           // HStack #1.3
+            {
+
+                Spacer()
+
+                Button("Dismiss") 
+                {
+
+                    let _ = xcgLogMsg("\(ClassInfo.sClsDisp):HelpBasicView.Button(Xcode).'Dismiss' pressed...")
+
+                    dismiss()
+
+                }
+                .controlSize(.large)
+                .background(Color(red: 0, green: 0.5, blue: 0.5))
+                .foregroundStyle(.white)
+                .buttonStyle(.borderedProminent)
+
+            }   // End of HStack #1.1
+
             Spacer()
 
             HStack
@@ -54,37 +74,11 @@ struct HelpBasicView: View
                 }
                 
             }
-        //  .padding()
 
             Spacer()
 
         }
-        .padding()
         
-        HStack(alignment:.center)           // HStack #1.3
-        {
-
-            Spacer()
-
-            Button("Dismiss") 
-            {
-
-                let _ = xcgLogMsg("\(ClassInfo.sClsDisp):HelpBasicView.Button(Xcode).'Dismiss' pressed...")
-
-                dismiss()
-
-            }
-            .controlSize(.large)
-            .background(Color(red: 0, green: 0.5, blue: 0.5))
-            .foregroundStyle(.white)
-            .buttonStyle(.borderedProminent)
-
-            Spacer()
-
-        }   // End of HStack #1.1
-
-        Spacer()
-
     }
     
     func renderHELPContentsInTextView() -> Text

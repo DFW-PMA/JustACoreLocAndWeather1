@@ -16,7 +16,7 @@ struct ContentView: View
     {
         
         static let sClsId        = "ContentView"
-        static let sClsVers      = "v1.0707"
+        static let sClsVers      = "v1.0819"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -47,8 +47,70 @@ struct ContentView: View
         NavigationStack
         {
 
-            VStack
+            Spacer()
+
+            VStack(alignment:.center) 
             {
+                
+                Spacer()
+
+                HStack
+                {
+
+                    Spacer()
+
+                //  Text("App::\(AppGlobalInfo.sGlobalInfoAppId)")
+                //
+                //  Spacer()
+
+                    Button
+                    {
+
+                        self.cContentViewSiteDetailsButtonPresses += 1
+
+                        let _ = xcgLogMsg("\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Site Detail(s)'.#(\(self.cContentViewSiteDetailsButtonPresses))...")
+
+                        self.isAppSiteDetailsViewModal.toggle()
+
+                    }
+                    label: 
+                    {
+
+                        Text("Site Detail(s)")
+
+                    }
+                    .sheet(isPresented:$isAppSiteDetailsViewModal, content:
+                        {
+
+                            CoreLocationSiteDetailsView(coreLocationModelObservable:coreLocationModelObservable)
+
+                        }
+                    )
+                    .controlSize(.large)
+                    .background(Color(red: 0, green: 0.5, blue: 0.5))
+                    .foregroundStyle(.white)
+                    .buttonStyle(.borderedProminent)
+
+                    Spacer()
+
+                    Button("Refresh - #(\(self.cContentViewRefreshButtonPresses))...")
+                    {
+
+                        self.cContentViewRefreshButtonPresses += 1
+
+                        self.refreshCoreLocation()
+
+                        let _ = xcgLogMsg("\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Refresh'.#(\(self.cContentViewRefreshButtonPresses))...")
+
+                    }
+                    .controlSize(.large)
+                    .background(Color(red: 0, green: 0.5, blue: 0.5))
+                    .foregroundStyle(.white)
+                    .buttonStyle(.borderedProminent)
+
+                    Spacer()
+
+                }
 
             //  HStack
             //  {
@@ -87,7 +149,7 @@ struct ContentView: View
                 
                 Spacer()
                 
-                HStack
+                HStack(alignment:.center)
                 {
 
                     Spacer()
@@ -100,7 +162,7 @@ struct ContentView: View
                         .scaledToFit()
                         .containerRelativeFrame(.horizontal)
                             { size, axis in
-                                size * 0.05
+                                size * 0.10
                             }
 
                 }
@@ -110,7 +172,7 @@ struct ContentView: View
                     Image(ImageResource(name: "Gfx/AppIcon", bundle: Bundle.main))
                         .resizable()
                         .scaledToFit()
-                        .frame(width:25, height: 25, alignment:.center)
+                        .frame(width:50, height: 50, alignment:.center)
 
                 }
 
@@ -118,12 +180,12 @@ struct ContentView: View
 
                 }
                 
-                Spacer(minLength: 1)
+                Spacer(minLength: 10)
                 
                 Text("Welcome to the '\(AppGlobalInfo.sGlobalInfoAppId)' App!")
                     .bold()
 
-                Spacer(minLength: 1)
+                Spacer(minLength: 5)
                 
                 Text("Current 'location (Latitude/Longitude)':")
                     .bold()
@@ -136,6 +198,8 @@ struct ContentView: View
                 
                 Text("")
                 
+                Spacer(minLength: 5)
+
                 Text("Current 'heading' ('headingAvailable?': [\(coreLocationModelObservable.bCLManagerHeadingAvailable)]):")
                     .bold()
                     .underline(true, color:.black)
@@ -145,64 +209,6 @@ struct ContentView: View
                 Text("  Heading (True)     : \(String(describing:coreLocationModelObservable.locationManager?.heading?.trueHeading))")
                 Text("  Heading (Magnetic) : \(String(describing:coreLocationModelObservable.locationManager?.heading?.magneticHeading))")
                 Text("  Heading (TimeStamp): \(String(describing:coreLocationModelObservable.locationManager?.heading?.timestamp))")
-
-                Spacer(minLength: 1)
-                
-                HStack
-                {
-
-                    Spacer()
-
-                    Button
-                    {
-
-                        self.cContentViewSiteDetailsButtonPresses += 1
-
-                        let _ = xcgLogMsg("\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Site Detail(s)'.#(\(self.cContentViewSiteDetailsButtonPresses))...")
-
-                        self.isAppSiteDetailsViewModal.toggle()
-
-                    }
-                    label: 
-                    {
-                        
-                        Text("Site Detail(s)")
-
-                    }
-                    .sheet(isPresented:$isAppSiteDetailsViewModal, content:
-                        {
-
-                            CoreLocationSiteDetailsView(coreLocationModelObservable:coreLocationModelObservable)
-
-                        }
-                    )
-                    .controlSize(.large)
-                    .background(Color(red: 0, green: 0.5, blue: 0.5))
-                    .foregroundStyle(.white)
-                    .buttonStyle(.borderedProminent)
-
-                    Spacer()
-
-                    Button("Refresh - #(\(self.cContentViewRefreshButtonPresses))...")
-                    {
-
-                        self.cContentViewRefreshButtonPresses += 1
-
-                        self.refreshCoreLocation()
-
-                        let _ = xcgLogMsg("\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Refresh'.#(\(self.cContentViewRefreshButtonPresses))...")
-
-                    }
-                    .controlSize(.large)
-                    .background(Color(red: 0, green: 0.5, blue: 0.5))
-                    .foregroundStyle(.white)
-                    .buttonStyle(.borderedProminent)
-
-                    Spacer()
-
-                }
-
-                Spacer(minLength: 5)
 
                 Spacer()
                 
@@ -214,7 +220,8 @@ struct ContentView: View
                     VStack(alignment:.center)
                     {
                         
-                        Text("\(ClassInfo.sClsCopyRight)")
+                    //  Text("\(ClassInfo.sClsCopyRight)")
+                        Text("\(getAppCopyright())")
                             .italic()
                             .controlSize(.mini)
                         
@@ -224,52 +231,85 @@ struct ContentView: View
                     
                 }
 
-                Spacer()
+            //  Spacer()
                 
             }
+            .navigationTitle("App::\(AppGlobalInfo.sGlobalInfoAppId)")
         // ------------------------------------------------------------------------------------------------------
         // >>> This didn't work (the .toolbar() MUST be under a NavigationStack:
         // ------------------------------------------------------------------------------------------------------
-        //  .toolbar
-        //  {
-        //
-        //      ToolbarItem(placement:.navigationBarTrailing)
-        //      {
-        //
-        //          Button
-        //          {
-        //
-        //              self.cContentViewSettingsButtonPresses += 1
-        //
-        //              xcgLogMsg("\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Settings'.#(\(self.cContentViewSettingsButtonPresses))...")
-        //
-        //              self.isAppSettingsModal.toggle()
-        //
-        //          }
-        //          label: 
-        //          {
-        //
-        //              Label("", systemImage: "gearshape")
-        //                  .padding()
-        //                  .imageScale(.large)
-        //                  .foregroundStyle(.tint)
-        //
-        //          }
-        //          .sheet(isPresented:$isAppSettingsModal, content:
-        //              {
-        //
-        //                  SettingsSingleView()
-        //
-        //              }
-        //          )
-        //
-        //      }
-        //
-        //  }
+            .toolbar
+            {
+
+                ToolbarItem(placement:.navigationBarTrailing)
+                {
+
+                    NavigationLink(destination: presentSettingsSingleView())
+                    {
+
+                        Image(systemName: "gearshape.fill")
+
+                    }
+                                                                                                                                                 
+                }
+          
+            //  ToolbarItem(placement:.navigationBarTrailing)
+            //  {
+            //
+            //      Button
+            //      {
+            //
+            //          self.cContentViewSettingsButtonPresses += 1
+            //
+            //          xcgLogMsg("\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Settings'.#(\(self.cContentViewSettingsButtonPresses))...")
+            //
+            //          self.isAppSettingsModal.toggle()
+            //
+            //      }
+            //      label: 
+            //      {
+            //
+            //          Label("", systemImage: "gearshape")
+            //              .padding()
+            //              .imageScale(.large)
+            //              .foregroundStyle(.tint)
+            //
+            //      }
+            //      .sheet(isPresented:$isAppSettingsModal, content:
+            //          {
+            //
+            //              SettingsSingleView()
+            //
+            //          }
+            //      )
+            //
+            //  }
+          
+            }
 
         }
         
     }
+
+    func presentSettingsSingleView() -> some View
+    {
+
+        let sCurrMethod:String = #function
+        let sCurrMethodDisp    = "\(ClassInfo.sClsDisp)'"+sCurrMethod+"':"
+        
+        self.xcgLogMsg("\(sCurrMethodDisp) Invoked...")
+
+    //  self.cContentViewSettingsButtonPresses += 1
+        
+        self.xcgLogMsg("\(ClassInfo.sClsDisp)ContentView called by ToolbarItem.NavigationLink(Xcode).'Settings'...")
+        
+        // Exit:
+
+        self.xcgLogMsg("\(sCurrMethodDisp) Exiting...")
+
+        return SettingsSingleView()
+
+    }   // End of func presentSettingsSingleView().
     
     func refreshCoreLocation()
     {
@@ -286,6 +326,24 @@ struct ContentView: View
 
     }   // End of func refreshCoreLocation().
     
+    func getAppCopyright() -> String 
+    {
+
+        let sCurrMethod:String = #function
+        let sCurrMethodDisp    = "\(ClassInfo.sClsDisp)'"+sCurrMethod+"':"
+        
+        self.xcgLogMsg("\(sCurrMethodDisp) Invoked...")
+
+        let sAppCopyRight:String = (Bundle.main.infoDictionary?["NSHumanReadableCopyright"] as? String) ?? "-N/A-"
+
+        // Exit:
+
+        self.xcgLogMsg("\(sCurrMethodDisp) Exiting - 'sAppCopyRight' is [\(sAppCopyRight)]...")
+
+        return sAppCopyRight
+
+    }   // End of func getAppCopyright().
+
     func xcgLogMsg(_ sMessage:String)
     {
 

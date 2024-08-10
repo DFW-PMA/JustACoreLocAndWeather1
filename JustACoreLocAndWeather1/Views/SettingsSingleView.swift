@@ -21,7 +21,7 @@ struct SettingsSingleView: View
     {
         
         static let sClsId        = "SettingsSingleView"
-        static let sClsVers      = "v1.1002"
+        static let sClsVers      = "v1.1103"
         static let sClsDisp      = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -60,14 +60,9 @@ struct SettingsSingleView: View
     var body: some View 
     {
         
-        Spacer()
-        
         VStack(alignment:.leading)              // VStack #1
         {
 
-            Spacer()
-                .frame(height:50)
-            
             HStack(alignment:.center)           // HStack #1.3
             {
             
@@ -194,93 +189,6 @@ struct SettingsSingleView: View
 
                 Spacer()
 
-            }   // End of HStack #1.1
-
-            Spacer()
-            
-            HStack(alignment:.center)
-            {
-                
-                Spacer()
-                
-                VStack(alignment:.center)
-                {
-                    
-                    Text("'JustACoreLocAndWeather1' App information:")
-                        .bold()
-                        .controlSize(.regular)
-
-                    Text("\(ClassInfo.sClsCopyRight)")
-                        .italic()
-                        .controlSize(.mini)
-                    
-                }
-                
-                Spacer()
-                
-            }
-
-            HStack(alignment:.center)
-            {
-                
-                Spacer()
-                
-                Text(" - - - - - - - - - - - - - - - - - - - - ")
-                    .bold()
-                    .controlSize(.regular)
-
-                Spacer()
-                
-            }
-
-            HStack(alignment:.center)
-            {
-                
-                Spacer()
-                
-                VStack(alignment:.center)
-                {
-                    
-                    Text("'JustACoreLocAndWeather1' App LOG file at:")
-                        .bold()
-                        .controlSize(.regular)
-                        .contextMenu
-                        {
-
-                            Button
-                            {
-
-                                let _ = xcgLogMsg("...\(ClassInfo.sClsDisp):SettingsSingleView in Text.contextMenu.'copy' button #1...")
-
-                                copyLogFilespecToClipboard()
-
-                            }
-                            label:
-                            {
-
-                                Text("Copy to Clipboard")
-
-                            }
-
-                        }
-
-                    Text("\(self.appDelegate.sAppDelegateLogFilespec!)")
-                        .italic()
-                        .controlSize(.mini)
-
-                }
-                
-                Spacer()
-                
-            }
-
-            Spacer()
-
-            HStack(alignment:.center)           // HStack #1.3
-            {
-            
-                Spacer()
-
                 Button("Dismiss") 
                 {
 
@@ -293,17 +201,104 @@ struct SettingsSingleView: View
                 .background(Color(red: 0, green: 0.5, blue: 0.5))
                 .foregroundStyle(.white)
                 .buttonStyle(.borderedProminent)
+                .padding()
+
+            }   // End of HStack #1.1
+
+            Spacer()
+
+            VStack(alignment:.center)
+            {
 
                 Spacer()
-                
-            }   // End of HStack #1.1
+
+                HStack(alignment:.center)
+                {
+
+                    Spacer()
+
+                    VStack(alignment:.center)
+                    {
+
+                        Text("'\(AppGlobalInfo.sGlobalInfoAppId)' App information:")
+                            .bold()
+                            .controlSize(.regular)
+
+                    //  Text("\(ClassInfo.sClsCopyRight)")
+                        Text("\(getAppCopyright())")
+                            .italic()
+                            .controlSize(.mini)
+
+                    }
+
+                    Spacer()
+
+                }
+
+                HStack(alignment:.center)
+                {
+
+                    Spacer()
+
+                    Text(" - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
+                        .bold()
+                        .controlSize(.regular)
+
+                    Spacer()
+
+                }
+
+                HStack(alignment:.center)
+                {
+
+                    Spacer()
+
+                    VStack(alignment:.center)
+                    {
+
+                        Text("'JustACoreLocAndWeather1' App LOG file at:")
+                            .bold()
+                            .controlSize(.regular)
+                            .contextMenu
+                            {
+
+                                Button
+                                {
+
+                                    let _ = xcgLogMsg("...\(ClassInfo.sClsDisp):SettingsSingleView in Text.contextMenu.'copy' button #1...")
+
+                                    copyLogFilespecToClipboard()
+
+                                }
+                                label:
+                                {
+
+                                    Text("Copy to Clipboard")
+
+                                }
+
+                            }
+
+                        Text("\(self.appDelegate.sAppDelegateLogFilespec!)")
+                            .italic()
+                            .controlSize(.mini)
+
+                    }
+
+                    Spacer()
+
+                }
+
+                Spacer()
+
+            }
 
             Spacer()
             
         }   // End of VStack #1
-        .padding()
+    //  .padding()
     //  .background(Color.black)
-        .frame(minWidth: 50, idealWidth: 200, maxWidth: .infinity, minHeight: 70, idealHeight: 100, maxHeight: .infinity)
+    //  .frame(minWidth: 50, idealWidth: 200, maxWidth: .infinity, minHeight: 70, idealHeight: 100, maxHeight: .infinity)
         
     }
     
@@ -327,6 +322,24 @@ struct SettingsSingleView: View
 
     }   // End of func copyLogFilespecToClipboard().
     
+    func getAppCopyright() -> String 
+    {
+
+        let sCurrMethod:String = #function
+        let sCurrMethodDisp    = "\(ClassInfo.sClsDisp)'"+sCurrMethod+"':"
+        
+        self.xcgLogMsg("\(sCurrMethodDisp) Invoked...")
+
+        let sAppCopyRight:String = (Bundle.main.infoDictionary?["NSHumanReadableCopyright"] as? String) ?? "-N/A-"
+
+        // Exit:
+
+        self.xcgLogMsg("\(sCurrMethodDisp) Exiting - 'sAppCopyRight' is [\(sAppCopyRight)]...")
+
+        return sAppCopyRight
+
+    }   // End of func getAppCopyright().
+
     func xcgLogMsg(_ sMessage:String)
     {
 
