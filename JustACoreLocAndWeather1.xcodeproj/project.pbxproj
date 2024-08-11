@@ -20,6 +20,7 @@
 		F02D4EBE2C5DA1FB00D5106E /* JustACoreLocAndWeather1AppGlobalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D4EBB2C5DA1FB00D5106E /* JustACoreLocAndWeather1AppGlobalInfo.swift */; };
 		F0392C5B2C6109F4000A8D22 /* AppAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0392C5A2C6109F4000A8D22 /* AppAboutView.swift */; };
 		F0392C5D2C6113C7000A8D22 /* CoreLocationSiteDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0392C5C2C6113C7000A8D22 /* CoreLocationSiteDetailsView.swift */; };
+		F039CBDE2C694FB400151851 /* CoreLocationHeadingDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F039CBDD2C694FB400151851 /* CoreLocationHeadingDetailsView.swift */; };
 		F03D76402C5DB452005DFB91 /* ObjcExceptionBridging in Frameworks */ = {isa = PBXBuildFile; productRef = F03D763F2C5DB452005DFB91 /* ObjcExceptionBridging */; };
 		F03D76422C5DB452005DFB91 /* XCGLogger in Frameworks */ = {isa = PBXBuildFile; productRef = F03D76412C5DB452005DFB91 /* XCGLogger */; };
 		F079401B2C3B67C100917B3B /* JustACoreLocAndWeather1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079401A2C3B67C100917B3B /* JustACoreLocAndWeather1App.swift */; };
@@ -46,6 +47,7 @@
 		F02D4EBB2C5DA1FB00D5106E /* JustACoreLocAndWeather1AppGlobalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JustACoreLocAndWeather1AppGlobalInfo.swift; sourceTree = "<group>"; };
 		F0392C5A2C6109F4000A8D22 /* AppAboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAboutView.swift; sourceTree = "<group>"; };
 		F0392C5C2C6113C7000A8D22 /* CoreLocationSiteDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocationSiteDetailsView.swift; sourceTree = "<group>"; };
+		F039CBDD2C694FB400151851 /* CoreLocationHeadingDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocationHeadingDetailsView.swift; sourceTree = "<group>"; };
 		F07940172C3B67C100917B3B /* JustACoreLocAndWeather1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustACoreLocAndWeather1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F079401A2C3B67C100917B3B /* JustACoreLocAndWeather1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustACoreLocAndWeather1App.swift; sourceTree = "<group>"; };
 		F079401E2C3B67C200917B3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		F07940282C3B67CD00917B3B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F039CBDD2C694FB400151851 /* CoreLocationHeadingDetailsView.swift */,
 				F0392C5C2C6113C7000A8D22 /* CoreLocationSiteDetailsView.swift */,
 				F0392C5A2C6109F4000A8D22 /* AppAboutView.swift */,
 				F02D4EB52C5DA1DE00D5106E /* HelpBasicView.swift */,
@@ -235,6 +238,7 @@
 			files = (
 				F02D4EAC2C5DA1B900D5106E /* JmFileIO.swift in Sources */,
 				F02D4EBE2C5DA1FB00D5106E /* JustACoreLocAndWeather1AppGlobalInfo.swift in Sources */,
+				F039CBDE2C694FB400151851 /* CoreLocationHeadingDetailsView.swift in Sources */,
 				F08597AC2C3B6B17009013C7 /* ContentView.swift in Sources */,
 				F02D4EAB2C5DA1B900D5106E /* JmStringExtensions.swift in Sources */,
 				F02D4EB82C5DA1DE00D5106E /* LogFileView.swift in Sources */,
@@ -380,7 +384,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 03.32.24C222;
+				CURRENT_PROJECT_VERSION = 04.01.24C224;
 				DEVELOPMENT_ASSET_PATHS = "\"JustACoreLocAndWeather1/Preview Content\"";
 				DEVELOPMENT_TEAM = J434W9VGHF;
 				ENABLE_PREVIEWS = YES;
@@ -420,7 +424,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 03.32.24C222;
+				CURRENT_PROJECT_VERSION = 04.01.24C224;
 				DEVELOPMENT_ASSET_PATHS = "\"JustACoreLocAndWeather1/Preview Content\"";
 				DEVELOPMENT_TEAM = J434W9VGHF;
 				ENABLE_PREVIEWS = YES;

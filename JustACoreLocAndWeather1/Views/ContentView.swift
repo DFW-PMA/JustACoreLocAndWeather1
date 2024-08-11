@@ -16,7 +16,7 @@ struct ContentView: View
     {
         
         static let sClsId        = "ContentView"
-        static let sClsVers      = "v1.0819"
+        static let sClsVers      = "v1.0901"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -32,12 +32,12 @@ struct ContentView: View
     
     @StateObject   var coreLocationModelObservable:CoreLocationModelObservable
     
-    @State private var cContentViewRefreshButtonPresses:Int     = 0
-//  @State private var cContentViewSettingsButtonPresses:Int    = 0
-    @State private var cContentViewSiteDetailsButtonPresses:Int = 0
+    @State private var cContentViewRefreshButtonPresses:Int        = 0
+    @State private var cContentViewSiteDetailsButtonPresses:Int    = 0
+    @State private var cContentViewHeadingDetailsButtonPresses:Int = 0
 
-//  @State private var isAppSettingsModal:Bool                  = false
-    @State private var isAppSiteDetailsViewModal:Bool           = false
+    @State private var isAppSiteDetailsViewModal:Bool              = false
+    @State private var isAppHeadingDetailsViewModal:Bool           = false
     
     var body: some View
     {
@@ -58,10 +58,6 @@ struct ContentView: View
                 {
 
                     Spacer()
-
-                //  Text("App::\(AppGlobalInfo.sGlobalInfoAppId)")
-                //
-                //  Spacer()
 
                     Button
                     {
@@ -93,6 +89,36 @@ struct ContentView: View
 
                     Spacer()
 
+                    Button
+                    {
+
+                        self.cContentViewHeadingDetailsButtonPresses += 1
+
+                        let _ = xcgLogMsg("\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Heading Detail(s)'.#(\(self.cContentViewHeadingDetailsButtonPresses))...")
+
+                        self.isAppHeadingDetailsViewModal.toggle()
+
+                    }
+                    label: 
+                    {
+
+                        Text("Heading Detail(s)")
+
+                    }
+                    .sheet(isPresented:$isAppHeadingDetailsViewModal, content:
+                        {
+
+                            CoreLocationHeadingDetailsView(coreLocationModelObservable:coreLocationModelObservable)
+
+                        }
+                    )
+                    .controlSize(.large)
+                    .background(Color(red: 0, green: 0.5, blue: 0.5))
+                    .foregroundStyle(.white)
+                    .buttonStyle(.borderedProminent)
+
+                    Spacer()
+
                     Button("Refresh - #(\(self.cContentViewRefreshButtonPresses))...")
                     {
 
@@ -112,41 +138,6 @@ struct ContentView: View
 
                 }
 
-            //  HStack
-            //  {
-            //
-            //      Spacer()
-            //
-            //      Button
-            //      {
-            //
-            //          self.cContentViewSettingsButtonPresses += 1
-            //
-            //          let _ = xcgLogMsg("\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Settings'.#(\(self.cContentViewSettingsButtonPresses))...")
-            //
-            //          self.isAppSettingsModal.toggle()
-            //
-            //      }
-            //      label: 
-            //      {
-            //
-            //          Label("", systemImage: "gearshape")
-            //              .padding()
-            //              .imageScale(.large)
-            //              .foregroundStyle(.tint)
-            //
-            //      }
-            //      .sheet(isPresented:$isAppSettingsModal, content:
-            //          {
-            //
-            //              SettingsSingleView()
-            //
-            //          }
-            //      )
-            //      .padding()
-            //
-            //  }
-                
                 Spacer()
                 
                 HStack(alignment:.center)
@@ -196,19 +187,19 @@ struct ContentView: View
                 Text("  Latitude : \(String(describing: coreLocationModelObservable.locationManager?.location?.coordinate.latitude))")
                 Text("  Longitude: \(String(describing: coreLocationModelObservable.locationManager?.location?.coordinate.longitude))")
                 
-                Text("")
-                
-                Spacer(minLength: 5)
-
-                Text("Current 'heading' ('headingAvailable?': [\(coreLocationModelObservable.bCLManagerHeadingAvailable)]):")
-                    .bold()
-                    .underline(true, color:.black)
-                
-                Text("")
-                
-                Text("  Heading (True)     : \(String(describing:coreLocationModelObservable.locationManager?.heading?.trueHeading))")
-                Text("  Heading (Magnetic) : \(String(describing:coreLocationModelObservable.locationManager?.heading?.magneticHeading))")
-                Text("  Heading (TimeStamp): \(String(describing:coreLocationModelObservable.locationManager?.heading?.timestamp))")
+            //  Text("")
+            //  
+            //  Spacer(minLength: 5)
+            //
+            //  Text("Current 'heading' ('headingAvailable?': [\(coreLocationModelObservable.bCLManagerHeadingAvailable)]):")
+            //      .bold()
+            //      .underline(true, color:.black)
+            //  
+            //  Text("")
+            //  
+            //  Text("  Heading (True)     : \(String(describing:coreLocationModelObservable.locationManager?.heading?.trueHeading))")
+            //  Text("  Heading (Magnetic) : \(String(describing:coreLocationModelObservable.locationManager?.heading?.magneticHeading))")
+            //  Text("  Heading (TimeStamp): \(String(describing:coreLocationModelObservable.locationManager?.heading?.timestamp))")
 
                 Spacer()
                 
@@ -231,13 +222,11 @@ struct ContentView: View
                     
                 }
 
-            //  Spacer()
-                
             }
             .navigationTitle("App::\(AppGlobalInfo.sGlobalInfoAppId)")
-        // ------------------------------------------------------------------------------------------------------
-        // >>> This didn't work (the .toolbar() MUST be under a NavigationStack:
-        // ------------------------------------------------------------------------------------------------------
+            // ------------------------------------------------------------------------------------------------------
+            // >>> This does work (the .toolbar() MUST be under a NavigationStack:
+            // ------------------------------------------------------------------------------------------------------
             .toolbar
             {
 
@@ -253,38 +242,6 @@ struct ContentView: View
                                                                                                                                                  
                 }
           
-            //  ToolbarItem(placement:.navigationBarTrailing)
-            //  {
-            //
-            //      Button
-            //      {
-            //
-            //          self.cContentViewSettingsButtonPresses += 1
-            //
-            //          xcgLogMsg("\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Settings'.#(\(self.cContentViewSettingsButtonPresses))...")
-            //
-            //          self.isAppSettingsModal.toggle()
-            //
-            //      }
-            //      label: 
-            //      {
-            //
-            //          Label("", systemImage: "gearshape")
-            //              .padding()
-            //              .imageScale(.large)
-            //              .foregroundStyle(.tint)
-            //
-            //      }
-            //      .sheet(isPresented:$isAppSettingsModal, content:
-            //          {
-            //
-            //              SettingsSingleView()
-            //
-            //          }
-            //      )
-            //
-            //  }
-          
             }
 
         }
@@ -299,8 +256,6 @@ struct ContentView: View
         
         self.xcgLogMsg("\(sCurrMethodDisp) Invoked...")
 
-    //  self.cContentViewSettingsButtonPresses += 1
-        
         self.xcgLogMsg("\(ClassInfo.sClsDisp)ContentView called by ToolbarItem.NavigationLink(Xcode).'Settings'...")
         
         // Exit:
