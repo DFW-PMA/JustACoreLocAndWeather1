@@ -29,7 +29,20 @@
 		F08597AC2C3B6B17009013C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08597AB2C3B6B17009013C7 /* ContentView.swift */; };
 		F08597AE2C3B6B24009013C7 /* CoreLocationModelObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08597AD2C3B6B24009013C7 /* CoreLocationModelObservable.swift */; };
 		F0B1D9EF2C5D58DE00469598 /* SettingsSingleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B1D9EE2C5D58DD00469598 /* SettingsSingleView.swift */; };
+		F0BC618B2C866F1200770734 /* CalledObjCModule.m in Sources */ = {isa = PBXBuildFile; fileRef = F0BC61862C866F1200770734 /* CalledObjCModule.m */; };
+		F0BC618C2C866F1200770734 /* JmObjCSwiftEnvBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC61882C866F1200770734 /* JmObjCSwiftEnvBridge.swift */; };
 		F0BE5D3B2C626C7A001920A3 /* CoreLocationSiteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE5D3A2C626C7A001920A3 /* CoreLocationSiteItem.swift */; };
+		F0D5BCCA2C866A6C001048FE /* JmUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5BCC82C866A6C001048FE /* JmUserDefaults.swift */; };
+		F0D5BCCB2C866A6C001048FE /* JmXcodeBuildSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5BCC92C866A6C001048FE /* JmXcodeBuildSettings.swift */; };
+		F0D5BCCF2C866A79001048FE /* NWSWeatherItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5BCCC2C866A79001048FE /* NWSWeatherItem.swift */; };
+		F0D5BCD02C866A79001048FE /* NWSWeatherProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5BCCD2C866A79001048FE /* NWSWeatherProcessor.swift */; };
+		F0D5BCD12C866A79001048FE /* NWSWeatherCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5BCCE2C866A79001048FE /* NWSWeatherCollection.swift */; };
+		F0D5BCD62C866A8C001048FE /* RestURLProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5BCD22C866A8B001048FE /* RestURLProcessor.swift */; };
+		F0D5BCD72C866A8C001048FE /* RestURLData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5BCD32C866A8B001048FE /* RestURLData.swift */; };
+		F0D5BCD82C866A8C001048FE /* RestURLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5BCD42C866A8C001048FE /* RestURLResponse.swift */; };
+		F0D5BCD92C866A8C001048FE /* RestURLEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5BCD52C866A8C001048FE /* RestURLEndpoint.swift */; };
+		F0D5BCDB2C866A97001048FE /* CoreLocationWeatherDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5BCDA2C866A97001048FE /* CoreLocationWeatherDetailsView.swift */; };
+		F0D5BCDD2C866D0B001048FE /* JmAppDelegateVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5BCDC2C866D0B001048FE /* JmAppDelegateVisitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +68,23 @@
 		F08597AB2C3B6B17009013C7 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F08597AD2C3B6B24009013C7 /* CoreLocationModelObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocationModelObservable.swift; sourceTree = "<group>"; };
 		F0B1D9EE2C5D58DD00469598 /* SettingsSingleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSingleView.swift; sourceTree = "<group>"; };
+		F0BC61862C866F1200770734 /* CalledObjCModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalledObjCModule.m; sourceTree = "<group>"; };
+		F0BC61872C866F1200770734 /* CalledObjCModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalledObjCModule.h; sourceTree = "<group>"; };
+		F0BC61882C866F1200770734 /* JmObjCSwiftEnvBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JmObjCSwiftEnvBridge.swift; sourceTree = "<group>"; };
+		F0BC61892C866F1200770734 /* JmObjCSwiftEnvBridge-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JmObjCSwiftEnvBridge-Bridging-Header.h"; sourceTree = "<group>"; };
+		F0BC618A2C866F1200770734 /* CalledObjCModule-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CalledObjCModule-Bridging-Header.h"; sourceTree = "<group>"; };
 		F0BE5D3A2C626C7A001920A3 /* CoreLocationSiteItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocationSiteItem.swift; sourceTree = "<group>"; };
+		F0D5BCC82C866A6C001048FE /* JmUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JmUserDefaults.swift; sourceTree = "<group>"; };
+		F0D5BCC92C866A6C001048FE /* JmXcodeBuildSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JmXcodeBuildSettings.swift; sourceTree = "<group>"; };
+		F0D5BCCC2C866A79001048FE /* NWSWeatherItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NWSWeatherItem.swift; sourceTree = "<group>"; };
+		F0D5BCCD2C866A79001048FE /* NWSWeatherProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NWSWeatherProcessor.swift; sourceTree = "<group>"; };
+		F0D5BCCE2C866A79001048FE /* NWSWeatherCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NWSWeatherCollection.swift; sourceTree = "<group>"; };
+		F0D5BCD22C866A8B001048FE /* RestURLProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestURLProcessor.swift; sourceTree = "<group>"; };
+		F0D5BCD32C866A8B001048FE /* RestURLData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestURLData.swift; sourceTree = "<group>"; };
+		F0D5BCD42C866A8C001048FE /* RestURLResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestURLResponse.swift; sourceTree = "<group>"; };
+		F0D5BCD52C866A8C001048FE /* RestURLEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestURLEndpoint.swift; sourceTree = "<group>"; };
+		F0D5BCDA2C866A97001048FE /* CoreLocationWeatherDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocationWeatherDetailsView.swift; sourceTree = "<group>"; };
+		F0D5BCDC2C866D0B001048FE /* JmAppDelegateVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JmAppDelegateVisitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +103,9 @@
 		F02D4EA72C5DA0EA00D5106E /* JmUtils */ = {
 			isa = PBXGroup;
 			children = (
+				F0D5BCDC2C866D0B001048FE /* JmAppDelegateVisitor.swift */,
+				F0D5BCC82C866A6C001048FE /* JmUserDefaults.swift */,
+				F0D5BCC92C866A6C001048FE /* JmXcodeBuildSettings.swift */,
 				F02D4EAA2C5DA1B900D5106E /* JmFileIO.swift */,
 				F02D4EA92C5DA1B900D5106E /* JmStringExtensions.swift */,
 			);
@@ -87,6 +119,17 @@
 				F02D4EB22C5DA1D100D5106E /* HelpBasic.md */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		F05FA7552C698EC4002D3413 /* RestApis */ = {
+			isa = PBXGroup;
+			children = (
+				F0D5BCD32C866A8B001048FE /* RestURLData.swift */,
+				F0D5BCD52C866A8C001048FE /* RestURLEndpoint.swift */,
+				F0D5BCD22C866A8B001048FE /* RestURLProcessor.swift */,
+				F0D5BCD42C866A8C001048FE /* RestURLResponse.swift */,
+			);
+			path = RestApis;
 			sourceTree = "<group>";
 		};
 		F079400E2C3B67C100917B3B = {
@@ -111,12 +154,14 @@
 				F02D4EBB2C5DA1FB00D5106E /* JustACoreLocAndWeather1AppGlobalInfo.swift */,
 				F079401A2C3B67C100917B3B /* JustACoreLocAndWeather1App.swift */,
 				F02D4EBA2C5DA1FB00D5106E /* JustACoreLocAndWeather1AppDelegate.swift */,
-				F02D4EB92C5DA1FB00D5106E /* README.md */,
-				F004D61C2C59C88F00F847EE /* Info.plist */,
 				F02D4EA72C5DA0EA00D5106E /* JmUtils */,
 				F07940292C3B67D800917B3B /* Models */,
+				F0BC61852C866ED000770734 /* Objective-C */,
 				F02D4EA82C5DA10000D5106E /* Resources */,
+				F05FA7552C698EC4002D3413 /* RestApis */,
 				F07940282C3B67CD00917B3B /* Views */,
+				F004D61C2C59C88F00F847EE /* Info.plist */,
+				F02D4EB92C5DA1FB00D5106E /* README.md */,
 				F079401E2C3B67C200917B3B /* Assets.xcassets */,
 				F07940202C3B67C200917B3B /* Preview Content */,
 			);
@@ -134,6 +179,7 @@
 		F07940282C3B67CD00917B3B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F0D5BCDA2C866A97001048FE /* CoreLocationWeatherDetailsView.swift */,
 				F039CBDD2C694FB400151851 /* CoreLocationHeadingDetailsView.swift */,
 				F0392C5C2C6113C7000A8D22 /* CoreLocationSiteDetailsView.swift */,
 				F0392C5A2C6109F4000A8D22 /* AppAboutView.swift */,
@@ -148,12 +194,27 @@
 		F07940292C3B67D800917B3B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F0D5BCCE2C866A79001048FE /* NWSWeatherCollection.swift */,
+				F0D5BCCC2C866A79001048FE /* NWSWeatherItem.swift */,
+				F0D5BCCD2C866A79001048FE /* NWSWeatherProcessor.swift */,
 				F0BE5D3A2C626C7A001920A3 /* CoreLocationSiteItem.swift */,
 				F02D4EAD2C5DA1C600D5106E /* HelpBasicLoader.swift */,
 				F02D4EAE2C5DA1C600D5106E /* HelpBasicMode.swift */,
 				F08597AD2C3B6B24009013C7 /* CoreLocationModelObservable.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F0BC61852C866ED000770734 /* Objective-C */ = {
+			isa = PBXGroup;
+			children = (
+				F0BC618A2C866F1200770734 /* CalledObjCModule-Bridging-Header.h */,
+				F0BC61872C866F1200770734 /* CalledObjCModule.h */,
+				F0BC61862C866F1200770734 /* CalledObjCModule.m */,
+				F0BC61892C866F1200770734 /* JmObjCSwiftEnvBridge-Bridging-Header.h */,
+				F0BC61882C866F1200770734 /* JmObjCSwiftEnvBridge.swift */,
+			);
+			path = "Objective-C";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +253,7 @@
 				TargetAttributes = {
 					F07940162C3B67C100917B3B = {
 						CreatedOnToolsVersion = 15.4;
+						LastSwiftMigration = 1540;
 					};
 				};
 			};
@@ -236,21 +298,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0D5BCD72C866A8C001048FE /* RestURLData.swift in Sources */,
 				F02D4EAC2C5DA1B900D5106E /* JmFileIO.swift in Sources */,
 				F02D4EBE2C5DA1FB00D5106E /* JustACoreLocAndWeather1AppGlobalInfo.swift in Sources */,
 				F039CBDE2C694FB400151851 /* CoreLocationHeadingDetailsView.swift in Sources */,
+				F0D5BCDB2C866A97001048FE /* CoreLocationWeatherDetailsView.swift in Sources */,
+				F0D5BCDD2C866D0B001048FE /* JmAppDelegateVisitor.swift in Sources */,
+				F0BC618C2C866F1200770734 /* JmObjCSwiftEnvBridge.swift in Sources */,
 				F08597AC2C3B6B17009013C7 /* ContentView.swift in Sources */,
+				F0D5BCD92C866A8C001048FE /* RestURLEndpoint.swift in Sources */,
+				F0D5BCD02C866A79001048FE /* NWSWeatherProcessor.swift in Sources */,
 				F02D4EAB2C5DA1B900D5106E /* JmStringExtensions.swift in Sources */,
+				F0D5BCCF2C866A79001048FE /* NWSWeatherItem.swift in Sources */,
+				F0D5BCD82C866A8C001048FE /* RestURLResponse.swift in Sources */,
 				F02D4EB82C5DA1DE00D5106E /* LogFileView.swift in Sources */,
+				F0D5BCD62C866A8C001048FE /* RestURLProcessor.swift in Sources */,
 				F02D4EBD2C5DA1FB00D5106E /* JustACoreLocAndWeather1AppDelegate.swift in Sources */,
 				F0B1D9EF2C5D58DE00469598 /* SettingsSingleView.swift in Sources */,
 				F08597AE2C3B6B24009013C7 /* CoreLocationModelObservable.swift in Sources */,
+				F0D5BCCA2C866A6C001048FE /* JmUserDefaults.swift in Sources */,
+				F0D5BCD12C866A79001048FE /* NWSWeatherCollection.swift in Sources */,
 				F0392C5D2C6113C7000A8D22 /* CoreLocationSiteDetailsView.swift in Sources */,
 				F02D4EAF2C5DA1C600D5106E /* HelpBasicLoader.swift in Sources */,
+				F0D5BCCB2C866A6C001048FE /* JmXcodeBuildSettings.swift in Sources */,
 				F0392C5B2C6109F4000A8D22 /* AppAboutView.swift in Sources */,
 				F02D4EB02C5DA1C600D5106E /* HelpBasicMode.swift in Sources */,
 				F02D4EB72C5DA1DE00D5106E /* HelpBasicView.swift in Sources */,
 				F079401B2C3B67C100917B3B /* JustACoreLocAndWeather1App.swift in Sources */,
+				F0BC618B2C866F1200770734 /* CalledObjCModule.m in Sources */,
 				F0BE5D3B2C626C7A001920A3 /* CoreLocationSiteItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,8 +458,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 04.01.24C224;
+				CURRENT_PROJECT_VERSION = 01.08.24C246;
 				DEVELOPMENT_ASSET_PATHS = "\"JustACoreLocAndWeather1/Preview Content\"";
 				DEVELOPMENT_TEAM = J434W9VGHF;
 				ENABLE_PREVIEWS = YES;
@@ -407,11 +483,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02;
+				MARKETING_VERSION = 1.03;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = net.justmacapps.JustACoreLocAndWeather1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "JustACoreLocAndWeather1/Objective-C/CalledObjCModule-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -423,8 +501,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 04.01.24C224;
+				CURRENT_PROJECT_VERSION = 01.08.24C246;
 				DEVELOPMENT_ASSET_PATHS = "\"JustACoreLocAndWeather1/Preview Content\"";
 				DEVELOPMENT_TEAM = J434W9VGHF;
 				ENABLE_PREVIEWS = YES;
@@ -447,11 +526,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02;
+				MARKETING_VERSION = 1.03;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = net.justmacapps.JustACoreLocAndWeather1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "JustACoreLocAndWeather1/Objective-C/CalledObjCModule-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

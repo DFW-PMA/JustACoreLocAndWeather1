@@ -1,0 +1,104 @@
+{
+    "@context" =  
+        ("https://geojson.org/geojson-ld/geojson-context.jsonld",
+          {
+            "@version" = "1.1";
+            "@vocab"   = "https://api.weather.gov/ontology#";
+            bearing    =
+            {
+                "@type" = "s:QuantitativeValue";
+
+            };
+            city   = "s:addressLocality";
+            county =
+            {
+                "@type" = "@id";
+            };
+            distance =
+            {
+                "@id"   = "s:Distance";
+                "@type" = "s:QuantitativeValue";
+            };
+            forecastGridData =
+            {
+                "@type" = "@id";
+            };
+            forecastOffice =
+            {
+                "@type" = "@id";
+            };
+            geo      = "http://www.opengis.net/ont/geosparql#";
+            geometry =
+            {
+                "@id"   = "s:GeoCoordinates";
+                "@type" = "geo:wktLiteral";
+            };
+            publicZone =
+            {
+                "@type" = "@id";
+            };
+            s        = "https://schema.org/";
+            state    = "s:addressRegion";
+            unit     = "http://codes.wmo.int/common/unit/";
+            unitCode =
+            {
+                "@id"   = "s:unitCode";
+                "@type" = "@id";
+            };
+            value =
+            {
+                "@id" = "s:value";
+            };
+            wx = "https://api.weather.gov/ontology#";
+        } );
+    geometry =
+    {
+        coordinates = ("-97.193", "32.8631");
+        type        = Point;
+    };
+    id         = "https://api.weather.gov/points/32.8631,-97.193";
+    properties =
+    {
+        "@id"               = "https://api.weather.gov/points/32.8631,-97.193";
+        "@type"             = "wx:Point";
+        county              = "https://api.weather.gov/zones/county/TXC439";
+        cwa                 = FWD;
+        fireWeatherZone     = "https://api.weather.gov/zones/fire/TXZ118";
+        forecast            = "https://api.weather.gov/gridpoints/FWD/75,108/forecast";
+        forecastGridData    = "https://api.weather.gov/gridpoints/FWD/75,108";
+        forecastHourly      = "https://api.weather.gov/gridpoints/FWD/75,108/forecast/hourly";
+        forecastOffice      = "https://api.weather.gov/offices/FWD";
+        forecastZone        = "https://api.weather.gov/zones/forecast/TXZ118";
+        gridId              = FWD;
+        gridX               = 75;
+        gridY               = 108;
+        observationStations = "https://api.weather.gov/gridpoints/FWD/75,108/stations";
+        radarStation        = KFWS;
+        relativeLocation    =
+        {
+            geometry =
+            {
+                coordinates = ("-97.214758", "32.862042");
+                type        = Point;
+            };
+            properties =
+            {
+                bearing =
+                {
+                    unitCode = "wmoUnit:degree_(angle)";
+                    value    = 86;
+                };
+        city     = "North Richland Hills";
+        distance =
+            {
+                unitCode = "wmoUnit:m";
+                value    = "2035.6221046797";
+            };
+        state = TX;
+        };
+        type = Feature;
+        };
+        timeZone = "America/Chicago";
+        };
+    type = Feature;
+}

@@ -16,7 +16,7 @@ struct ContentView: View
     {
         
         static let sClsId        = "ContentView"
-        static let sClsVers      = "v1.0901"
+        static let sClsVers      = "v1.1101"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -35,14 +35,16 @@ struct ContentView: View
     @State private var cContentViewRefreshButtonPresses:Int        = 0
     @State private var cContentViewSiteDetailsButtonPresses:Int    = 0
     @State private var cContentViewHeadingDetailsButtonPresses:Int = 0
+    @State private var cContentViewWeatherDetailsButtonPresses:Int = 0
 
     @State private var isAppSiteDetailsViewModal:Bool              = false
     @State private var isAppHeadingDetailsViewModal:Bool           = false
+    @State private var isAppWeatherDetailsViewModal:Bool           = false
     
     var body: some View
     {
         
-        let _ = xcgLogMsg("\(ClassInfo.sClsDisp):body(some View) \(ClassInfo.sClsCopyRight)...")
+        let _ = xcgLogMsg("\(ClassInfo.sClsDisp):body(some View)...")
 
         NavigationStack
         {
@@ -52,8 +54,6 @@ struct ContentView: View
             VStack(alignment:.center) 
             {
                 
-                Spacer()
-
                 HStack
                 {
 
@@ -109,6 +109,36 @@ struct ContentView: View
                         {
 
                             CoreLocationHeadingDetailsView(coreLocationModelObservable:coreLocationModelObservable)
+
+                        }
+                    )
+                    .controlSize(.large)
+                    .background(Color(red: 0, green: 0.5, blue: 0.5))
+                    .foregroundStyle(.white)
+                    .buttonStyle(.borderedProminent)
+
+                    Spacer()
+
+                    Button
+                    {
+
+                        self.cContentViewHeadingDetailsButtonPresses += 1
+
+                        let _ = xcgLogMsg("\(ClassInfo.sClsDisp)ContentView in Button(Xcode).'Weather Detail(s)'.#(\(self.cContentViewHeadingDetailsButtonPresses))...")
+
+                        self.isAppWeatherDetailsViewModal.toggle()
+
+                    }
+                    label: 
+                    {
+
+                        Text("Weather Detail(s)")
+
+                    }
+                    .sheet(isPresented:$isAppWeatherDetailsViewModal, content:
+                        {
+
+                            CoreLocationWeatherDetailsView(coreLocationModelObservable:coreLocationModelObservable)
 
                         }
                     )
@@ -187,20 +217,6 @@ struct ContentView: View
                 Text("  Latitude : \(String(describing: coreLocationModelObservable.locationManager?.location?.coordinate.latitude))")
                 Text("  Longitude: \(String(describing: coreLocationModelObservable.locationManager?.location?.coordinate.longitude))")
                 
-            //  Text("")
-            //  
-            //  Spacer(minLength: 5)
-            //
-            //  Text("Current 'heading' ('headingAvailable?': [\(coreLocationModelObservable.bCLManagerHeadingAvailable)]):")
-            //      .bold()
-            //      .underline(true, color:.black)
-            //  
-            //  Text("")
-            //  
-            //  Text("  Heading (True)     : \(String(describing:coreLocationModelObservable.locationManager?.heading?.trueHeading))")
-            //  Text("  Heading (Magnetic) : \(String(describing:coreLocationModelObservable.locationManager?.heading?.magneticHeading))")
-            //  Text("  Heading (TimeStamp): \(String(describing:coreLocationModelObservable.locationManager?.heading?.timestamp))")
-
                 Spacer()
                 
                 HStack(alignment:.center)
@@ -210,11 +226,20 @@ struct ContentView: View
                     
                     VStack(alignment:.center)
                     {
+
+                        Text("------------------------------------------------------------")
                         
-                    //  Text("\(ClassInfo.sClsCopyRight)")
-                        Text("\(getAppCopyright())")
+                        Text("\(JmXcodeBuildSettings.jmAppVersionAndBuildNumber)")     // <=== Version...
                             .italic()
                             .controlSize(.mini)
+
+                        Text("")
+
+                        Text("\(JmXcodeBuildSettings.jmAppCopyright)")
+                            .italic()
+                            .controlSize(.mini)
+
+                        Text("------------------------------------------------------------")
                         
                     }
                     
@@ -281,24 +306,6 @@ struct ContentView: View
 
     }   // End of func refreshCoreLocation().
     
-    func getAppCopyright() -> String 
-    {
-
-        let sCurrMethod:String = #function
-        let sCurrMethodDisp    = "\(ClassInfo.sClsDisp)'"+sCurrMethod+"':"
-        
-        self.xcgLogMsg("\(sCurrMethodDisp) Invoked...")
-
-        let sAppCopyRight:String = (Bundle.main.infoDictionary?["NSHumanReadableCopyright"] as? String) ?? "-N/A-"
-
-        // Exit:
-
-        self.xcgLogMsg("\(sCurrMethodDisp) Exiting - 'sAppCopyRight' is [\(sAppCopyRight)]...")
-
-        return sAppCopyRight
-
-    }   // End of func getAppCopyright().
-
     func xcgLogMsg(_ sMessage:String)
     {
 

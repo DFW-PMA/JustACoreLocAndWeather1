@@ -18,7 +18,7 @@ class JustACoreLocAndWeather1AppDelegate: NSObject, UIApplicationDelegate, Obser
     {
         
         static let sClsId          = "JustACoreLocAndWeather1AppDelegate"
-        static let sClsVers        = "v1.0901"
+        static let sClsVers        = "v1.1001"
         static let sClsDisp        = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight   = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace       = true
@@ -36,37 +36,37 @@ class JustACoreLocAndWeather1AppDelegate: NSObject, UIApplicationDelegate, Obser
 
     // App 'name' field:
 
-    let sApplicationName:String               = AppGlobalInfo.sGlobalInfoAppId
+    let sApplicationName:String                 = AppGlobalInfo.sGlobalInfoAppId
 
     // Various App field(s):
 
-    var cAppDelegateInitCalls:Int             = 0
+    var cAppDelegateInitCalls:Int               = 0
 
-    var bAppTitleSetupRequired:Bool           = true
-    let bUseApplicationShortTitle:Bool        = true
-    var sApplicationTitle:String              = "-N/A-"
-    let sApplicationShortTitle:String         = "JACLAW1"
+    var bAppTitleSetupRequired:Bool             = true
+    let bUseApplicationShortTitle:Bool          = true
+    var sApplicationTitle:String                = "-N/A-"
+    let sApplicationShortTitle:String           = "JACLAW1"
 
-//  let sHelpBasicFileExt:String              = "html"     // 'help' File extension: "md", "html", or "txt"
-    let sHelpBasicFileExt:String              = "md"       // 'help' File extension: "md", "html", or "txt"
-    var sHelpBasicContents:String             = "-N/A-"
+//  let sHelpBasicFileExt:String                = "html"     // 'help' File extension: "md", "html", or "txt"
+    let sHelpBasicFileExt:String                = "md"       // 'help' File extension: "md", "html", or "txt"
+    var sHelpBasicContents:String               = "-N/A-"
 
     @AppStorage("helpBasicMode") 
-    var helpBasicMode                         = HelpBasicMode.simpletext
+    var helpBasicMode                           = HelpBasicMode.simpletext
 
-    var helpBasicLoader:HelpBasicLoader       = HelpBasicLoader()
+    var helpBasicLoader:HelpBasicLoader         = HelpBasicLoader()
 
     // Misc:
 
-    let bClsTraceInternal:Bool                = true
-    var bAppDelegateTraceLogInitRequired:Bool = true
-    var sInitAppDelegateTraceLogTag:String    = "-unknown-"
-    var bAppDelegateLogFilespecIsUsable:Bool  = false
-    var urlAppDelegateLogFilespec:URL?        = nil
-    var urlAppDelegateLogFilepath:URL?        = nil
-    var sAppDelegateLogFilespec:String!       = nil
-    var sAppDelegateLogFilepath:String!       = nil
-    var xcgLogger:XCGLogger?                  = XCGLogger.default
+    let bClsTraceInternal:Bool                  = true
+    var bAppDelegateTraceLogInitRequired:Bool   = true
+    var sInitAppDelegateTraceLogTag:String      = "-unknown-"
+    var bAppDelegateLogFilespecIsUsable:Bool    = false
+    var urlAppDelegateLogFilespec:URL?          = nil
+    var urlAppDelegateLogFilepath:URL?          = nil
+    var sAppDelegateLogFilespec:String!         = nil
+    var sAppDelegateLogFilepath:String!         = nil
+    var xcgLogger:XCGLogger?                    = XCGLogger.default
     
     // Swift/ObjC Bridge:
 

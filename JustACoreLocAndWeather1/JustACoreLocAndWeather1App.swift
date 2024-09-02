@@ -16,7 +16,7 @@ struct JustACoreLocAndWeather1App: App
     {
         
         static let sClsId        = "JustACoreLocAndWeather1App"
-        static let sClsVers      = "v1.0604"
+        static let sClsVers      = "v1.0701"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -42,7 +42,6 @@ struct JustACoreLocAndWeather1App: App
     var body: some Scene
     {
         
-        let _ = xcgLogMsg("\(ClassInfo.sClsDisp):body(some Scene) \(ClassInfo.sClsCopyRight)...")
         let _ = xcgLogMsg("\(ClassInfo.sClsDisp):body(some Scene) - 'sAppBundlePath' is [\(sAppBundlePath)]...")
         
         WindowGroup 
