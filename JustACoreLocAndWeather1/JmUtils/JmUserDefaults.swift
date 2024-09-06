@@ -3,7 +3,7 @@
 //  JmUtils_Library
 //
 //  Created by JustMacApps.net on 06/11/2024.
-//  Copyright © 2023-2024 JustMacApps. All rights reserved.
+//  Copyright © JustMacApps 2023-2024. All rights reserved.
 //
 
 

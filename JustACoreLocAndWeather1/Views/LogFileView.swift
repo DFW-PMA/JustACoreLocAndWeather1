@@ -3,7 +3,7 @@
 //  JustACoreLocAndWeather1
 //
 //  Created by JustMacApps.net on 03/20/2024.
-//  Copyright © 2023-2024 JustMacApps. All rights reserved.
+//  Copyright © JustMacApps 2023-2024. All rights reserved.
 //
 
 import Foundation

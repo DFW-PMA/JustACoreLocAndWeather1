@@ -3,7 +3,7 @@
 //  JustAMultiplatformAppTest1
 //
 //  Created by JustMacApps.net on 08/24/2024.
-//  Copyright © 2023-2024 JustMacApps. All rights reserved.
+//  Copyright © JustMacApps 2023-2024. All rights reserved.
 //
 
 // import Cocoa

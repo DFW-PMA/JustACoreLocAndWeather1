@@ -15,7 +15,7 @@ class NWSWeatherProcessor: NSObject
     {
 
         static let sClsId          = "NWSWeatherProcessor"
-        static let sClsVers        = "v1.0104"
+        static let sClsVers        = "v1.0301"
         static let sClsDisp        = sClsId+".("+sClsVers+"): "
         static let sClsCopyRight   = "Copyright (c) JustMacApps 2018-2024. All rights reserved."
         static let bClsTrace       = true
@@ -219,6 +219,7 @@ class NWSWeatherProcessor: NSObject
                 var j            = 0
                 var idProject    = 0
                 var sProjectName = ""
+                var sJsonName    = ""
 
                 for (dictJsonKey, dictJsonValue) in dictJsonResult
                 {
@@ -230,14 +231,28 @@ class NWSWeatherProcessor: NSObject
                     if (dictJsonKey as! String == "id")
                     {
 
-                        idProject = dictJsonValue as! String
+                    //  idProject = dictJsonValue as! String
+
+                        if (dictJsonValue is Int)
+                        {
+
+                            idProject    = dictJsonValue as! Int
+
+                        }
+
+                        if (dictJsonValue is Int)
+                        {
+
+                            sProjectName = dictJsonValue as! String
+
+                        }
 
                     }
 
                     if (dictJsonKey as! String == "name")
                     {
 
-                        sProjectName = dictJsonValue as! String
+                        sJsonName = dictJsonValue as! String
 
                     }
 
