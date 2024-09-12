@@ -240,7 +240,7 @@ class NWSWeatherProcessor: NSObject
 
                         }
 
-                        if (dictJsonValue is Int)
+                        if (dictJsonValue is String)
                         {
 
                             sProjectName = dictJsonValue as! String

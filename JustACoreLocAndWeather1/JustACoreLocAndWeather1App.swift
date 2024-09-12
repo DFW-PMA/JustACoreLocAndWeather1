@@ -16,7 +16,7 @@ struct JustACoreLocAndWeather1App: App
     {
         
         static let sClsId        = "JustACoreLocAndWeather1App"
-        static let sClsVers      = "v1.0701"
+        static let sClsVers      = "v1.0801"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -39,6 +39,15 @@ struct JustACoreLocAndWeather1App: App
 //  @State private var cAppSceneSettingsButtonPresses:Int       = 0
 //  @State private var isAppSettingsModal:Bool                  = false
     
+    func xcgLogMsg(_ sMessage:String)
+    {
+
+        self.appDelegate.xcgLogMsg("\(sMessage)")
+
+        return
+
+    }   // End of func xcgLogMsg().
+
     var body: some Scene
     {
         
@@ -105,15 +114,6 @@ struct JustACoreLocAndWeather1App: App
         
     }
     
-    func xcgLogMsg(_ sMessage:String)
-    {
-
-        self.appDelegate.xcgLogMsg("\(sMessage)")
-
-        return
-
-    }   // End of func xcgLogMsg().
-
 }
 
 #Preview 

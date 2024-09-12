@@ -16,7 +16,7 @@ struct CoreLocationWeatherDetailsView: View
     {
         
         static let sClsId        = "CoreLocationWeatherDetailsView"
-        static let sClsVers      = "v1.0104"
+        static let sClsVers      = "v1.0201"
         static let sClsDisp      = sClsId+"(.swift).("+sClsVers+"):"
         static let sClsCopyRight = "Copyright (C) JustMacApps 2023-2024. All Rights Reserved."
         static let bClsTrace     = true
@@ -37,7 +37,7 @@ struct CoreLocationWeatherDetailsView: View
     @State private var cCoreLocationWeatherDetailsViewRefreshButtonPresses:Int  = 0
 
     var nwsWeatherProcessor:NWSWeatherProcessor                                 = NWSWeatherProcessor()
-    var nwsWeatherCollection:NWSWeatherCollection                               = NWSWeatherCollection()
+//  var nwsWeatherCollection:NWSWeatherCollection                               = NWSWeatherCollection()
     
     var body: some View
     {
@@ -130,14 +130,14 @@ struct CoreLocationWeatherDetailsView: View
 
         let nwsWeatherItem:NWSWeatherItem?       = self.nwsWeatherProcessor.getCurrentNWSWeatherViaRestAPIItem()
 
-        if (nwsWeatherItem != nil) 
-        {
-
-            let _ = self.nwsWeatherCollection.insertNewNWSWeatherItem(nwsWeatherItem: nwsWeatherItem!, at: 0)
-
-            self.xcgLogMsg("\(sCurrMethodDisp) Returned 'nwsWeatherItem' was [\(String(describing: nwsWeatherItem))]...")
-
-        }
+    //  if (nwsWeatherItem != nil) 
+    //  {
+    //
+    //      let _ = self.nwsWeatherCollection.insertNewNWSWeatherItem(nwsWeatherItem: nwsWeatherItem!, at: 0)
+    //
+    //      self.xcgLogMsg("\(sCurrMethodDisp) Returned 'nwsWeatherItem' was [\(String(describing: nwsWeatherItem))]...")
+    //
+    //  }
         
         // Exit:
 
